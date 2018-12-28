@@ -1,0 +1,235 @@
+.join-group-lottery {
+    position: relative;
+}
+
+.join-group-lottery .game-group-guide {
+    position: absolute;
+    z-index: 150;
+    top: -54px;
+    height: 40px;
+    width: 220px;
+    background: #fff;
+    border-radius: 4px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: .3px;
+    color: #d15143;
+    opacity: 0;
+    border: solid 1rpx rgba(0,0,0,0.1);
+    box-shadow: 0 9px 17.5px 0 rgba(0,0,0,0.08);
+}
+
+.join-group-lottery .game-group-guide .arrow-down {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 7px 0 7px;
+    border-color: #fff transparent transparent transparent;
+    position: absolute;
+    bottom: -8px;
+    left: 106px;
+}
+
+.join-group-lottery .content {
+    border-radius: 50%;
+    background: linear-gradient(to bottom,#d35648,#ce4d3f);
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    width: 110px;
+    height: 110px;
+    box-shadow: 0 2px 5px -2px rgba(0,0,0,0.1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.join-group-lottery .content image {
+    width: 34px;
+    height: 22px;
+}
+
+.join-group-lottery .content .desc {
+    font-size: 15px;
+    margin-top: 6px;
+}
+
+.join-group-lottery .count {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    box-shadow: 0 9px 17.5px 0 rgba(0,0,0,0.08);
+    background: #ffffff;
+    border: solid 1rpx rgba(0,0,0,0.1);
+    color: rgba(204,75,61,0.9);
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 34px;
+    top: 0;
+    right: 0;
+    z-index: 120;
+}
+
+.join-group-lottery .connect {
+    height: 4px;
+    opacity: 1;
+    transition: left .4s;
+    position: absolute;
+    left: 100%;
+    top: 55px;
+}
+
+.join-group-lottery .group-participator {
+    position: relative;
+}
+
+.join-group-lottery .group-participator .main {
+    border-radius: 50%;
+    background: linear-gradient(to bottom,#d35648,#ce4d3f);
+    font-size: 16px;
+    font-weight: bolder;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2.5px 6px 0 rgba(0,0,0,0.08);
+    position: relative;
+}
+
+.join-group-lottery .group-participator .main .circle {
+    position: absolute;
+    opacity: 1;
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    z-index: 500;
+    transform: scale(.9);
+    transform-origin: 50% 50% 0px;
+    border: 3px solid rgba(255,255,255,0.15);
+}
+
+.join-group-lottery .group-participator .main .content {
+    color: rgba(255,255,255,0.4);
+}
+
+.join-group-lottery .group-participator .group-share {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transition: left .6s;
+}
+
+.join-group-lottery .group-initiator {
+    position: relative;
+}
+
+.join-group-lottery .group-initiator.joined .main .content {
+    color: rgba(255,255,255,0.4);
+}
+
+.join-group-lottery .group-initiator .main {
+    border-radius: 50%;
+    background: linear-gradient(to bottom,#d35648,#ce4d3f);
+    font-size: 16px;
+    font-weight: bolder;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2.5px 6px 0 rgba(0,0,0,0.08);
+    position: relative;
+}
+
+.join-group-lottery .group-initiator .main .circle {
+    position: absolute;
+    opacity: 1;
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    z-index: 500;
+    transform: scale(.9);
+    transform-origin: 50% 50% 0px;
+    border: 3px solid rgba(255,255,255,0.15);
+}
+
+.join-group-lottery .group-initiator .group-share {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transition: left .6s;
+}
+
+.join-group-lottery .group-initiator .group-share.highlight .content {
+    background: #b24539;
+}
+
+.join-group-lottery .popup-detail-group .label {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.join-group-lottery .popup-detail-group .group-users {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 34px;
+}
+
+.join-group-lottery .popup-detail-group .group-users .group-user {
+    flex: 0 0 33.33333%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 21px;
+}
+
+.join-group-lottery .popup-detail-group .group-users .group-user.default .group-user-name {
+    color: rgba(0,0,0,0.2);
+}
+
+.join-group-lottery .popup-detail-group .group-users .group-user.initiator .group-user-avatar .initiator-sponsor {
+    display: block;
+}
+
+.join-group-lottery .popup-detail-group .group-users .group-user .group-user-avatar {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.join-group-lottery .popup-detail-group .group-users .group-user .group-user-avatar .user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.join-group-lottery .popup-detail-group .group-users .group-user .group-user-avatar .initiator-sponsor {
+    display: none;
+    position: absolute;
+    right: -4px;
+    top: -11px;
+    width: 28px;
+    height: 22px;
+}
+
+.join-group-lottery .popup-detail-group .group-users .group-user .group-user-name {
+    margin-top: 13px;
+    font-size: 13px;
+    overflow: hidden;
+    line-height: 1em;
+    height: 13px;
+}

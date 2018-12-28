@@ -1,0 +1,30 @@
+<view class="profile-more">
+    <Layout needGetUserInfo="{{false}}" title="{{navigationTitle}}">
+        <view class="infos">
+            <view bindtap="addressManager" class="sorry info-item" hoverClass="highlight">
+                <image src="https://cdn.readhub.cn/mina/lottery/icn-address@3x.png"></image>
+                <text>收货地址</text>
+                <text class="arrow-right"></text>
+            </view>
+            <view class="info-split-line"></view>
+            <view bindtap="goToAccount" class="sorry info-item" hoverClass="highlight">
+                <image src="https://cdn.readhub.cn/mina/lottery/icn-account@3x.png"></image>
+                <text>余额</text>
+                <text class="arrow-right"></text>
+            </view>
+            <view class="info-split-line"></view>
+            <view bindtap="goToFeedbackManager" class="sorry info-item" hoverClass="highlight">
+                <image src="https://cdn.readhub.cn/mina/lottery/icn-feedback-manage@3x.png"></image>
+                <text>投诉管理</text>
+                <image class="badge" src="https://cdn.readhub.cn/mina/lottery/icn-notification@3x.png" wx:if="{{showBadge}}"></image>
+                <text class="arrow-right"></text>
+            </view>
+            <view class="info-split-line"></view>
+            <view bindtap="goToQuestion" class="sorry info-item" hoverClass="highlight">
+                <image src="https://cdn.readhub.cn/mina/lottery/icn-question@3x.png"></image>
+                <text>常见问题</text>
+                <text class="arrow-right"></text>
+            </view>
+        </view>
+    </Layout>
+</view>

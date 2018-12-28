@@ -1,0 +1,18 @@
+{
+    "navigationBarTitleText": "抽奖详情",
+    "onReachBottomDistance": 350,
+    "disableScroll": true,
+    "usingComponents": {
+        "LotteryRichText": "../../../components/LotteryRichText/LotteryRichText",
+        "LazyImage": "../../../components/LazyImage/LazyImage",
+        "Layout": "../../../components/Layout/Layout",
+        "NormalLottery": "../../../components/NormalLottery/NormalLottery",
+        "SuggestSquareLottery": "../../../components/SuggestSquareLottery/SuggestSquareLottery",
+        "OfficialLottery": "../../../components/OfficialLottery/OfficialLottery",
+        "PopupBox": "../../../components/PopupBox/PopupBox",
+        "LargePopupBox": "../../../components/LargePopupBox/LargePopupBox",
+        "BannerAd": "../../../components/BannerAd/BannerAd",
+        "JoinLottery": "../../../components/JoinLottery/JoinLottery",
+        "ActionSheet": "../../../components/ActionSheet/ActionSheet"
+    }
+}

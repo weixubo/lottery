@@ -1,0 +1,281 @@
+@-webkit-keyframes actionShow {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes actionShow {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.sheet-cover {
+    position: fixed;
+    z-index: 998;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: rgba(0,0,0,0.25);
+    animation: .25s linear actionShow forwards;
+}
+
+.actionsheet {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    z-index: 999;
+    width: 100%;
+    background: #e7e8e8;
+    transition: bottom 250ms;
+    will-change: bottom;
+}
+
+.actionsheet .items {
+    margin-bottom: 6px;
+}
+
+.actionsheet .item {
+    font-size: 17px;
+    background: #fff;
+    border-radius: 0px;
+    border: none;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 1px;
+}
+
+.actionsheet .item.hover {
+    background: #ccc;
+}
+
+.actionsheet .item:last-child {
+    margin-bottom: 0px;
+}
+
+.actionsheet .item:after {
+    border-radius: 0px;
+    border: none;
+}
+
+page {
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 100%;
+    font-family: "PingFangSC-Regular";
+}
+
+page::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+.indexPage .scrollview {
+    padding-bottom: 120px;
+    width: 100%;
+}
+
+.indexPage .ad-container {
+    padding: 30px 15px;
+}
+
+.indexPage .follow-official-account {
+    height: 44px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.indexPage .follow-official-account .desc {
+    flex: 1 1 auto;
+    font-size: 13px;
+    color: rgba(26,26,26,0.9);
+    letter-spacing: .3px;
+    margin-left: 15px;
+}
+
+.indexPage .follow-official-account .follow-btn {
+    flex: 0 0 auto;
+    color: #2986c7;
+    font-size: 13px;
+    margin-right: 10px;
+}
+
+.indexPage .follow-official-account .follow-btn.highlight {
+    opacity: .7;
+}
+
+.indexPage .follow-official-account .follow-btn .arrow-right {
+    border: solid #2573b8;
+    border-width: 0 1.5px 1.5px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    position: relative;
+    margin-left: 5px;
+    top: -1px;
+}
+
+.indexPage .follow-official-account .close {
+    flex: 0 0 auto;
+    width: 10px;
+    height: 10px;
+    padding: 10px 15px;
+}
+
+.indexPage .follow-official-account .close.highlight {
+    opacity: .7;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+    margin-top: 70%;
+}
+
+.loading image {
+    width: 28px;
+    height: 28px;
+}
+
+.empty {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.empty image {
+    margin: -77px 32px 0;
+    align-self: center;
+    width: 120px;
+    height: 136px;
+}
+
+.square-group {
+    margin-top: -10px;
+}
+
+.group .group-label {
+    display: flex;
+}
+
+.group .group-label .label-actions {
+    font-size: 13px;
+    color: #575757;
+    display: flex;
+    align-items: center;
+    height: 53px;
+    flex: 1 0 auto;
+    justify-content: flex-end;
+}
+
+.group .group-label .label-actions .besponsor {
+    margin-right: 13px;
+    flex: 0 0 auto;
+    padding: 15px 0px;
+}
+
+.group .group-label .label-actions .besponsor.highlight {
+    opacity: .5;
+}
+
+.group .group-label .label-actions .split {
+    flex: 0 0 auto;
+    height: 12px;
+    width: 1px;
+    background: #a8a8a8;
+    margin-right: 13px;
+}
+
+.group .group-label .label-actions .share-to-frind {
+    flex: 0 0 auto;
+    font-size: 13px;
+    color: #575757;
+    margin-right: 20px;
+    padding: 15px 0px;
+}
+
+.group .group-label .label-actions .share-to-frind.highlight {
+    opacity: .5;
+}
+
+.group .group-label .official-banner {
+    flex: 0 0 auto;
+    align-self: center;
+    width: 195px;
+    margin-left: 14px;
+    position: relative;
+    height: 53px;
+}
+
+.group .group-list {
+    margin: 0px 10px;
+}
+
+.group .official-list .item {
+    margin-bottom: 15px;
+    border: solid 1rpx rgba(0,0,0,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.group .suggest-square-list .item {
+    margin-bottom: 15px;
+    border: solid 1rpx rgba(0,0,0,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.group .normal-square-list {
+    border: solid 1rpx rgba(0,0,0,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.group .normal-square-list .item {
+    border-bottom: solid 1rpx #e6e6e6;
+}
+
+.square-loadmore {
+    font-size: 13px;
+    color: #2573b8;
+    text-align: center;
+    border-radius: 0px 0px 4px 4px;
+    height: 60px;
+    line-height: 60px;
+    background-color: #ffffff;
+}
+
+.square-loadmore .arrow-right {
+    border: solid #2573b8;
+    border-width: 0 1.5px 1.5px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    position: relative;
+    margin-left: 5px;
+    top: -1px;
+}
+
+.square-loadmore.highlight text {
+    opacity: .5;
+}

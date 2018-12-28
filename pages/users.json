@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "抽奖参与用户",
+    "usingComponents": {
+        "Layout": "../components/Layout/Layout",
+        "BannerAd": "../components/BannerAd/BannerAd"
+    }
+}

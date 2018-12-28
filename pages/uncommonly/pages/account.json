@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "余额",
+    "disableScroll": true,
+    "usingComponents": {
+        "Layout": "../../../components/Layout/Layout"
+    }
+}

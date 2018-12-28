@@ -1,0 +1,54 @@
+page {
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 100%;
+    font-family: "PingFangSC-Regular";
+}
+
+.besponsorpage .sponsor-wran {
+    padding: 23px 15px 0px;
+    font-size: 13px;
+    color: #d15143;
+}
+
+.besponsorpage textarea {
+    min-height: 180px;
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff;
+    font-size: 15px;
+    margin-top: 14px;
+    padding: 15px;
+}
+
+.besponsorpage textarea.textarea-placeholder {
+    color: #cccccc;
+}
+
+.besponsorpage .textarea-placeholder {
+    color: #cccccc;
+}
+
+.besponsorpage .submit-button {
+    box-sizing: border-box;
+    margin: 30px 15px 0px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #575757;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.besponsorpage .submit-button.highlight {
+    background-color: #333333;
+}
+
+.besponsorpage .sponsor-tip {
+    font-size: 13px;
+    color: #808080;
+    margin-top: 20px;
+    text-align: center;
+    padding: 0px 15px 0px;
+}

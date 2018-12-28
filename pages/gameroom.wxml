@@ -1,0 +1,160 @@
+<view class="gameroom">
+    <Layout bindgetuserinfo="getUserInfo" forceHideGetUserInfo="{{forceHideGetUserInfo}}" needGetUserInfo="{{needGetUserInfo}}" title="{{navigationTitle}}">
+        <view class="loading" wx:if="{{!inited}}">
+            <image mode="aspectFit" src="https://cdn.readhub.cn/mina/lottery/loading.gif"></image>
+        </view>
+        <view class="room-detail {{inited?'show':'hide'}}" style="{{roomStyle}}">
+            <view class="game-detail-preview">
+                <view class="game-detail-preview-cover"></view>
+                <view class="game-detail-card">
+                    <view class="room-prize" slot="content">
+                        <view class="room-prize-desc" id="roomPrizeDesc">
+                            <view class="room-prize-title">
+                                <text class="room-prize-name">{{prize.name}}</text>
+                                <text class="room-prize-count-icon">x</text>
+                                <text class="room-prize-count">{{prize.count}}</text>
+                            </view>
+                            <view bindtap="previewPrizeImage" class="room-prize-image">
+                                <image mode="aspectFill" src="{{prize.image||'/images/default-prize@3x.png'}}" style="width:36px;height:36px;"></image>
+                            </view>
+                        </view>
+                        <view class="room-prize-owner" wx:if="{{!game.is_initiator||game.state===2||game.state===-1}}">
+                            <view class="room-prize-owner-label">抽奖发起人</view>
+                            <view class="room-prize-owner-avatar">
+                                <image src="{{owner.avatar}}" style="width: 22px; height: 22px;"></image>
+                            </view>
+                            <view class="room-prize-owner-name">{{owner.nick_name}}</view>
+                            <view class="room-prize-owner-online" wx:if="{{game.state===0||game.state===1}}">
+                                <image src="{{isInitiatorOnline?'https://cdn.readhub.cn/mina/lottery/online@3x.png':'https://cdn.readhub.cn/mina/lottery/offline@3x.png'}}" style="width: 9px; height: 9px;"></image>
+                            </view>
+                        </view>
+                        <view class="game-mannal-start" wx:if="{{(game.state===0||game.state===1)&&game.is_initiator}}">
+                            <view bindtap="startGame" hoverClass="highlight">现在开奖</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="game-detail-preview-cover"></view>
+            </view>
+            <view class="room-global-message-container" wx:if="{{game.state===0||game.state===1}}">
+                <view class="room-message-bar">
+                    <text class="room-message-bar-dot room-message-bar-dot-1"></text>
+                    <text class="room-message-bar-dot room-message-bar-dot-2"></text>
+                    <text class="room-message-bar-dot room-message-bar-dot-3"></text>
+                    <text class="room-message-bar-dot room-message-bar-dot-4"></text>
+                    <view class="room-global-message">
+                        <view class="content">{{globalMessage}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="room-content" style="height: {{roomContentHeight}}px;" wx:if="{{game.state===0||game.state===1}}">
+                <view class="room-users">
+                    <image class="{{item._state}} {{isAndroid?'android':'ios'}}" src="{{item.avatar}}" style="width: 50px; height: 50px; left: {{item._point.x}}px; top: {{item._point.y}}px; opacity: {{item._opacity}};" wx:for="{{users}}" wx:key="id"></image>
+                </view>
+                <view class="room-count">在线人数：{{livingUserCount}}</view>
+                <view class="connect-status" wx:if="{{socketConnecting&&inited}}">加入中...</view>
+            </view>
+            <view class="room-danmu" style="height: {{roomContentHeight-27}}px;" wx:if="{{game.state===0||game.state===1}}">
+                <view class="room-danmu-stack" wx:for="{{danmuStacks}}" wx:key="index">
+                    <view class="room-danmu-message danmu-type-{{item.type}} {{item.type===2?'user-message':''}}" style="width: {{59+item.data.length}}px;" wx:for="{{item}}" wx:key="id">
+                        <view class="room-danmu-message-content">
+                            <image src="{{item.data.avatar}}"></image>
+                            <text>{{item.data.msg}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="chat-bar {{isIphoneX?'fix':''}}" wx:if="{{game.state===0||game.state===1}}">
+                <input bindblur="ShowUrging" bindconfirm="sendMessage" bindfocus="HideUrging" confirmType="send" cursorSpacing="15" maxlength="20" placeholder="说点什么..." style="{{chatBarStyle}}" value="" wx:if="{{inputFlag}}"></input>
+                <input bindblur="ShowUrging" bindconfirm="sendMessage" bindfocus="HideUrging" confirmType="send" cursorSpacing="15" maxlength="20" placeholder="说点什么..." style="{{chatBarStyle}}" value="" wx:else></input>
+                <view bindtap="urging" class="chat-bar-speck {{isUrgingShow?'show':'hide'}}" hoverClass="highlight" wx:if="{{!game.is_initiator}}">
+                    <image src="https://cdn.readhub.cn/mina/lottery/speaker@3x.png" style="width: 14px; height: 13px;"></image>
+                    <text>催一下</text>
+                </view>
+            </view>
+            <view class="slot-machine {{disableSlotCountAnimation?'hideAnimate':'showAnimate'}}" wx:if="{{game.state===2}}">
+                <view style="position: relative; z-index: 1;display: flex; justify-content: center; {{slotStyle}}">
+                    <image class="slot-bg" src="https://cdn.readhub.cn/mina/lottery/slot-bg@3x.png" style="{{slotStyle}}"></image>
+                    <image class="light-on-bg" src="https://cdn.readhub.cn/mina/lottery/light-on-1@3x.png" style="{{slotStyle}}" wx:if="{{lightState===1}}"></image>
+                    <image class="light-on-bg" src="https://cdn.readhub.cn/mina/lottery/light-on-2@3x.png" style="{{slotStyle}}" wx:if="{{lightState===2}}"></image>
+                    <view class="slot-machine-stacks" style="{{slotStacksStyle}}">
+                        <view class="slot-machine-stack">
+                            <view class="slot-machine-stack-content {{slotAStop?'slot-stop':''}}" style="{{aSlotStyle}}">
+                                <view wx:for="{{gameUsers}}" wx:key="index">
+                                    <image src="{{item.avatar}}" wx:if="{{!slotAStop}}"></image>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="slot-machine-stack">
+                            <view class="slot-machine-stack-content {{slotBStop?'slot-stop':''}}" style="{{bSlotStyle}}">
+                                <view wx:for="{{gameUsers}}" wx:key="index">
+                                    <image src="{{item.avatar}}" wx:if="{{!slotBStop}}"></image>
+                                </view>
+                            </view>
+                            <image class="slot-machine-count count-1" src="https://cdn.readhub.cn/mina/lottery/1.png" style="{{slotMachineCountStyle}}" wx:if="{{slotMachineCount===1}}"></image>
+                            <image class="slot-machine-count count-2" src="https://cdn.readhub.cn/mina/lottery/2.png" style="{{slotMachineCountStyle}}" wx:if="{{slotMachineCount===2}}"></image>
+                            <image class="slot-machine-count count-3" src="https://cdn.readhub.cn/mina/lottery/3.png" style="{{slotMachineCountStyle}}" wx:if="{{slotMachineCount===3}}"></image>
+                        </view>
+                        <view class="slot-machine-stack last">
+                            <view class="slot-machine-stack-content {{slotCStop?'slot-stop':''}}" style="{{cSlotStyle}}">
+                                <view wx:for="{{gameUsers}}" wx:key="index">
+                                    <image src="{{item.avatar}}" wx:if="{{!slotCStop}}"></image>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="slot-machine-result-message {{currentWinner?'slot-machine-winner-result-message':''}} {{disableSlotCountAnimation?'hideAnimate':'animate'}}" wx:if="{{slotCStop&&slotBStop&&slotAStop}}">
+                            <view class="result-status" style="{{resultStatusStyle}}">
+                                <text class="pendding"></text>
+                                <text class="split"></text>
+                                <text class="label">已开奖</text>
+                                <text class="split"></text>
+                                <text class="pendding"></text>
+                            </view>
+                            <text class="result-info">恭喜以下 {{luckUsers.length}} 位中奖者</text>
+                            <view class="result-share" wx:if="{{currentWinner}}">
+                                <view bindtap="goToGenerage" class="result-share-button" hoverClass="highlight">炫耀一下</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view animation="{{winnerAnimationData}}" class="winners" style="{{slotWinnerStyle}}">
+                    <image class="winners-shadow" src="https://cdn.readhub.cn/mina/lottery/shadow@3x.png"></image>
+                    <image class="winners-bg-top" src="https://cdn.readhub.cn/mina/lottery/winner-bg-top@3x.png"></image>
+                    <view class="winners-header">中奖者名单</view>
+                    <view class="winners-list">
+                        <view class="winner-item" wx:for="{{luckUsers}}" wx:key="index">
+                            <image src="{{item.avatar}}"></image>
+                            <text>{{item.nick_name}}</text>
+                        </view>
+                    </view>
+                    <view class="winners-bg">
+                        <image src="https://cdn.readhub.cn/mina/lottery/winner-bg-bottom@3x.png" style="height: 15px;width:100%;"></image>
+                    </view>
+                    <view class="game-detail-users" wx:if="{{slotCStop&&slotBStop&&slotAStop}}">
+                        <view class="game-detail-users-banner">
+                            <view class="game-detail-users-banner-value">
+                                <text>感谢</text>
+                                <view bindtap="goToUsers" hoverClass="highlight">{{joinUserCount}}</view>位参与者
+                </view>
+                        </view>
+                        <view class="game-detail-users-list">
+                            <view class="game-detail-users-user" wx:for="{{joinUsers}}" wx:key="index">
+                                <image mode="aspectFill" src="{{item.avatar}}"></image>
+                            </view>
+                        </view>
+                    </view>
+                    <form reportSubmit bindsubmit="toToCreate" wx:if="{{slotCStop&&slotBStop&&slotAStop}}">
+                        <button class="i-want-create-game" formType="submit" hoverClass="highlight">{{game.is_initiator?'再发起一个抽奖':'我也要发起抽奖'}}</button>
+                    </form>
+                </view>
+            </view>
+        </view>
+    </Layout>
+</view>
+<view class="auth-tip" wx:if="{{needGetUserInfo&&!forceHideGetUserInfo&&inited}}">
+    <view class="box">
+        <view class="title">申请获得你的公开信息（昵称、头像）</view>
+        <view class="tip">抽奖助手不会将您的信息提供给第三方</view>
+        <image src="https://cdn.readhub.cn/mina/lottery/author-info@3x.png"></image>
+        <view class="btn">点击进行授权</view>
+    </view>
+</view>

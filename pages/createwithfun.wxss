@@ -1,0 +1,992 @@
+@import "../__wuBaseWxss__/5.wxss";
+
+@import "../__wuBaseWxss__/4.wxss";
+
+@import "../__wuBaseWxss__/3.wxss";
+
+@import "../__wuBaseWxss__/1.wxss";
+
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 100%;
+    font-family: "PingFangSC-Regular";
+}
+
+.createwithfunpage .create-page-container {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 200px;
+}
+
+.createwithfunpage .create-page-container .game-cover {
+    border-radius: 6px;
+}
+
+.createwithfunpage .create-page-container .game-cover .prize-picture {
+    width: 100%;
+    position: relative;
+}
+
+.createwithfunpage .create-page-container .game-cover .prize-picture image {
+    width: 100%;
+    display: block;
+}
+
+.createwithfunpage .create-page-container .game-cover .prize-picture .add-picture-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ffffff;
+    border: solid 1rpx rgba(0,0,0,0.5);
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 13px;
+    color: #565656;
+}
+
+.createwithfunpage .create-page-container .game-cover .prize-picture .add-picture-button.hover {
+    background-color: #eeeeee;
+}
+
+.createwithfunpage .create-page-container .game-cover .picture-editor {
+    width: 100%;
+    position: relative;
+}
+
+.createwithfunpage .create-page-container .game-cover .picture-editor image {
+    display: block;
+}
+
+.createwithfunpage .create-page-container .game-cover .picture-editor .add-picture-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ffffff;
+    border: solid 1rpx rgba(0,0,0,0.5);
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 13px;
+    color: #565656;
+}
+
+.createwithfunpage .create-page-container .game-cover .picture-editor .add-picture-button.hover {
+    background-color: #eeeeee;
+}
+
+.createwithfunpage .create-page-container .item-list {
+    padding-left: 15px;
+    background: #fff;
+    margin-top: 15px;
+    position: relative;
+}
+
+.createwithfunpage .create-page-container .item-list.first {
+    margin-top: 0px;
+}
+
+.createwithfunpage .create-page-container .item-list.first .game-prize-delete {
+    display: none;
+}
+
+.createwithfunpage .create-page-container .item-list.disable .switch-item {
+    opacity: .2;
+}
+
+.createwithfunpage .create-page-container .item-list .game-prize-delete {
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: 14px;
+    left: 14px;
+    background-color: #d15143;
+}
+
+.createwithfunpage .create-page-container .item-list .game-prize-delete.disable {
+    opacity: .2;
+}
+
+.createwithfunpage .create-page-container .item-list .game-prize-delete image {
+    width: 14px;
+    height: 3px;
+    align-self: center;
+}
+
+.createwithfunpage .create-page-container .item-list .game-prize-delete.highlight {
+    background-color: #b34539;
+}
+
+.createwithfunpage .create-page-container .item-list .item {
+    position: relative;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-right: 16px;
+    border-bottom: 1rpx solid rgba(0,0,0,0.1);
+}
+
+.createwithfunpage .create-page-container .item-list .item .input-placeholder {
+    color: #cccccc;
+}
+
+.createwithfunpage .create-page-container .item-list .item.disable {
+    position: relative;
+}
+
+.createwithfunpage .create-page-container .item-list .item.disable:before {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.7);
+}
+
+.createwithfunpage .create-page-container .item-list .item .random-animate {
+    height: 30px;
+    overflow: hidden;
+    flex: 1 1 auto;
+    margin-left: 12px;
+    align-self: center;
+    position: relative;
+}
+
+.createwithfunpage .create-page-container .item-list .item .random-animate .random-animate-item {
+    text-align: right;
+    color: #b68f00;
+    font-weight: bold;
+    font-size: 15px;
+    height: 30px;
+    line-height: 30px;
+    letter-spacing: .15px;
+}
+
+.createwithfunpage .create-page-container .item-list .item:last-child {
+    border-bottom: none;
+}
+
+.createwithfunpage .create-page-container .item-list .item switch {
+    flex: 1 1 auto;
+    align-self: center;
+    text-align: right;
+}
+
+.createwithfunpage .create-page-container .item-list .item .random-prize {
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 13px;
+    color: #565656;
+    margin-left: 14px;
+    position: relative;
+    box-sizing: border-box;
+    flex: 0 0 auto;
+}
+
+.createwithfunpage .create-page-container .item-list .item .random-prize.highlight {
+    background-color: #eeeeee;
+}
+
+.createwithfunpage .create-page-container .item-list .item .random-prize:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: solid 1px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    width: 200%;
+    height: 200%;
+    transform: scale(.5);
+    transform-origin: left top;
+}
+
+.createwithfunpage .create-page-container .item-list .item .switch-list {
+    flex: 1 1 auto;
+    align-self: center;
+    font-size: 13px;
+    text-align: right;
+}
+
+.createwithfunpage .create-page-container .item-list .item .switch-list.disable {
+    position: relative;
+}
+
+.createwithfunpage .create-page-container .item-list .item .switch-list.disable:before {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+    content: "";
+    width: 100%;
+    height: 100%;
+}
+
+.createwithfunpage .create-page-container .item-list .item .switch-list .switch-item {
+    display: inline-block;
+    color: #575757;
+    position: relative;
+    padding: 4px 15px;
+}
+
+.createwithfunpage .create-page-container .item-list .item .switch-list .switch-item:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #808080;
+    border-right: none;
+    box-sizing: border-box;
+    width: 200%;
+    height: 200%;
+    transform: scale(.5);
+    transform-origin: left top;
+}
+
+.createwithfunpage .create-page-container .item-list .item .switch-list .switch-item:last-child:before {
+    border-right: 1px solid #808080;
+}
+
+.createwithfunpage .create-page-container .item-list .item .switch-list .switch-item.selected {
+    background-color: #ffe8e5;
+    color: #cc4b3d;
+}
+
+.createwithfunpage .create-page-container .item-list .item .switch-list .switch-item.selected:before {
+    border: 1px solid #d15143;
+}
+
+.createwithfunpage .create-page-container .item-list .item .switch-list .switch-item.unselected:before {
+    border-right: none;
+    border-left: 1px solid #808080;
+}
+
+.createwithfunpage .create-page-container .item-list .item .switch-list .switch-item.unselected:first-child:before {
+    border-right: none;
+    border-left: 1px solid #808080;
+}
+
+.createwithfunpage .create-page-container .item-list .item .switch-list .switch-item.unselected:last-child:before {
+    border-left: none;
+    border-right: 1px solid #808080;
+}
+
+.createwithfunpage .create-page-container .item-list .item .switch-list .switch-item.disable {
+    opacity: .2;
+}
+
+.createwithfunpage .create-page-container .item-list .item .input {
+    margin-left: 12px;
+    flex: 1 1 auto;
+    font-size: 15px;
+    color: #000;
+    text-align: right;
+    align-self: center;
+}
+
+.createwithfunpage .create-page-container .item-list .item.game-prize .input {
+    color: #b68f00;
+    font-weight: bold;
+}
+
+.createwithfunpage .create-page-container .item-list .item .label {
+    font-size: 15px;
+    color: #1a1a1a;
+    flex: 0 0 auto;
+    align-self: center;
+}
+
+.createwithfunpage .create-page-container .item-list .item .money-unit {
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.createwithfunpage .create-page-container .item-list .item .error-message {
+    z-index: 1;
+    display: none;
+    background: #da7469;
+    color: #fff;
+    height: 22px;
+    line-height: 22px;
+    padding: 0px 8px;
+    align-self: center;
+    position: absolute;
+    right: 145px;
+    top: 14px;
+    font-size: 11px;
+}
+
+.createwithfunpage .create-page-container .item-list .item .error-message .arrow-right {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 8px;
+    border-color: transparent transparent transparent #da7469;
+    right: -8px;
+    top: 6px;
+}
+
+.createwithfunpage .create-page-container .item-list .item.error .error-message {
+    display: block;
+}
+
+.createwithfunpage .create-page-container .game-prizes.normal .game-prizes-editor-label {
+    display: none;
+}
+
+.createwithfunpage .create-page-container .game-prizes.normal .game-prize-delete {
+    display: none;
+}
+
+.createwithfunpage .create-page-container .game-prizes.normal .game-prizes-editor-add-item {
+    display: none;
+}
+
+.createwithfunpage .create-page-container .game-prizes.pro .item-list {
+    padding-left: 45px;
+}
+
+.createwithfunpage .create-page-container .game-prizes.pro .item-list.first {
+    padding-left: 15px;
+}
+
+.createwithfunpage .create-page-container .game-prizes .game-prizes-editor-label {
+    box-sizing: content-box;
+    font-size: 13px;
+    letter-spacing: .3px;
+    color: #808080;
+    padding-left: 15px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 8px;
+}
+
+.createwithfunpage .create-page-container .game-prizes .game-prizes-editor-add-item {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.createwithfunpage .create-page-container .game-prizes .game-prizes-editor-add-item .game-prizes-editor-add-item-button {
+    display: inline-block;
+    text-align: center;
+    width: 140px;
+    height: 33px;
+    line-height: 33px;
+    background-color: #f0f0f0;
+    font-size: 13px;
+    letter-spacing: .3px;
+    color: #575757;
+    position: relative;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.createwithfunpage .create-page-container .game-prizes .game-prizes-editor-add-item .game-prizes-editor-add-item-button image {
+    margin-right: 6px;
+    width: 10px;
+    height: 10px;
+}
+
+.createwithfunpage .create-page-container .game-prizes .game-prizes-editor-add-item .game-prizes-editor-add-item-button.highlight {
+    background-color: #cccccc;
+}
+
+.createwithfunpage .create-page-container .game-prizes .game-prizes-editor-add-item .game-prizes-editor-add-item-button::before {
+    content: " ";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #575757;
+    transform: scale(.5);
+    transform-origin: 0 0;
+    box-sizing: border-box;
+}
+
+.createwithfunpage .create-page-container .game-prize-count .label {
+    flex: 0 0 auto;
+}
+
+.createwithfunpage .create-page-container .game-prize-count .picker-container {
+    flex: 1 1 auto;
+}
+
+.createwithfunpage .create-page-container .game-prize-count .picker-container .count-picker input {
+    flex: 1 1 auto;
+}
+
+.createwithfunpage .create-page-container .game-prize-count .error-message {
+    display: none;
+    background: #da7469;
+    color: #fff;
+    height: 22px;
+    line-height: 22px;
+    padding: 0px 8px;
+    align-self: center;
+    position: absolute;
+    right: 105px;
+    top: 14px;
+    font-size: 11px;
+}
+
+.createwithfunpage .create-page-container .game-prize-count .error-message .arrow-right {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 8px;
+    border-color: transparent transparent transparent #da7469;
+    right: -8px;
+    top: 6px;
+}
+
+.createwithfunpage .create-page-container .game-prize-count.error .error-message {
+    display: block;
+}
+
+.createwithfunpage .create-page-container .game-end-type.error {
+    background: #ffedeb;
+}
+
+.createwithfunpage .create-page-container .count-picker {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    color: #1a1a1a;
+    font-size: 15px;
+}
+
+.createwithfunpage .create-page-container .count-picker input {
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.createwithfunpage .create-page-container .count-picker .input-placeholder {
+    color: #cccccc;
+}
+
+.createwithfunpage .create-page-container .blank {
+    width: 100%;
+    height: 10px;
+}
+
+.createwithfunpage .game-end-controll {
+    height: 46px;
+    font-size: 13px;
+    letter-spacing: .3px;
+    color: #808080;
+    overflow: hidden;
+}
+
+.createwithfunpage .game-end-controll .color-red {
+    flex: 0 0 auto;
+    color: #2573b8;
+    position: relative;
+    right: -4px;
+}
+
+.createwithfunpage .game-end-controll .color-red.highlight {
+    color: rgba(37,115,184,0.5);
+}
+
+.createwithfunpage .game-end-controll .game-end-config-tip {
+    padding: 10px 0px 0px 15px;
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
+
+.createwithfunpage .game-end-controll .game-end-config-tip .game-end-config-tip-label {
+    flex: 1 0 auto;
+}
+
+.createwithfunpage .game-end-controll .game-end-config-tip .arrow-right {
+    position: relative;
+    bottom: -1px;
+    flex: 0 0 auto;
+}
+
+.createwithfunpage .game-end-config-item .game-end-chatroom-config-picker {
+    text-align: center;
+    font-size: 14px;
+    color: rgba(0,0,0,0.6);
+}
+
+.createwithfunpage .game-end-config-item .game-end-manual-config-picker {
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: .4px;
+    color: #cccccc;
+    height: 50px;
+    background: #fff;
+    display: flex;
+    padding: 0px 16px;
+}
+
+.createwithfunpage .game-end-config-item .game-end-manual-config-picker .icon {
+    align-self: center;
+    margin-left: 18px;
+    margin-right: 7px;
+    position: relative;
+    bottom: -2px;
+}
+
+.createwithfunpage .game-end-config-item .game-end-manual-config-picker .icon image {
+    width: 18px;
+    height: 18px;
+}
+
+.createwithfunpage .game-end-config-item .game-end-manual-config-picker text {
+    align-self: center;
+}
+
+.createwithfunpage .game-end-config-item .game-end-time-config-picker .picker-item {
+    height: 50px;
+    display: flex;
+    padding: 0px 16px;
+    position: relative;
+}
+
+.createwithfunpage .game-end-config-item .game-end-time-config-picker .picker-item .error-message {
+    display: none;
+    background: #da7469;
+    color: #fff;
+    height: 22px;
+    line-height: 22px;
+    padding: 0px 8px;
+    align-self: center;
+    position: absolute;
+    right: 170px;
+    top: 14px;
+    font-size: 11px;
+}
+
+.createwithfunpage .game-end-config-item .game-end-time-config-picker .picker-item .error-message text {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 8px;
+    border-color: transparent transparent transparent #da7469;
+    right: -8px;
+    top: 6px;
+}
+
+.createwithfunpage .game-end-config-item .game-end-time-config-picker .picker-item.error .error-message {
+    display: block;
+}
+
+.createwithfunpage .game-end-config-item .game-end-time-config-picker .picker-item image {
+    flex: 0 0 auto;
+    position: relative;
+    bottom: -1px;
+    width: 18px;
+    height: 18px;
+    align-self: center;
+}
+
+.createwithfunpage .game-end-config-item .game-end-time-config-picker .picker-item .picker-item-label {
+    letter-spacing: .4px;
+    font-size: 15px;
+    color: #1a1a1a;
+    flex: 1 0 auto;
+    align-self: center;
+}
+
+.createwithfunpage .game-end-config-item .game-end-time-config-picker .picker-item .picker-item-value {
+    flex: 0 0 auto;
+    opacity: .4;
+    font-size: 14px;
+    letter-spacing: .3px;
+    color: #000000;
+    align-self: center;
+}
+
+.createwithfunpage .game-end-config-item .game-end-time-config-picker .picker-item .arrow-right {
+    border: solid #c7c7cc;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;
+    transform: rotate(-45deg);
+    position: relative;
+    flex: 0 0 auto;
+    margin-left: 10px;
+    align-self: center;
+}
+
+.createwithfunpage .game-end-config-item .game-end-time-config-picker .datepicker {
+    height: 0px;
+    transition: height 200ms;
+    border-radius: 0px 0px 6px 6px;
+}
+
+.createwithfunpage .game-end-config-item .game-end-time-config-picker .datepicker.showed {
+    border-top: 1rpx solid rgba(0,0,0,0.1);
+    height: 144px;
+}
+
+.createwithfunpage .game-end-config-item .game-end-user-config-picker .picker-item {
+    height: 50px;
+    display: flex;
+    padding: 0px 16px;
+    position: relative;
+}
+
+.createwithfunpage .game-end-config-item .game-end-user-config-picker .picker-item.error .error-message {
+    display: block;
+}
+
+.createwithfunpage .game-end-config-item .game-end-user-config-picker .picker-item .error-message {
+    display: none;
+    background: #da7469;
+    color: #fff;
+    height: 22px;
+    line-height: 22px;
+    padding: 0px 8px;
+    align-self: center;
+    position: absolute;
+    right: 90px;
+    top: 14px;
+    font-size: 11px;
+}
+
+.createwithfunpage .game-end-config-item .game-end-user-config-picker .picker-item .error-message text {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 8px;
+    border-color: transparent transparent transparent #da7469;
+    right: -8px;
+    top: 6px;
+}
+
+.createwithfunpage .game-end-config-item .game-end-user-config-picker .picker-item.error .error-message {
+    display: block;
+}
+
+.createwithfunpage .game-end-config-item .game-end-user-config-picker .picker-item image {
+    flex: 0 0 auto;
+    position: relative;
+    bottom: -1px;
+    width: 18px;
+    height: 18px;
+    align-self: center;
+}
+
+.createwithfunpage .game-end-config-item .game-end-user-config-picker .picker-item .picker-item-label {
+    flex: 1 0 auto;
+    letter-spacing: .4px;
+    align-self: center;
+    font-size: 15px;
+    color: #1a1a1a;
+}
+
+.createwithfunpage .game-end-config-item .game-end-user-config-picker .picker-item input {
+    flex: 0 0 auto;
+    width: 76px;
+    display: inline-block;
+    font-size: 15px;
+    color: #000;
+    text-align: right;
+    height: 20px;
+    line-height: 20px;
+    align-self: center;
+}
+
+.createwithfunpage .game-end-config-item .game-end-user-config-picker .picker-item .input-placeholder {
+    font-size: 15px;
+    color: #ccc;
+    align-self: center;
+}
+
+.createwithfunpage .game-end-config-item .game-end-user-config-picker .picker-item .picker-item-value {
+    flex: 0 0 auto;
+    opacity: .8;
+    font-size: 15px;
+    letter-spacing: .4px;
+    color: #1b1b1b;
+    margin-left: 7px;
+    align-self: center;
+}
+
+.createwithfunpage .game-end-config-item .game-end-user-config-remind {
+    padding-top: 13px;
+    font-size: 12px;
+    letter-spacing: .3px;
+    color: rgba(0,0,0,0.3);
+    text-align: center;
+    background: #f0f0f0;
+}
+
+.createwithfunpage .game-end-config-item .game-end-mannal-config-remind {
+    margin-top: 13px;
+    font-size: 12px;
+    letter-spacing: .3px;
+    color: rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.createwithfunpage .game-end-config {
+    width: 100%;
+}
+
+.createwithfunpage .game-end-config .game-end-config-list {
+    background: #fff;
+}
+
+.createwithfunpage .game-end-config .game-end-config-list .game-end-config-item {
+    box-sizing: border-box;
+}
+
+.createwithfunpage .game-group-config.disable {
+    position: relative;
+}
+
+.createwithfunpage .game-group-config.disable:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: rgba(255,255,255,0.8);
+}
+
+.createwithfunpage .game-group-config-tip {
+    font-size: 13px;
+    color: #808080;
+    text-align: center;
+    margin-top: 15px;
+}
+
+@keyframes animateShow {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes animateShow {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.createwithfunpage .game-description {
+    margin-top: 17px;
+}
+
+.createwithfunpage .game-description .game-description-label {
+    font-size: 13px;
+    letter-spacing: .3px;
+    color: #808080;
+    padding-left: 15px;
+}
+
+.createwithfunpage .game-description .game-description-label text {
+    margin-right: 19px;
+    float: right;
+}
+
+.createwithfunpage .game-description .textarea {
+    margin-top: 11px;
+    padding: 18px 15px;
+    height: auto;
+    min-height: 64px;
+    display: block;
+    width: auto;
+    background-color: #ffffff;
+    font-size: 14px;
+    z-index: 0;
+    white-space: pre-wrap;
+    overflow: scroll;
+}
+
+.createwithfunpage .game-description .textarea.placeholder {
+    color: #cccccc;
+}
+
+.createwithfunpage .alert-tip-container .alert-header {
+    font-size: 15px;
+    color: #808080;
+    text-align: center;
+}
+
+.createwithfunpage .alert-tip-container .alert-body {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #1a1a1a;
+}
+
+.createwithfunpage .alert-tip-container .alert-body view {
+    line-height: 1.75;
+}
+
+.createwithfunpage .alert-tip-container .confirm-button {
+    margin-top: 26px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    background: #d15143;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.createwithfunpage .alert-tip-container .confirm-button.highlight {
+    background: #b24539;
+}
+
+.createwithfunpage .draw-tips-container {
+    position: relative;
+    z-index: 1;
+}
+
+.createwithfunpage .draw-tips-container.show {
+    opacity: 1;
+}
+
+.createwithfunpage .draw-tips-container.hide {
+    opacity: 0;
+}
+
+.createwithfunpage .draw-tips-container .draw-tips-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 12px;
+}
+
+.createwithfunpage .draw-tips-container .draw-tips-title .split-line {
+    width: 20px;
+    height: 1px;
+    background: #6b6d8c;
+}
+
+.createwithfunpage .draw-tips-container .draw-tips-title .draw-tips-title-value {
+    font-size: 12px;
+    color: #6b6d8c;
+    margin: 0px 10px;
+}
+
+.createwithfunpage .draw-tips-container .draw-tips {
+    margin-top: 12px;
+    padding-bottom: 16px;
+    display: flex;
+}
+
+.createwithfunpage .draw-tips-container .draw-tips .draw-tip {
+    flex: 0 0 33.3333333%;
+    text-align: center;
+}
+
+.createwithfunpage .draw-tips-container .draw-tips .draw-tip image {
+    width: 60px;
+    height: 45px;
+}
+
+.createwithfunpage .draw-tips-container .draw-tips .draw-tip .draw-tip-desc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.createwithfunpage .draw-tips-container .draw-tips .draw-tip .draw-tip-desc .draw-tip-index {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    line-height: 13px;
+    text-align: center;
+    background: #6b6d8c;
+    font-size: 10px;
+    font-weight: bold;
+    margin-right: 4px;
+    color: #fff;
+}
+
+.createwithfunpage .draw-tips-container .draw-tips .draw-tip .draw-tip-desc .draw-tip-desc-value {
+    font-size: 12px;
+    font-weight: bold;
+    color: #6b6d8c;
+}
+
+.createwithfunpage .pi-tip-container .piyixia-icon-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.createwithfunpage .pi-tip-container .piyixia-icon-container .piyixia-icon {
+    width: 79px;
+    height: 81px;
+    flex: 0 0 auto;
+    position: relative;
+}
+
+.createwithfunpage .pi-tip-container .piyixia-icon-container .piyixia-icon .pi-bg {
+    width: 79px;
+    height: 81px;
+}
+
+.createwithfunpage .pi-tip-container .piyixia-icon-container .piyixia-icon .pi-ghost {
+    width: 40px;
+    height: 36px;
+    position: absolute;
+    left: 20px;
+    top: -12px;
+}
+
+.createwithfunpage .pi-tip-container .piyixia-tips {
+    margin-top: 15px;
+    line-height: 1.75;
+    font-size: 15px;
+    color: #1a1a1a;
+    padding: 0px 17px;
+}
+
+.createwithfunpage .pi-tip-container .piyixia-tips .pendding {
+    height: 30px;
+    width: 100%;
+}
+
+.createwithfunpage .pi-tip-container .piyixia-go {
+    height: 44px;
+    width: 100%;
+    line-height: 44px;
+    text-align: center;
+    color: rgba(0,0,0,0.7);
+    font-size: 15px;
+    font-weight: bold;
+    background: #e5c527;
+    margin-top: 30px;
+}
+
+.createwithfunpage .pi-tip-container .piyixia-go.highlight {
+    background: #b79e1f;
+}

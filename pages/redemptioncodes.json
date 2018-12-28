@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "添加兑换码",
+    "usingComponents": {
+        "Layout": "../components/Layout/Layout"
+    }
+}

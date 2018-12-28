@@ -1,0 +1,123 @@
+<view class="profilepage {{animateStep==='blur'?'blur':''}} {{animated||animateStep==='blur'?'disable':''}}" style="{{animateStep==='blur'?nocodeStyle:''}}">
+    <Layout bindgetuserinfo="getUserInfo" forceHideGetUserInfo="{{forceHideGetUserInfo}}" needGetUserInfo="{{needGetUserInfo}}" showAccount="{{showAccount}}" title="{{navigationTitle}}">
+        <view class="user-profile" style="{{userProfileStyle}}" wx:if="{{userProfileStyle}}">
+            <view class="follow-official-account" wx:if="{{!hideFollowBar}}">
+                <image class="heart-icn" src="https://cdn.readhub.cn/mina/lottery/icn-loveit@3x.png"></image>
+                <view class="desc">喜欢抽奖，就添加到我的小程序</view>
+                <image class="guide-arrow-icn" src="https://cdn.readhub.cn/mina/lottery/icn-arrow-guide@3x.png"></image>
+                <view class="pendding"></view>
+                <image bindtap="closeFollowBar" class="close" hoverClass="highlight" src="https://cdn.readhub.cn/mina/lottery/icn-close@3x.png"></image>
+            </view>
+            <view class="user-profile-dashboard">
+                <view bindtap="goToPoints" class="user-info" hoverClass="highlight">
+                    <view class="user-info-content">
+                        <image class="user-info-avatar" src="{{format.wxAvatar(userInfo.avatar,132)||'https://cdn.readhub.cn/mina/lottery/default-avatar-small.png'}}"></image>
+                        <view class="user-info-name">{{userInfo.nick_name}}</view>
+                    </view>
+                    <view class="user-address-content">
+                        <text>新功能即将开启</text>
+                        <text class="arrow-right"></text>
+                    </view>
+                </view>
+                <view class="game-info">
+                    <view bindtap="goToUserGames" class="game-info-item game-info-join" data-wpygotousergames-a="all" hoverClass="highlight">
+                        <view class="game-info-item-content">
+                            <view class="game-info-count">
+                    {{profile.all_count||0}}
+                  </view>
+                            <view class="game-info-label">
+                    全部抽奖
+                  </view>
+                        </view>
+                    </view>
+                    <view bindtap="goToUserGames" class="game-info-item game-info-create" data-wpygotousergames-a="initiator" hoverClass="highlight">
+                        <view class="game-info-item-content">
+                            <view class="game-info-count">
+                    {{profile.create_count||0}}
+                  </view>
+                            <view class="game-info-label">
+                    发起抽奖
+                  </view>
+                        </view>
+                    </view>
+                    <view bindtap="goToUserGames" class="game-info-item game-info-winner" data-wpygotousergames-a="lucky" hoverClass="highlight">
+                        <view class="game-info-item-content">
+                            <view class="game-info-count">
+                    {{profile.lucky_count||0}}
+                  </view>
+                            <view class="game-info-label">
+                    中奖记录
+                  </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="infos">
+                <view bindtap="goToStore" class="sorry info-item" hoverClass="highlight">
+                    <image src="https://cdn.readhub.cn/mina/lottery/icn-store-dark@3x.png"></image>
+                    <text>官方商城</text>
+                    <text class="tips-name">NoCode Store</text>
+                    <text class="arrow-right"></text>
+                </view>
+            </view>
+            <view class="infos">
+                <view bindtap="goToCertificate" class="sorry info-item" hoverClass="highlight">
+                    <image src="https://cdn.readhub.cn/mina/lottery/icn-certification-profile@3x.png"></image>
+                    <text>发起人认证</text>
+                    <text class="tips-name">{{certificateName}}</text>
+                    <text class="arrow-right"></text>
+                </view>
+                <view class="info-split-line"></view>
+                <view bindtap="goToProManager" class="sorry info-item" hoverClass="highlight">
+                    <image src="https://cdn.readhub.cn/mina/lottery/icn-vip-manage@3x.png"></image>
+                    <text>高级版管理</text>
+                    <text class="arrow-right"></text>
+                </view>
+                <view class="info-split-line" wx:if="{{profile.show_square}}"></view>
+                <view bindtap="goToAutoSubmit" class="user-submit info-item" hoverClass="highlight" wx:if="{{profile.show_square}}">
+                    <image src="https://cdn.readhub.cn/mina/lottery/icn-manage@3x.png"></image>
+                    <text class="user-account-label">自助提交管理</text>
+                    <text class="user-account-monery" wx:if="{{profile.unused_square_ids.length}}">未使用 ({{profile.unused_square_ids.length}})</text>
+                    <text class="arrow-right"></text>
+                </view>
+            </view>
+            <view class="infos">
+                <view bindtap="goToMinaSuggest" class="mina-suggests info-item" hoverClass="highlight">
+                    <image src="https://cdn.readhub.cn/mina/lottery/icn-mini-program@3x.png"></image>
+                    <text>小程序推荐</text>
+                    <text class="arrow-right"></text>
+                </view>
+                <view class="info-split-line"></view>
+                <view bindtap="goToMore" class="sorry info-item" hoverClass="highlight">
+                    <image src="https://cdn.readhub.cn/mina/lottery/icn-more@3x.png"></image>
+                    <text>更多</text>
+                    <image class="badge" src="https://cdn.readhub.cn/mina/lottery/icn-notification@3x.png" wx:if="{{showBadge}}"></image>
+                    <text class="arrow-right"></text>
+                </view>
+            </view>
+            <view bindlongpress="onAnimateStart" class="nocode-banner">
+                <image src="https://cdn.readhub.cn/mina/lottery/nocode@3x.png"></image>
+                <view class="desc">抽奖超过 400,000,000 人次</view>
+            </view>
+        </view>
+    </Layout>
+    <BottomNavigation index="{{buttomNavigationActiveIndex}}"></BottomNavigation>
+</view>
+<view bindlongpress="onAnimateCancel" bindtap="onAnimateCancel" class="nocode-sponsor {{animateStep==='blur'?'blur':''}}" style="{{nocodeStyle}}">
+    <view class="main" style="{{nocodeMainStyle}}">
+        <view class="splits">
+            <view class="split"></view>
+            <view class="split"></view>
+            <view class="split">
+                <image src="https://cdn.readhub.cn/mina/lottery/text-bonus@3x.png"></image>
+            </view>
+            <view class="split"></view>
+            <view class="split"></view>
+        </view>
+        <view class="footer">
+            <image src="https://cdn.readhub.cn/mina/lottery/nocode-qrcode@3x.png"></image>
+            <view class="from">来自无码科技</view>
+        </view>
+    </view>
+</view>
+<wxs module="format" src="../wxs/format.wxs" />

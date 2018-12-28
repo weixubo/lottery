@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "商城奖品反馈",
+    "usingComponents": {
+        "Layout": "../../../components/Layout/Layout"
+    }
+}

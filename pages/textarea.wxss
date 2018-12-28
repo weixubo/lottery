@@ -1,0 +1,36 @@
+page {
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 100%;
+    font-family: "PingFangSC-Regular";
+}
+
+.textareapage textarea {
+    margin-top: 15px;
+    padding: 18px 15px;
+    height: 120px;
+    display: block;
+    width: auto;
+    background-color: #ffffff;
+    font-size: 14px;
+}
+
+.textareapage .textarea-placeholder {
+    color: #cccccc;
+}
+
+.textareapage .user-confirm {
+    box-sizing: border-box;
+    margin: 20px 15px 0px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #575757;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.textareapage .user-confirm.highlight {
+    background-color: #333333;
+}

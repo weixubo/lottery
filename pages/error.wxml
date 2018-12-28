@@ -1,0 +1,18 @@
+<Layout needGetUserInfo="{{false}}" title="{{navigationTitle}}">
+    <view class="error-page {{isAndroid?'android':'ios'}}">
+        <view class="wraper">
+            <view class="error auth-error" wx:if="{{error&&error.errorType==='auth'}}">
+                <image mode="widthFix" src="{{authImageUrl}}"></image>
+                <view class="info-main info">需要授权才能使用</view>
+                <view class="info-sub info">抽奖助手不会将您的信息提供给第三方</view>
+                <button bindtap="openSetting" hoverClass="hover">去授权</button>
+            </view>
+            <view class="error network-error" wx:else>
+                <image mode="widthFix" src="{{errorImageUrl}}"></image>
+                <view class="info-main info">网络或服务器错误</view>
+                <view class="info-sub info">请检查网络情况，并尝试重新进入小程序</view>
+                <button bindtap="reload" hoverClass="hover">重新加载</button>
+            </view>
+        </view>
+    </view>
+</Layout>

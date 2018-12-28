@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "中奖者名单",
+    "usingComponents": {
+        "Layout": "../components/Layout/Layout",
+        "BannerAd": "../components/BannerAd/BannerAd"
+    }
+}

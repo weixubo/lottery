@@ -1,0 +1,70 @@
+page {
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 100%;
+    font-family: "PingFangSC-Regular";
+}
+
+.officialsharepage .page-container {
+    margin: 10px 0px 50px;
+}
+
+.officialsharepage .page-container .share-image {
+    position: relative;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 12px;
+}
+
+.officialsharepage .page-container .share-image image {
+    margin: 15px 15px 20px;
+    width: 100%;
+}
+
+.officialsharepage .page-container .share-url {
+    position: relative;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+}
+
+.officialsharepage .page-container .share-url .share-url-text {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.56;
+    letter-spacing: .4px;
+    color: #000000;
+    margin: 0px 34px 34px;
+    padding-top: 30px;
+    word-break: break-all;
+}
+
+.officialsharepage .page-container .action-button-container {
+    display: flex;
+    justify-content: center;
+    padding: 0px 15px;
+    margin-bottom: 20px;
+}
+
+.officialsharepage .page-container .action-button {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    background: #575757;
+    width: 100%;
+}
+
+.officialsharepage .page-container .action-button .meta {
+    font-size: 12px;
+    position: relative;
+    left: 5px;
+    top: -1px;
+}
+
+.officialsharepage .page-container .action-button.highlight {
+    background: #333333;
+}

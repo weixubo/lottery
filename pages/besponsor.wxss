@@ -1,0 +1,223 @@
+@import "../__wuBaseWxss__/4.wxss";
+
+page {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    font-family: "PingFangSC-Regular";
+}
+
+.besponsorpage .selft-submit-container .title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #d79e00;
+    margin-bottom: 25px;
+    padding-top: 10px;
+}
+
+.besponsorpage .selft-submit-container .title image {
+    width: 94px;
+    height: 24px;
+}
+
+.besponsorpage .selft-submit-container .content {
+    font-size: 15px;
+    color: #1a1a1a;
+    line-height: 1.8;
+    letter-spacing: .4px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-top: 1rpx solid rgba(0,0,0,0.1);
+    margin: 0px 25px;
+}
+
+.besponsorpage .selft-submit-container .tip {
+    font-size: 14px;
+    color: #a8a8a8;
+    text-align: center;
+}
+
+.besponsorpage .selft-submit-container .buy {
+    margin-top: 19px;
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    background-color: #dbaa13;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: .4px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 0px;
+}
+
+.besponsorpage .selft-submit-container .buy.highlight {
+    background: #b5971f;
+}
+
+.besponsorpage .selft-submit-container .buy:before {
+    display: none;
+}
+
+.besponsorpage .selft-submit-container .buy:after {
+    display: none;
+}
+
+.besponsorpage .main {
+    border-top: 1rpx solid rgba(0,0,0,0.1);
+    padding: 15px;
+    background: #fff;
+}
+
+.besponsorpage .main .block {
+    padding: 0px 18px;
+    margin-bottom: 15px;
+}
+
+.besponsorpage .main .block .title {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.66);
+    letter-spacing: .5px;
+    margin-top: 30px;
+}
+
+.besponsorpage .main .block .content {
+    font-size: 14px;
+    line-height: 1.79;
+    letter-spacing: .4px;
+    color: #1a1a1a;
+    margin-top: 25px;
+}
+
+.besponsorpage .main .block .fetures {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.besponsorpage .main .block .fetures .item {
+    flex: 1 0 50%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.besponsorpage .main .block .fetures .item image {
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+}
+
+.besponsorpage .main .block .fetures .item text {
+    font-size: 14px;
+    color: rgba(0,0,0,0.9);
+}
+
+.besponsorpage .main .block .fetures.fix .item {
+    flex: 1 0 100%;
+}
+
+.besponsorpage .main .block .unsupport-tip {
+    font-size: 12px;
+    color: #b97a00;
+    margin-bottom: 35px;
+    margin-top: 25px;
+}
+
+.besponsorpage .main .block .contact {
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0px 15px;
+    line-height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 35px;
+    margin-top: 25px;
+    position: relative;
+}
+
+.besponsorpage .main .block .contact .arrow-right {
+    display: inline-block;
+    position: absolute;
+    width: 6px;
+    height: 10px;
+    right: 15px;
+    top: 11px;
+}
+
+.besponsorpage .main .block .contact .arrow-right::after {
+    display: inline-block;
+    content: " ";
+    height: 5px;
+    width: 5px;
+    border-width: 1.5px 1.5px 0 0;
+    border-style: solid;
+    transform: matrix(.71,.71,-0.71,.71,0,0);
+    position: absolute;
+    top: 50%;
+    right: 6rpx;
+}
+
+.besponsorpage .main .block.daily {
+    border: solid 1px #ffdbd9;
+}
+
+.besponsorpage .main .block.daily .contact {
+    background-color: #fcebea;
+    color: #dd3e34;
+}
+
+.besponsorpage .main .block.daily .contact .arrow-right::after {
+    border-color: #dd3e34;
+}
+
+.besponsorpage .main .block.daily .contact.highlight {
+    background-color: #e3d4d3;
+}
+
+.besponsorpage .main .block.self {
+    border: solid 1px #f2e3b8;
+}
+
+.besponsorpage .main .block.self .contact {
+    background-color: #fbf2d9;
+    color: #b97a00;
+}
+
+.besponsorpage .main .block.self .contact .arrow-right::after {
+    border-color: #b97a00;
+}
+
+.besponsorpage .main .block.self .contact.highlight {
+    background-color: #e0d8c1;
+}
+
+.besponsorpage .main .user-share {
+    margin: 40px 0px;
+    text-align: center;
+}
+
+.besponsorpage .main .user-share button {
+    display: inline-block;
+    font-size: 14px;
+    color: #575757;
+}
+
+.besponsorpage .main .user-share button.highlight {
+    opacity: .6;
+}
+
+.besponsorpage .main .user-share button .arrow-right {
+    border: solid #b3b3b3;
+    border-width: 0 1.5px 1.5px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    position: relative;
+    margin-left: 6px;
+    top: -1px;
+}

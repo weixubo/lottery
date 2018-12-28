@@ -1,0 +1,5 @@
+<view class="banner-ad-component">
+    <navigator appId="{{banner&&banner.app_id}}" bindtap="redirect" path="{{banner&&banner.app_path}}" target="miniProgram">
+        <image mode="widthFix" src="{{banner.image}}" wx:if="{{banner}}"></image>
+    </navigator>
+</view>

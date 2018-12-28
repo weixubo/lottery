@@ -1,0 +1,21 @@
+<view class="officialsharepage">
+    <Layout navigationStyle="{{navigationStyle}}" needGetUserInfo="{{false}}" title="{{navigationTitle}}">
+        <view class="page-container" wx:if="{{game}}">
+            <view class="share-image">
+                <image mode="widthFix" src="{{imageUrl}}" style="{{imageStyle}}"></image>
+                <view class="action-button-container" wx:if="{{shareImage}}">
+                    <view bindtap="saveImage" class="action-button" hoverClass="highlight">
+                        <text>保存图片</text>
+                        <text class="meta">(1080*864 像素)</text>
+                    </view>
+                </view>
+            </view>
+            <view class="share-url">
+                <view class="share-url-text">{{'pages/lottery/pages/game?id='+game.id}}</view>
+                <view class="action-button-container">
+                    <view bindtap="setClipboard" class="action-button" hoverClass="highlight">复制路径</view>
+                </view>
+            </view>
+        </view>
+    </Layout>
+</view>

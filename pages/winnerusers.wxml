@@ -1,0 +1,71 @@
+<view class="winneruserspage">
+    <Layout needGetUserInfo="{{false}}" title="{{navigationTitle}}">
+        <view class="loading" wx:if="{{!inited}}">
+            <image mode="aspectFit" src="https://cdn.readhub.cn/mina/lottery/loading.gif"></image>
+        </view>
+        <view class="main" wx:else>
+            <view class="ad-container">
+                <BannerAd banner="{{banner}}" wx:if="{{banner}}"></BannerAd>
+                <ad unitId="adunit-d86baf104a7a51e1" wx:else></ad>
+            </view>
+            <view class="game-detail-info-winers">
+                <view class="game-detail-info-winers-container">
+                    <view class="no-winners" wx:if="{{luckyUsersGroup.length===0}}">暂无中奖者</view>
+                    <view class="winner-users" wx:else>
+                        <view class="title">中奖者名单</view>
+                        <view class="prize-users" wx:if="{{item.users.length>0}}" wx:for="{{luckyUsersGroup}}" wx:key="index">
+                            <view class="prize-name">奖品：{{item.prize}} x{{item.count}}</view>
+                            <view class="game-detail-info-winers-list {{item.usergroups.length===1?'one-user':''}} {{item.usergroups.length===2?'two-user':''}} {{item.usergroups.length>=3?'three-user':''}}">
+                                <view class="game-detail-info-winers-user" wx:for="{{item.usergroups}}" wx:key="index">
+                                    <view class="game-detail-info-winers-user-container" wx:if="{{!item.groupId||item.users.length===1}}">
+                                        <image lazyLoad="lazy-load" mode="aspectFill" src="{{format.wxAvatar(item.users[0].avatar,132)||'https://cdn.readhub.cn/mina/lottery/default-avatar-small.png'}}"></image>
+                                        <text class="user-nick-name">{{item.users[0].nick_name}}</text>
+                                    </view>
+                                    <view bindtap="showGroup" class="game-detail-info-winers-user-container group-user" data-wpyshowgroup-a="{{item}}" wx:else>
+                                        <view class="group-user-images">
+                                            <image class="user-image" lazyLoad="lazy-load" src="{{item.avatar}}" wx:for="{{format.groupUsers(item.users)}}" wx:key="index"></image>
+                                            <image class="tuan-icon" src="https://cdn.readhub.cn/mina/lottery/icn-tuan-small@3x.png"></image>
+                                        </view>
+                                        <view class="user-nick-name">{{item.users[0].nick_name}}{{item.users.length>1?'...':''}}
+                        <text wx:if="{{item.users.length>1}}">等 {{item.users.length}} 人</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view bindtap="loadMore" class="join-users-loadmore" hoverClass="highlight" wx:if="{{hasMore&&luckyUsersGroup.length-1===index}}">{{loading?'加载中...':'加载更多'}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="popup-box-container {{$PopupBox$popupBoxShow?'show':''}}">
+                    <view bindtap="$PopupBox$closePopupBox" class="popup-box-cover"></view>
+                    <view class="popup-box" style="{{$PopupBox$contentStyle}}">
+                        <image bindtap="$PopupBox$closePopupBox" class="popup-box-close" src="https://cdn.readhub.cn/mina/lottery/close@3x.png" wx:if="{{$PopupBox$showClose&&!$PopupBox$disableClose}}"></image>
+                        <view class="popup-group-container" wx:if="{{showedGroup}}">
+                            <view class="group-origin-winners">
+                                <view class="label">组队中奖者</view>
+                                <view class="group-origin-winner" wx:for="{{showedGroup.origins}}" wx:key="index">
+                                    <view class="user-avatar">
+                                        <image class="user-image" lazyLoad="lazy-load" src="{{item.avatar}}"></image>
+                                        <image class="wing-left" src="https://cdn.readhub.cn/mina/lottery/angel-wing-left@3x.png"></image>
+                                        <image class="wing-right" src="https://cdn.readhub.cn/mina/lottery/angel-wing-right@3x.png"></image>
+                                    </view>
+                                    <view class="user-name">{{item.nick_name}}</view>
+                                </view>
+                            </view>
+                            <view class="group-users">
+                                <view class="label">队内成员每人也获得一份奖品</view>
+                                <view class="game-detail-info-winers-list {{showedGroup.others.length===1?'one-user':''}} {{showedGroup.others.length===2?'two-user':''}} {{showedGroup.others.length>=3?'three-user':''}}">
+                                    <view class="game-detail-info-winers-user" wx:for="{{showedGroup.others}}" wx:key="index">
+                                        <image mode="aspectFill" src="{{format.wxAvatar(item.avatar,132)||'https://cdn.readhub.cn/mina/lottery/default-avatar-small.png'}}"></image>
+                                        <text class="user-nick-name">{{item.nick_name}}</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </Layout>
+</view>
+<wxs module="format" src="../wxs/format.wxs" />

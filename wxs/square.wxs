@@ -1,0 +1,39 @@
+module.exports = ({
+    status: (function(square) {
+        if (!square.lottery && square.state !== -1) {
+            return (-1)
+        };
+        if (square.refund_state) {
+            return (8)
+        };
+        if (square.display_state === 1) {
+            return (7)
+        };
+        if (square.display_state === 2) {
+            return (5)
+        };
+        if (square.verify_state === -1) {
+            return (4)
+        };
+        if (!square.verify_state) {
+            return (1)
+        };
+        if (square.verify_state === 1) {
+            return (2)
+        };
+        if (square.verify_state === 2) {
+            return (3)
+        }
+    }),
+    refundStatus: (function(square) {
+        if (square.refund_state === 1) {
+            return ('退款成功')
+        } else if (square.refund_state === 2) {
+            return ('退款成功')
+        } else if (square.refund_state === -1) {
+            return ('退款失败')
+        } else {
+            return ('未进行退款')
+        }
+    }),
+});

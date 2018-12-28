@@ -1,0 +1,7 @@
+{
+    "enablePullDownRefresh": false,
+    "backgroundTextStyle": "light",
+    "usingComponents": {
+        "Layout": "../components/Layout/Layout"
+    }
+}

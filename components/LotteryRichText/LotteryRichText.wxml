@@ -1,0 +1,25 @@
+<view class="game-rich-text" wx:if="{{game&&(game.copyable_info||game.content.imageText&&game.content.imageText.length>0&&canIUseRichText)}}">
+    <HtmlViews content="{{previewContent}}" disableImagePreview="{{disableImagePreview}}" disableObserver="{{disableObserver}}" game="{{game}}"></HtmlViews>
+    <view class="mina-redirect" wx:if="{{mina&&game}}">
+        <navigator appId="{{game.sponsor.appid}}" bindtap="redirectMina" class="redirect-button" hoverClass="highlight" path="{{game.sponsor.path}}" target="miniProgram">
+            <image class="mina-icon" src="https://cdn.readhub.cn/mina/lottery/icn-miniapp@3x.png"></image>
+            <view class="sponsor-name">{{game.sponsor.name}}</view>
+            <view class="sponsor-info">点击体验</view>
+            <view class="arrow-right"></view>
+        </navigator>
+    </view>
+    <web-view src="{{game.sponsor.article}}" wx:if="{{disableWebView}}"></web-view>
+    <view class="mina-redirect" wx:if="{{game.sponsor.article}}">
+        <view bindtap="openGZHartical" class="redirect-button blue" hoverClass="highlight2">
+            <image class="mina-icon" src="https://cdn.readhub.cn/mina/lottery/icn-gzh@3x.png"></image>
+            <view class="sponsor-name blue">{{game.sponsor.name}}</view>
+            <view class="sponsor-info blue">点击了解</view>
+            <view class="arrow-right blue"></view>
+        </view>
+    </view>
+    <view class="copy-info" wx:if="{{game.copyable_info}}">
+        <view class="copy-info-title">{{game.copyable_info.title}}</view>
+        <view class="copy-info-content">{{game.copyable_info.text}}</view>
+        <view bindtap="copyInfo" class="copy-button" hoverClass="highlight">点此一键复制</view>
+    </view>
+</view>

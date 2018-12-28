@@ -1,0 +1,35 @@
+<view class="transactionrecordpage">
+    <Layout needGetUserInfo="{{false}}" title="{{navigationTitle}}">
+        <view class="loading" wx:if="{{!inited}}">
+            <image mode="aspectFit" src="https://cdn.readhub.cn/mina/lottery/loading.gif"></image>
+        </view>
+        <view class="transactionrecord-container" wx:else>
+            <view scrollY class="transactionrecord-list" wx:if="{{records&&records.length>1}}">
+                <view class="transactionrecord-item" wx:for="{{records}}" wx:key="id">
+                    <view class="transactionrecord-item-line first">
+                        <view>{{item.description}}</view>
+                        <view class="amount-count {{item.amount>0?'plus':'miuns'}}">{{item.amount>0?'+':''}}{{item.displayAmount}}</view>
+                    </view>
+                    <view class="transactionrecord-item-line second">
+                        <view>{{item.displayDate}}</view>
+                        <view>余额 ￥{{item.displayBalance}}</view>
+                    </view>
+                    <view class="transactionrecord-item-meta error" wx:if="{{item.status===-1}}">
+                        <text>{{item.error_msg}}</text>
+                    </view>
+                    <view class="transactionrecord-item-meta" wx:elif="{{item.event_type===0}}">
+                        <text>由「微信钱包」支付</text>
+                    </view>
+                    <view class="transactionrecord-item-meta" wx:elif="{{item.event_type===2}}">
+                        <text class="fix">已退款至「微信钱包」</text>
+                    </view>
+                </view>
+            </view>
+            <view class="empty" wx:else>
+                <image mode="aspectFit" src="https://cdn.readhub.cn/mina/lottery/icn-empty-default-1@3x.png"></image>
+                <view class="desc">暂无交易记录</view>
+            </view>
+        </view>
+        <view bindtap="loadMore" class="join-users-loadmore" hoverClass="highlight" wx:if="{{hasMore&&inited}}">{{loading?'加载中...':'加载更多'}}</view>
+    </Layout>
+</view>

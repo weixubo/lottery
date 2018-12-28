@@ -1,0 +1,30 @@
+<view class="prizepage">
+    <Layout needGetUserInfo="{{false}}" title="{{navigationTitle}}">
+        <view class="main">
+            <view class="prize">
+                <view class="prize-info">
+                    <view class="prize-remind" wx:if="{{game.theme!=='funny'}}">
+                        <view wx:if="{{result.prize.type===4}}">
+                            <text>请在</text>
+                            <text class="color-red" wx:if="{{endDate}}"> {{endDate}} 前</text>
+                            <text class="color-red" wx:else>开奖后 1 天内</text>填写收货信息，超时则无法填写，奖品将由抽奖助手官方发货
+              </view>
+                        <view wx:else>
+                            <text>请在</text>
+                            <text class="color-red" wx:if="{{endDate}}"> {{endDate}} 前</text>
+                            <text class="color-red" wx:else>开奖后 1 天内</text>填写收货信息，抽奖助手将发给发起人，超时则无法填写</view>
+                    </view>
+                    <view class="prize-info-label" wx:if="{{game.theme!=='funny'}}">收货地址</view>
+                    <view bindtap="addressManager" class="prize-info-contact {{game.contact_set_disabled?'disable':''}}" hoverClass="highlight" wx:if="{{game.theme!=='funny'}}">
+                        <view class="prize-info-contact-value">{{userContact?userContact:'选择收货地址'}}</view>
+                        <text class="arrow-right"></text>
+                    </view>
+                    <textarea bindinput="userInput" bindtap="textareaTap" class="{{contactChecker}} {{game.contact_set_disabled?'disable':''}}" disabled="{{game.contact_set_disabled}}" placeholder="{{game.theme==='funny'?'填写留言':'填写备注信息'}}" placeholderStyle="font-size: 14px; color: rgba(0,0,0,0.3)" value="{{initNotes}}"></textarea>
+                    <view class="send-prize-contact {{game.contact_set_disabled?'disable':''}}">
+                        <button bindtap="sendPrizeContact">保存</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </Layout>
+</view>

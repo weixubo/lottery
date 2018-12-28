@@ -1,0 +1,1067 @@
+page {
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 100%;
+    font-family: "PingFangSC-Regular";
+}
+
+page .auth-tip {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.66);
+    z-index: 930;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+page .auth-tip .box {
+    border-radius: 4px;
+    box-shadow: 0 7.5px 12.5px 0 rgba(0,0,0,0.15);
+    background: #fff;
+    max-width: 325px;
+    margin: 0px 25px;
+    height: 375px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+page .auth-tip .box .title {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.9);
+    margin-top: 45px;
+}
+
+page .auth-tip .box .tip {
+    font-size: 14px;
+    color: rgba(0,0,0,0.5);
+    margin-top: 18px;
+}
+
+page .auth-tip .box image {
+    margin-top: 30px;
+    width: 303px;
+    height: 160px;
+}
+
+page .auth-tip .box .btn {
+    margin-top: 12px;
+    height: 44px;
+    width: 80%;
+    line-height: 44px;
+    text-align: center;
+    background-color: #e2453a;
+    color: #ffffff;
+    font-size: 15px;
+    border-radius: 2px;
+}
+
+.gameroom .room-detail {
+    margin: 0px 0px 30px;
+    padding-bottom: 36px;
+}
+
+.gameroom .room-detail.show {
+    opacity: 1;
+}
+
+.gameroom .room-detail.hide {
+    opacity: 0;
+}
+
+.gameroom .game-detail-preview {
+    margin: 0px 12px 0px;
+    position: relative;
+    z-index: 2;
+}
+
+.gameroom .game-detail-preview .game-detail-preview-cover {
+    height: 10px;
+    width: 100%;
+    background: #f0f0f0;
+}
+
+.gameroom .game-detail-preview .game-detail-card {
+    border-radius: 6px;
+    position: relative;
+    background: #fff;
+    box-shadow: 0 2px 5px -2px rgba(0,0,0,0.1);
+    border: 1rpx outset rgba(0,0,0,0.25);
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.gameroom .room-global-message-container {
+    margin: 0px 12px;
+}
+
+.gameroom .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+    margin-top: 70%;
+}
+
+.gameroom .loading image {
+    width: 28px;
+    height: 28px;
+}
+
+.gameroom .room-prize {
+    padding: 12px 16px;
+}
+
+.gameroom .room-prize .game-mannal-start {
+    border-top: 1rpx solid rgba(0,0,0,0.08);
+    padding-top: 10px;
+}
+
+.gameroom .room-prize .game-mannal-start view {
+    height: 40px;
+    line-height: 40px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background: linear-gradient(to right,#cc5e52,#d67162);
+    border: solid 1rpx rgba(0,0,0,0.1);
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: .4px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.gameroom .room-prize .game-mannal-start view.highlight {
+    background: #aa5146;
+}
+
+.gameroom .room-prize .room-prize-desc {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.gameroom .room-prize .room-prize-desc .room-prize-title {
+    flex: 1 1 auto;
+    font-size: 19px;
+    letter-spacing: .5px;
+    color: rgba(0,0,0,0.8);
+    align-self: center;
+    margin-right: 8px;
+}
+
+.gameroom .room-prize .room-prize-desc .room-prize-name {
+    word-break: break-all;
+    margin-right: 8px;
+}
+
+.gameroom .room-prize .room-prize-desc .room-prize-count-icon {
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: .5px;
+    color: #ce6155;
+    position: relative;
+    top: -1px;
+}
+
+.gameroom .room-prize .room-prize-desc .room-prize-count {
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: .5px;
+    color: #ce6155;
+}
+
+.gameroom .room-prize .room-prize-desc .room-prize-image {
+    height: 36px;
+    flex: 0 0 auto;
+    align-self: flex-start;
+}
+
+.gameroom .room-prize .room-prize-owner {
+    border-top: 1rpx solid rgba(0,0,0,0.08);
+    display: flex;
+    padding-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: .3px;
+    color: rgba(0,0,0,0.4);
+}
+
+.gameroom .room-prize .room-prize-owner .room-prize-owner-label {
+    flex: 1 0 auto;
+    align-self: center;
+}
+
+.gameroom .room-prize .room-prize-owner .room-prize-owner-avatar {
+    flex: 0 0 auto;
+    align-self: center;
+    height: 22px;
+    margin-right: 6px;
+}
+
+.gameroom .room-prize .room-prize-owner .room-prize-owner-name {
+    flex: 0 0 auto;
+    align-self: center;
+}
+
+.gameroom .room-prize .room-prize-owner .room-prize-owner-online {
+    flex: 0 0 auto;
+    align-self: center;
+    margin-left: 6px;
+}
+
+@-webkit-keyframes animateGlobalMessage {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: -100%;
+    }
+}
+
+@keyframes animateGlobalMessage {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: -100%;
+    }
+}
+
+@-webkit-keyframes animateDanmuMessage {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-1500px);
+    }
+}
+
+@keyframes animateDanmuMessage {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-1500px);
+    }
+}
+
+@-webkit-keyframes avatarShow {
+    0% {
+        -webkit-transform: scale(0);
+    }
+
+    80% {
+        -webkit-transform: scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
+
+@keyframes avatarShow {
+    0% {
+        transform: scale(0);
+    }
+
+    80% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes avatarHide {
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes avatarHide {
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes countShow {
+    100% {
+        opacity: 0;
+        transform: scale(1.35);
+    }
+}
+
+@keyframes countShow {
+    100% {
+        opacity: 0;
+        transform: scale(1.35);
+    }
+}
+
+@-webkit-keyframes slotMachineShow {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: 0%;
+    }
+}
+
+@keyframes slotMachineShow {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: 0%;
+    }
+}
+
+@-webkit-keyframes animateAvatar {
+    0% {
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    25% {
+        margin-left: 0px;
+        margin-top: -10px;
+    }
+
+    50% {
+        margin-left: -10px;
+        margin-top: -10px;
+    }
+
+    75% {
+        margin-left: -10px;
+        margin-top: 0px;
+    }
+
+    100% {
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+}
+
+@keyframes animateAvatar {
+    0% {
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    25% {
+        margin-left: 0px;
+        margin-top: -10px;
+    }
+
+    50% {
+        margin-left: -10px;
+        margin-top: -10px;
+    }
+
+    75% {
+        margin-left: -10px;
+        margin-top: 0px;
+    }
+
+    100% {
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+}
+
+@-webkit-keyframes resultBGShow {
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes resultBGShow {
+    100% {
+        opacity: 1;
+    }
+}
+
+.gameroom .room-message-bar {
+    position: relative;
+    height: 26px;
+    line-height: 26px;
+    padding: 8px;
+    background-color: #fff6e5;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1.1px;
+    text-align: center;
+    color: #856733;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px -2px rgba(0,0,0,0.1);
+    border: 1rpx solid #c3b69e;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.gameroom .room-message-bar .room-message-bar-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #f0e1c6;
+    border: solid 1rpx #c3b69e;
+    border-radius: 50%;
+}
+
+.gameroom .room-message-bar .room-message-bar-dot-1 {
+    left: 4px;
+    top: 4px;
+}
+
+.gameroom .room-message-bar .room-message-bar-dot-2 {
+    right: 4px;
+    top: 4px;
+}
+
+.gameroom .room-message-bar .room-message-bar-dot-3 {
+    left: 4px;
+    bottom: 4px;
+}
+
+.gameroom .room-message-bar .room-message-bar-dot-4 {
+    right: 4px;
+    bottom: 4px;
+}
+
+.gameroom .room-message-bar .room-global-message {
+    height: 2em;
+    font-weight: bold;
+    line-height: 2em;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+.gameroom .room-message-bar .room-global-message .content {
+    white-space: nowrap;
+}
+
+.gameroom .chat-bar {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    background-color: #f7f7f7;
+    border-top: 1rpx solid rgba(0,0,0,0.2);
+    width: 100%;
+    padding: 8px 0px;
+    height: 44px;
+}
+
+.gameroom .chat-bar.fix {
+    padding-bottom: 38px;
+}
+
+.gameroom .chat-bar input {
+    align-self: center;
+    height: 44px;
+    box-sizing: border-box;
+    border: solid 1rpx #cccccc;
+    background-color: #ffffff;
+    border-radius: 4px;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 11px 14px;
+    font-size: 15px;
+    letter-spacing: .4px;
+    position: absolute;
+    left: 0px;
+    z-index: 10;
+    transition: width linear .3s;
+}
+
+.gameroom .chat-bar input.input-placeholder {
+    color: rgba(51,51,51,0.3);
+}
+
+.gameroom .chat-bar .chat-bar-speck {
+    position: absolute;
+    right: 0px;
+    width: 91px;
+    height: 42px;
+    line-height: 42px;
+    margin-right: 8px;
+    align-self: center;
+    border-radius: 4px;
+    background: linear-gradient(to top,#f2f2f2,#fafafa);
+    border: solid 1rpx #cccccc;
+    font-size: 15px;
+    letter-spacing: .4px;
+    color: rgba(0,0,0,0.6);
+    opacity: 1;
+    transition: opacity linear .2s;
+}
+
+.gameroom .chat-bar .chat-bar-speck.show {
+    opacity: 1;
+}
+
+.gameroom .chat-bar .chat-bar-speck.hide {
+    opacity: 0;
+}
+
+.gameroom .chat-bar .chat-bar-speck image {
+    margin: 0px 5px 0px 14px;
+    position: relative;
+    top: 1px;
+}
+
+.gameroom .chat-bar .chat-bar-speck.highlight {
+    background: #e3e3e3;
+}
+
+.gameroom .room-content {
+    width: 100%;
+    position: relative;
+}
+
+.gameroom .room-content .room-count {
+    font-size: 13px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.4);
+    position: absolute;
+    right: 13px;
+    bottom: 9px;
+}
+
+.gameroom .room-content .connect-status {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.8);
+    position: absolute;
+    left: 13px;
+    bottom: 9px;
+}
+
+.gameroom .room-content .room-users {
+    height: 100%;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.gameroom .room-content .room-users image {
+    -webkit-backface-visibility: hidden;
+    position: absolute;
+    border-radius: 50%;
+    border: solid 1rpx rgba(0,0,0,0.1);
+}
+
+.gameroom .room-content .room-users image.ios {
+    box-shadow: 0 2.5px 5px 0 rgba(19,25,33,0.15);
+}
+
+.gameroom .room-content .room-users .toShow.android {
+    animation: .4s linear avatarShow;
+    will-change: transform;
+}
+
+.gameroom .room-content .room-users .toShow.ios {
+    animation: .5s linear avatarShow;
+    will-change: transform;
+}
+
+.gameroom .room-content .room-users .toHide.android {
+    display: none;
+}
+
+.gameroom .room-content .room-users .toHide.ios {
+    will-change: opacity;
+    animation: .8s linear avatarHide forwards;
+}
+
+.gameroom .room-danmu {
+    width: 100%;
+    position: fixed;
+    bottom: 67px;
+    left: 0px;
+    z-index: 1;
+}
+
+.gameroom .room-danmu .room-danmu-stack {
+    height: 70px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.gameroom .room-danmu .room-danmu-stack .room-danmu-message {
+    height: 40px;
+    border-radius: 20px;
+    background-color: #d1b130;
+    box-shadow: 0 2.5px 5px 0 rgba(19,25,33,0.15);
+    border: solid 1rpx #a08517;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: .3px;
+    color: #ffffff;
+    display: inline-block;
+    padding: 7px 19px 8px 8px;
+    box-sizing: border-box;
+    animation: 10s linear animateDanmuMessage forwards;
+    position: absolute;
+    left: 100%;
+    margin-top: 10px;
+    opacity: .88;
+}
+
+.gameroom .room-danmu .room-danmu-stack .room-danmu-message.danmu-type-3 {
+    background-color: #d05848;
+    border: solid 1rpx #99392c;
+}
+
+.gameroom .room-danmu .room-danmu-stack .room-danmu-message.user-message {
+    background-color: #606266;
+    box-shadow: 0 2.5px 5px 0 rgba(19,25,33,0.15);
+    border: solid 1rpx #48484c;
+}
+
+.gameroom .room-danmu .room-danmu-stack .room-danmu-message .room-danmu-message-content {
+    display: flex;
+}
+
+.gameroom .room-danmu .room-danmu-stack .room-danmu-message .room-danmu-message-content text {
+    flex: 1 0 auto;
+    align-self: center;
+    height: 24px;
+    line-height: 24px;
+    opacity: 1;
+}
+
+.gameroom .room-danmu .room-danmu-stack .room-danmu-message .room-danmu-message-content image {
+    flex: 0 0 auto;
+    align-self: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.gameroom .slot-machine {
+    padding: 0px 12px 12px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+.gameroom .slot-machine.showAnimate {
+    animation: .6s linear slotMachineShow forwards;
+}
+
+.gameroom .slot-machine .slot-machine-result-message {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 0px;
+    border-radius: 4px;
+    left: 0px;
+    background-color: #fffdf7;
+    height: 100%;
+    justify-content: center;
+    color: #bc9703;
+    opacity: 0;
+    animation: .5s linear resultBGShow forwards;
+    display: flex;
+}
+
+.gameroom .slot-machine .slot-machine-result-message.slot-machine-winner-result-message {
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.gameroom .slot-machine .slot-machine-result-message.slot-machine-winner-result-message .result-status {
+    margin-top: 6px;
+    position: initial;
+}
+
+.gameroom .slot-machine .slot-machine-result-message .result-share {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 6px;
+    opacity: 0;
+    animation: resultBGShow .3s .5s linear forwards;
+}
+
+.gameroom .slot-machine .slot-machine-result-message .result-share .result-share-button {
+    width: 120px;
+    height: 33px;
+    line-height: 33px;
+    border-radius: 16.5px;
+    background: transparent;
+    border: solid 1rpx #c3a428;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: .3px;
+    text-align: center;
+    color: #c3a428;
+}
+
+.gameroom .slot-machine .slot-machine-result-message .result-share .result-share-button.highlight {
+    background-color: #d1b130;
+}
+
+.gameroom .slot-machine .slot-machine-result-message .result-status {
+    opacity: 0;
+    animation: resultBGShow .3s .5s linear forwards;
+    position: absolute;
+    top: 24px;
+    left: 0px;
+    width: 100%;
+    display: flex;
+}
+
+.gameroom .slot-machine .slot-machine-result-message .result-status .pendding {
+    flex: 1 1 auto;
+}
+
+.gameroom .slot-machine .slot-machine-result-message .result-status .split {
+    margin: 0px 6px;
+    flex: 0 0 auto;
+    align-self: center;
+    width: 10px;
+    height: 1px;
+    border-radius: 2px;
+    background: #bc9703;
+}
+
+.gameroom .slot-machine .slot-machine-result-message .result-status .label {
+    font-size: 12px!important;
+    font-weight: bold;
+    letter-spacing: .3px;
+    color: #bc9703;
+    flex: 0 0 auto;
+    align-self: center;
+}
+
+.gameroom .slot-machine .slot-machine-result-message .result-info {
+    align-self: center;
+    opacity: 0;
+    font-size: 20px;
+    animation: resultBGShow .3s .5s linear forwards;
+    font-weight: bold;
+}
+
+.gameroom .slot-machine .slot-bg {
+    position: absolute;
+    top: 0px;
+}
+
+.gameroom .slot-machine .light-on-bg {
+    position: absolute;
+    top: 0px;
+}
+
+.gameroom .slot-machine .slot-machine-stacks {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-self: center;
+}
+
+.gameroom .slot-machine .slot-machine-stacks .slot-machine-stack {
+    border-radius: 4px;
+    background-color: #fffdf7;
+    border: solid 1px #630813;
+    flex: 1;
+    margin-right: 9px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gameroom .slot-machine .slot-machine-stacks .slot-machine-stack.last {
+    margin-right: 0px;
+}
+
+.gameroom .slot-machine .slot-machine-stacks .slot-machine-stack .slot-machine-count {
+    position: absolute;
+    width: 70px;
+    height: 100px;
+    opacity: 1;
+    animation: .7s linear countShow forwards;
+}
+
+.gameroom .slot-machine .slot-machine-stacks .slot-machine-stack .slot-machine-stack-content {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.gameroom .slot-machine .slot-machine-stacks .slot-machine-stack .slot-machine-stack-content.slot-stop {
+    transition: transform .3s;
+}
+
+.gameroom .slot-machine .slot-machine-stacks .slot-machine-stack .slot-machine-stack-content image {
+    width: 50px;
+    height: 50px;
+    flex: 0 0 50px;
+    border-radius: 50%;
+    margin-bottom: 50px;
+}
+
+.gameroom .slot-machine .slot-machine-stacks .slot-machine-stack .slot-machine-stack-content .success-info {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 50px;
+    flex: 0 0 50px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: #bc9703;
+}
+
+.gameroom .winners {
+    position: absolute;
+    z-index: 0;
+    bottom: 18px;
+    left: 12px;
+}
+
+.gameroom .winners .winners-shadow {
+    width: 100%;
+    height: 13px;
+    position: absolute;
+    left: 0px;
+    top: 4px;
+    z-index: 10;
+}
+
+.gameroom .winners .winners-header {
+    font-size: 15px;
+    letter-spacing: .4px;
+    text-align: center;
+    color: rgba(0,0,0,0.5);
+    margin: 26px 0px 22px;
+    position: relative;
+    z-index: 10;
+}
+
+.gameroom .winners .winners-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
+    z-index: 10;
+}
+
+.gameroom .winners .winners-list .winner-item {
+    flex: 0 0 30%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameroom .winners .winners-list .winner-item:nth-child(3n+1) {
+    flex-basis: 35%;
+}
+
+.gameroom .winners .winners-list .winner-item:nth-child(3n+0) {
+    flex-basis: 35%;
+}
+
+.gameroom .winners .winners-list .winner-item image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.gameroom .winners .winners-list .winner-item text {
+    margin-top: 14px;
+    margin-bottom: 22px;
+    font-size: 13px;
+    letter-spacing: .3px;
+    color: rgba(0,0,0,0.6);
+    overflow: hidden;
+    width: 50px;
+    height: 20px;
+    line-height: 20px;
+    word-break: break-all;
+    display: inline-block;
+    text-align: center;
+}
+
+.gameroom .winners .winners-bg {
+    position: absolute;
+    bottom: -20px;
+    left: 0px;
+    width: 100%;
+    z-index: 0;
+}
+
+.gameroom .winners .winners-bg-top {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+@-webkit-keyframes animateShow {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes animateShow {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.gameroom .i-want-create-game {
+    margin-top: 30px;
+    height: 47px;
+    display: flex;
+    font-size: 18px;
+    border-radius: 24px;
+    border: 1rpx inset rgba(0,0,0,0.25);
+    justify-content: center;
+    align-items: center;
+    letter-spacing: .4px;
+    width: 100%;
+    position: absolute;
+    bottom: -190px;
+    background: linear-gradient(to right,#e05849,#e1705f);
+    color: #fff;
+    opacity: 0;
+    animation: 3s animateShow forwards;
+    animation-delay: 1s;
+}
+
+.gameroom .i-want-create-game:after {
+    display: none;
+}
+
+.gameroom .i-want-create-game.highlight {
+    background: #aa5146;
+}
+
+.gameroom .i-want-create-game image {
+    width: 27px;
+    height: 24px;
+    align-self: center;
+}
+
+.gameroom .game-detail-users {
+    margin: 30px 0px 0px;
+    display: block;
+    position: absolute;
+    left: 0px;
+    bottom: -113px;
+    width: 100%;
+    opacity: 0;
+    animation: 2.4s .6s animateShow forwards;
+}
+
+.gameroom .game-detail-users.animate-0 {
+    display: none;
+}
+
+.gameroom .game-detail-users .game-detail-users-banner {
+    text-align: center;
+}
+
+.gameroom .game-detail-users .game-detail-users-banner .game-detail-users-banner-value {
+    font-size: 15px;
+    letter-spacing: .3px;
+    text-align: center;
+    color: #808080;
+    flex: 0 0 auto;
+}
+
+.gameroom .game-detail-users .game-detail-users-banner .game-detail-users-banner-value view {
+    display: inline-block;
+    color: #45749f;
+    font-weight: bolder;
+    padding: 0px 6px;
+}
+
+.gameroom .game-detail-users .game-detail-users-banner .game-detail-users-banner-value view.highlight {
+    color: #45648f;
+    background: #ddd;
+}
+
+.gameroom .game-detail-users .game-detail-users-banner .game-detail-users-banner-value button {
+    display: inline;
+    font-size: 15px;
+    background: transparent;
+    color: #45749f;
+    font-weight: bolder;
+    border: none;
+    padding: 0px;
+}
+
+.gameroom .game-detail-users .game-detail-users-banner .game-detail-users-banner-value button.button-hover {
+    color: #45648f;
+    background: #ddd;
+}
+
+.gameroom .game-detail-users .game-detail-users-banner .game-detail-users-banner-value button:after {
+    display: none;
+}
+
+.gameroom .game-detail-users .game-detail-users-banner .game-detail-users-banner-line {
+    flex: 1 1 auto;
+    height: 1px;
+    opacity: .06;
+    background-color: #000000;
+    margin: 0px 14px;
+    align-self: center;
+}
+
+.gameroom .game-detail-users .game-detail-users-list {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.gameroom .game-detail-users .game-detail-users-list .game-detail-users-user {
+    width: 33px;
+    height: 33px;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 2px 4px;
+}
+
+.gameroom .game-detail-users .game-detail-users-list .game-detail-users-user image {
+    width: 33px;
+    height: 33px;
+}

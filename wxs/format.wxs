@@ -1,0 +1,81 @@
+var currencyReg = getRegExp('.', 'g');
+var rAvatar = getRegExp('^(https:\x5c/\x5c/wx.qlogo.cn\x5c/mmopen\x5c/vi_32\x5c/[^/]+\x5c/)(\x5cd+)$', 'ig');
+var textResetLengthRegTen = getRegExp('^(.{0,10})(.*)$');
+var textResetLengthRegEight = getRegExp('^(.{0,8})(.*)$');
+module.exports = ({
+    currency: (function(num, short) {
+        num = num / 100;
+        if (short) {
+            return (num.toString())
+        };
+        return (num.toFixed(2).toString().replace(currencyReg, (function(c, i, a) {
+            return (i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c)
+        })))
+    }),
+    wxAvatar: (function(image, size) {
+        size = size || 64;
+        if (rAvatar.test(image)) {
+            return (image.replace(rAvatar, '$1' + size))
+        } else {
+            return (image)
+        }
+    }),
+    groupUsers: (function(users) {
+        return (users.slice(0, 3))
+    }),
+    conditionImage: (function(type, value) {
+        if (type === 'area') {
+            return ('https://cdn.readhub.cn/mina/lottery/icn-condition-location@3x.png')
+        } else if (type === 'gender') {
+            if (value === '男') {
+                return ('https://cdn.readhub.cn/mina/lottery/icn-condition-male@3x.png')
+            } else {
+                return ('https://cdn.readhub.cn/mina/lottery/icn-condition-female@3x.png')
+            }
+        } else {
+            return ('')
+        }
+    }),
+    image: (function(image, process) {
+        if (!image) {
+            return ("")
+        };
+        var split = image.split("!");
+        if (split.length === 1) {
+            return (image + "!mina.lottery")
+        } else {
+            return (split[(0)] + (process ? ('!' + process) : "!mina.lottery"))
+        }
+    }),
+    prizeName: (function(prizes) {
+        if (!prizes || !prizes.length) {
+            return ('')
+        };
+        var rtn = '';
+        var i = 0;
+        var len = prizes.length;
+        for (; i < len; i++) {
+            if (i !== 0) {
+                rtn += '、'
+            };
+            rtn += (prizes[((nt_1 = (i), null == nt_1 ? undefined : 'number' === typeof nt_1 ? nt_1 : "" + nt_1))].name + ' x' + prizes[((nt_2 = (i), null == nt_2 ? undefined : 'number' === typeof nt_2 ? nt_2 : "" + nt_2))].count)
+        };
+        return (rtn)
+    }),
+    slice: (function(arr, end) {
+        if (arr) {
+            return (arr.slice(0, end))
+        } else {
+            return (arr)
+        }
+    }),
+    textResetLength: (function(text, len) {
+        if (text.length > 10 && len == 10) {
+            return (text.replace(textResetLengthRegTen, "$1..."))
+        } else if (text.length > 8 && len == 7) {
+            return (text.replace(textResetLengthRegEight, "$1..."))
+        } else {
+            return (text)
+        }
+    }),
+});

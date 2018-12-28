@@ -1,0 +1,74 @@
+<view class="indexPage">
+    <Layout bindgetuserinfo="getUserInfo" forceHideGetUserInfo="{{forceHideGetUserInfo}}" needGetUserInfo="{{needGetUserInfo}}" title="{{navigationTitle}}">
+        <view class="loading" wx:if="{{!inited}}">
+            <image mode="aspectFit" src="https://cdn.readhub.cn/mina/lottery/loading.gif"></image>
+        </view>
+        <block wx:else>
+            <view class="scrollview" wx:if="{{!isEmpty}}">
+                <view class="follow-official-account" wx:if="{{!hideFollowBar}}">
+                    <view class="desc">搜索关注公众号，获更好体验</view>
+                    <view bindtap="copyOfficialName" class="follow-btn" hoverClass="highlight">
+                        <text>复制名称</text>
+                    </view>
+                    <image bindtap="closeFollowBar" class="close" hoverClass="highlight" src="https://cdn.readhub.cn/mina/lottery/icn-close@3x.png"></image>
+                </view>
+                <view class="group">
+                    <view class="group-label">
+                        <image class="official-banner" mode="widthFix" src="{{bannerImage}}"></image>
+                        <view class="label-actions">
+                            <view bindtap="goToSponsor" class="besponsor" hoverClass="highlight">我要上首页</view>
+                            <view class="split"></view>
+                            <button bindtap="share" class="share-to-frind buttonfix" hoverClass="highlight">分享</button>
+                        </view>
+                    </view>
+                    <view class="group-list official-list">
+                        <view class="item" wx:for="{{doneGames}}" wx:key="id">
+                            <OfficialLottery bindlotterytap="lotterytap" item="{{item}}"></OfficialLottery>
+                        </view>
+                    </view>
+                </view>
+                <view class="group square-group">
+                    <view class="group-label">
+                        <view class="official-banner">
+                            <LazyImage mode="widthFix" src="https://cdn.readhub.cn/mina/lottery/selfhelp-banner@3x.png" styles="width: 195px; height: 53px;"></LazyImage>
+                        </view>
+                    </view>
+                    <view class="group-list suggest-square-list">
+                        <view class="item" wx:for="{{suggestSquareLotteries}}" wx:key="id">
+                            <SuggestSquareLottery bindlotterytap="goToLottery" item="{{item}}"></SuggestSquareLottery>
+                        </view>
+                    </view>
+                    <view class="group-list normal-square-list">
+                        <view class="item" wx:for="{{normalSquareLotteries}}" wx:key="id">
+                            <NormalSquareLottery bindlotterytap="goToLottery" item="{{item}}"></NormalSquareLottery>
+                        </view>
+                        <view bindtap="loadMoreSquare" class="square-loadmore" hoverClass="highlight" wx:if="{{hasMoreSquareGames}}">
+                            <text>查看全部</text>
+                            <text class="arrow-right"></text>
+                        </view>
+                    </view>
+                </view>
+                <view class="ad-container">
+                    <BannerAd banner="{{banner}}" wx:if="{{banner}}"></BannerAd>
+                    <ad unitId="adunit-ad6bca9da314b8cc" wx:else></ad>
+                </view>
+            </view>
+            <view class="empty" wx:else>
+                <image mode="aspectFit" src="https://cdn.readhub.cn/mina/lottery/icn-empty-default-1@3x.png"></image>
+                <button bindtap="initPage" type="warn" wx:if="{{showReload}}">刷新页面</button>
+            </view>
+            <BottomNavigation badge="{{showBadge}}" index="{{buttomNavigationActiveIndex}}"></BottomNavigation>
+        </block>
+    </Layout>
+    <view bindtap="$actionsheet$hide" class="sheet-cover" wx:if="{{$actionsheet$show}}"></view>
+    <view class="actionsheet" style="{{$actionsheet$actionSheetStyle}}" wx:if="{{$actionsheet$items.length>0}}">
+        <view class="items">
+            <button bindtap="$actionsheet$chooseItem" class="item" data-wpychooseitem-a="{{item}}" data-wpychooseitem-b="{{index}}" hoverClass="hover" openType="{{item.openType||''}}" wx:if="{{item.label}}" wx:for="{{$actionsheet$items}}" wx:key="{{index}}">
+        {{item.label}}
+      </button>
+        </view>
+        <view class="cancel">
+            <button bindtap="$actionsheet$hide" class="item" hoverClass="hover">取消</button>
+        </view>
+    </view>
+</view>

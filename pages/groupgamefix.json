@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "组队邀请",
+    "usingComponents": {
+        "LotteryRichText": "../components/LotteryRichText/LotteryRichText",
+        "LazyImage": "../components/LazyImage/LazyImage",
+        "Layout": "../components/Layout/Layout",
+        "NormalLottery": "../components/NormalLottery/NormalLottery"
+    }
+}

@@ -1,0 +1,8 @@
+<view class="webview">
+    <view class="container" wx:if="{{canIUse}}">
+        <web-view src="{{url}}" wx:if="{{url}}"></web-view>
+    </view>
+    <view class="tip" wx:else>
+        <view>请升级到微信最新版本 :)</view>
+    </view>
+</view>

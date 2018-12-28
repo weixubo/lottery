@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "图片裁剪",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#000",
+    "navigationBarBackgroundColor": "#000",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "Layout": "../components/Layout/Layout"
+    }
+}

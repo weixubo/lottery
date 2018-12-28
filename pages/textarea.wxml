@@ -1,0 +1,6 @@
+<view class="textareapage">
+    <Layout needGetUserInfo="{{false}}" title="{{navigationTitle}}">
+        <textarea autoFocus autoHeight bindinput="userInput" maxlength="{{maxlength}}" placeholder="{{placeholder}}" style="{{style}}" value="{{value}}"></textarea>
+        <view bindtap="userConfirm" class="user-confirm" hoverClass="highlight">{{confirmText}}</view>
+    </Layout>
+</view>

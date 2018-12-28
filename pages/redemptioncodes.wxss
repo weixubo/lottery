@@ -1,0 +1,120 @@
+page {
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 100%;
+    font-family: "PingFangSC-Regular";
+}
+
+.redemptioncodespage .add-view .header {
+    padding: 20px 15px 15px;
+    display: flex;
+}
+
+.redemptioncodespage .add-view .header .tips {
+    flex: 1 1 auto;
+    font-size: 13px;
+    color: #808080;
+}
+
+.redemptioncodespage .add-view .header .clear {
+    flex: 0 0 auto;
+    font-size: 13px;
+    color: #e2453a;
+    font-weight: bold;
+}
+
+.redemptioncodespage .add-view .header .clear.highlight {
+    color: #b82e24;
+}
+
+.redemptioncodespage .add-view .body {
+    background: #fff;
+}
+
+.redemptioncodespage .add-view .body textarea {
+    width: 100%;
+    padding: 15px;
+    white-space: pre-line;
+    line-height: 1.8em;
+    font-size: 15px;
+    height: 250px;
+    box-sizing: border-box;
+}
+
+.redemptioncodespage .add-view .body .textarea-placeholder {
+    line-height: 1.8em;
+    font-size: 15px;
+    color: rgba(26,26,26,0.2);
+}
+
+.redemptioncodespage .add-view .confirm-button {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    background: #fff;
+    border-top: 1rpx solid rgba(0,0,0,0.12);
+}
+
+.redemptioncodespage .add-view .confirm-button .button {
+    background-color: #575757;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.redemptioncodespage .add-view .confirm-button .button.highlight {
+    background-color: #333;
+}
+
+.redemptioncodespage .preview {
+    padding-bottom: 100px;
+}
+
+.redemptioncodespage .preview .header {
+    padding: 20px 15px 5px;
+    display: flex;
+}
+
+.redemptioncodespage .preview .header .tips {
+    flex: 1 1 auto;
+    font-size: 13px;
+    color: #808080;
+}
+
+.redemptioncodespage .preview .item {
+    background: #fff;
+    word-break: break-all;
+    padding: 15px;
+    font-size: 15px;
+    color: #1a1a1a;
+    margin: 10px 0px;
+}
+
+.redemptioncodespage .preview .confirm-button {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    background: #fff;
+    border-top: 1rpx solid rgba(0,0,0,0.12);
+}
+
+.redemptioncodespage .preview .confirm-button .button {
+    background-color: #575757;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.redemptioncodespage .preview .confirm-button .button.highlight {
+    background-color: #333;
+}

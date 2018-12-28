@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "高级版管理",
+    "backgroundTextStyle": "dark",
+    "usingComponents": {
+        "Layout": "../../../components/Layout/Layout"
+    }
+}

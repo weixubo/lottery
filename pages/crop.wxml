@@ -1,0 +1,11 @@
+<Layout backIcon="{{backIcon}}" navigationStyle="{{navigationStyle}}" needGetUserInfo="{{false}}" title="{{navigationTitle}}">
+    <view class="crop-page">
+        <view class="crop-container" style="{{containerStyle}}">
+            <canvas bindtouchend="touchEnd" bindtouchmove="touchMove" bindtouchstart="touchStart" canvasId="cropper" class="cropper" disableScroll="true" style="width:{{viewportWidth}}px;height:{{viewportWidth}}px;background-color: rgba(0, 0, 0, 0.8)"></canvas>
+        </view>
+        <view bindtap="crop" class="crop-done {{isIphoneX?'iPhoneX':''}}" hoverClass="highlight">
+            <text>完成</text>
+            <view class="tip">裁剪后图片尺寸为 900*450 px</view>
+        </view>
+    </view>
+</Layout>

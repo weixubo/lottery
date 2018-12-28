@@ -1,0 +1,78 @@
+{
+    "pages": [
+        "pages/index",
+        "pages/create",
+        "pages/error",
+        "pages/game",
+        "pages/contact",
+        "pages/prize",
+        "pages/shareimage",
+        "pages/users",
+        "pages/crop",
+        "pages/gameroom",
+        "pages/profile",
+        "pages/redirectCreate",
+        "pages/generateimage",
+        "pages/officialshare",
+        "pages/usergames",
+        "pages/winnerusers",
+        "pages/groupgame",
+        "pages/groupgamefix",
+        "pages/besponsor",
+        "pages/textarea",
+        "pages/createwithfun",
+        "pages/editor",
+        "pages/sponsorcontact",
+        "pages/squaregames",
+        "pages/redirectback",
+        "pages/selfsubmit",
+        "pages/redemptioncodes",
+        "pages/webview",
+        "pages/me/more/more",
+        "pages/me/points/points",
+        "pages/squaregame",
+        "pages/createsquaregame",
+        "pages/refund"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTitleText": "抽奖助手",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f0f0f0",
+        "navigationStyle": "custom"
+    },
+    "tabBar": {
+        "color": "#f0f0f0",
+        "selectedColor": "#f0f0f0",
+        "backgroundColor": "#f0f0f0",
+        "borderStyle": "white",
+        "list": [
+            {
+                "pagePath": "pages/index",
+                "text": "",
+                "iconPath": "images/cut-20.png",
+                "selectedIconPath": "images/cut-20.png"
+            },
+            {
+                "pagePath": "pages/redirectCreate",
+                "text": "",
+                "iconPath": "images/cut-20.png",
+                "selectedIconPath": "images/cut-20.png"
+            },
+            {
+                "pagePath": "pages/profile",
+                "text": "",
+                "iconPath": "images/cut-20.png",
+                "selectedIconPath": "images/cut-20.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "uploadFile": 15000,
+        "downloadFile": 15000,
+        "connectSocket": 60000
+    }
+    
+}

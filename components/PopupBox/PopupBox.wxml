@@ -1,0 +1,7 @@
+<view class="popup-box-component {{popupBoxShow?'show':''}}  {{animate?'animate':''}}">
+    <view bindtap="hide" class="popup-box-cover"></view>
+    <view class="popup-box" style="{{contentStyle}}">
+        <image bindtap="hide" class="popup-box-close" src="https://cdn.readhub.cn/mina/lottery/close@3x.png" wx:if="{{showClose&&!disableClose}}"></image>
+        <slot></slot>
+    </view>
+</view>

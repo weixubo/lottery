@@ -1,0 +1,27 @@
+<view class="buttom-navigation">
+    <form reportSubmit bindsubmit="goToList">
+        <button class="buttonfix buttom-navigation-action-list buttom-navigation-action {{index===0?'active':''}}" formType="submit" hoverClass="highlight">
+            <view class="buttom-navigation-action-content">
+                <image class="normal-image" src="https://cdn.readhub.cn/mina/icon-list-normal2@3x.png"></image>
+                <image class="checked-image" src="https://cdn.readhub.cn/mina/icon-list-checked2@3x.png"></image>
+            </view>
+        </button>
+    </form>
+    <form reportSubmit bindsubmit="goToCreate">
+        <button class="buttonfix buttom-navigation-action-create buttom-navigation-action" formType="submit" hoverClass="highlight">
+            <view class="buttom-navigation-action-content">
+                <image class="normal-image" src="https://cdn.readhub.cn/mina/icn-new-lottery2@3x.png"></image>
+                <image class="checked-image" src="https://cdn.readhub.cn/mina/icn-new-lottery-checked2@3x.png"></image>
+            </view>
+        </button>
+    </form>
+    <form reportSubmit bindsubmit="goToProfile">
+        <button class="buttonfix buttom-navigation-action-profile buttom-navigation-action {{index===1?'active':''}}" formType="submit" hoverClass="highlight">
+            <view class="buttom-navigation-action-content">
+                <image class="normal-image" src="https://cdn.readhub.cn/mina/icon-mine-normal2@3x.png"></image>
+                <image class="checked-image" src="https://cdn.readhub.cn/mina/icon-mine-checked2@3x.png"></image>
+                <view class="badge" wx:if="{{badge}}"></view>
+            </view>
+        </button>
+    </form>
+</view>

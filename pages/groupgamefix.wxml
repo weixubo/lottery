@@ -1,0 +1,190 @@
+<view class="groupgamefixpage">
+    <Layout bindgetuserinfo="getUserInfo" forceHideGetUserInfo="{{forceHideGetUserInfo}}" needGetUserInfo="{{needGetUserInfo}}" title="{{navigationTitle}}">
+        <view class="loading" wx:if="{{!inited}}">
+            <image mode="aspectFit" src="https://cdn.readhub.cn/mina/lottery/loading.gif"></image>
+        </view>
+        <view class="main" wx:else>
+            <view class="default-view" style="{{contentStyle}}" wx:if="{{!fromShare}}">
+                <view class="desc-label">邀你组队抽奖</view>
+                <view class="desc-info">一人中奖，全队中奖</view>
+                <view class="content">
+                    <image class="group-pic" src="https://cdn.readhub.cn/mina/lottery/icn-group-small@3x.png"></image>
+                    <view class="prize-container">
+                        <image class="prize-image" mode="aspectFill" src="{{prevGame.prizeImage||'/images/default-prize@3x.png'}}"></image>
+                        <view class="prize-content">
+                            <view class="prize-name" style="{{prizeNameStyle}}" wx:if="{{item.prizes.length>1}}">
+                                <text>奖品: </text>
+                                <text class="prize-name-value" wx:for="{{prevGame.prizes}}" wx:key="index">{{index!==0?'、':''}}{{item.name}}</text>
+                                <text class="prize-name-dot">...等</text>
+                            </view>
+                            <view class="prize-name" style="{{prizeNameStyle}}" wx:else>
+                                <text>奖品: </text>
+                                <text class="prize-name-value">{{prevGame.prizes[0].name}}</text>
+                                <text class="prize-count"> x{{prevGame.prizes[0].count}} 组</text>
+                            </view>
+                            <view class="game-end-type" wx:if="{{prevGame.draw_type==='user'&&prevGame.minUserCount}}">
+                  参与者达到 {{prevGame.minUserCount}} 人时自动开奖
+                </view>
+                            <view class="game-end-type" wx:if="{{prevGame.draw_type==='time'&&prevGame.simpleEndTime}}">
+                  {{prevGame.simpleEndTime}} 自动开奖
+                </view>
+                            <view class="game-end-type" wx:if="{{prevGame.draw_type==='manual'}}">
+                  本抽奖将由发起人手动开奖
+                </view>
+                            <view class="game-end-type" wx:if="{{prevGame.draw_type==='chatroom'}}">
+                  对实时在线的参与者开奖
+                </view>
+                        </view>
+                    </view>
+                    <view class="group-opts">
+                        <form reportSubmit bindsubmit="$FormIdAction$formSubmit" class="formid-action">
+                            <button class="formid-action-button" formType="submit" style="{{$FormIdAction$style}}">
+                                <button class="invite-frined-button" openType="share" wx:if="{{canShare}}">邀请朋友组队</button>
+                            </button>
+                        </form>
+                    </view>
+                    <view class="group-container">
+                        <view class="group-info">队内有人中奖，其他队友获得相同奖品</view>
+                        <view class="group-label">
+                            <view class="split-line"></view>
+                            <view class="label-value">
+                  当前队内好友，最多 {{maxUserCount}} 人
+                </view>
+                            <view class="split-line"></view>
+                        </view>
+                        <view class="group-users">
+                            <view class="group-user {{item.showType}}" wx:for="{{groupUsers}}" wx:key="index">
+                                <view class="group-user-avatar">
+                                    <image class="user-avatar" src="{{item.avatar}}"></image>
+                                    <image class="initiator-sponsor" src="https://cdn.readhub.cn/mina/lottery/icn-initiator-sponsor@3x.png"></image>
+                                </view>
+                                <view class="group-user-name">{{item.nick_name}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="join-view" style="{{contentStyle}}" wx:else>
+                <NormalLottery item="{{prevGame}}"></NormalLottery>
+                <view class="game-description" wx:if="{{game.description}}">
+                    <image class="quote-image" src="https://cdn.readhub.cn/mina/lottery/quote@3x.png"></image>
+                    <text>{{game.description}}</text>
+                </view>
+                <view class="join-tips" wx:if="{{errorMessage}}">
+                    <view class="error">
+                        <image src="https://cdn.readhub.cn/mina/lottery/icn-warning@3x.png"></image>{{errorMessage}}
+              <view bindtap="goToGame" class="go-to-game" hoverClass="highlight" wx:if="{{errorMessage==='抽奖已结束'}}">去查看
+                <text class="arrow-right"></text>
+                        </view>
+                    </view>
+                </view>
+                <view bindtouchcancel="$Finger$_handleTouchCancel" bindtouchend="$Finger$_handleTouchEnd" bindtouchmove="$Finger$_handleTouchMove" bindtouchstart="$Finger$_handleTouchStart" class="finger" wx:if="{{errorMessage!=='抽奖已结束'&&(group.join_state===0||group.join_state===1)}}">
+                    <view class="group-game-initiator-opt {{game.is_participator?'participator':''}}" style="min-height:137px;" wx:if="{{group.join_state===0}}">
+                        <view animation="{{groupJoinOptAnimationData}}" class="group-game-initiator-join-opt-container" style="{{joinOptStyle}}">
+                            <view animation="{{guideAnimationData}}" class="game-group-guide" wx:if="{{guideShow}}">队内有人中奖，其他队友获得相同奖品
+                  <view class="arrow-down"></view>
+                            </view>
+                            <view class="game-detail-opt-fail" wx:if="{{failToJoinEndGame}}">
+                                <button>已结束</button>
+                            </view>
+                            <view class="game-detail-opt-participator" wx:elif="{{game.is_participator}}">
+                                <button class="participator-wait-start {{game.theme}}">
+                                    <image class="icon" src="https://cdn.readhub.cn/mina/lottery/icn-pi-joined@3x.png" wx:if="{{game.theme==='funny'}}"></image>
+                                    <text>{{game.theme==='funny'?'已参与':'等待开奖'}}</text>
+                                </button>
+                                <view class="circle {{game.theme}}"></view>
+                            </view>
+                            <view class="game-detail-opt-stranger {{animateStep}}" wx:else>
+                                <form reportSubmit bindsubmit="joinGroup">
+                                    <view animation="{{bgAnimationData}}" class="animate-bg {{game.theme}}"></view>
+                                    <button animation="{{btnAnimationData}}" class="stranger-join-game {{game.theme}} {{condition_error?'disable':''}}" formType="submit" hoverClass="hover" hoverStartTime="{{0}}" hoverStayTime="{{0}}">
+                                        <view class="stranger-join-game-content">
+                                            <image class="icon" src="https://cdn.readhub.cn/mina/lottery/icn-group-small@3x.png"></image>
+                                            <text>组队参与</text>
+                                        </view>
+                                    </button>
+                                </form>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="group-game-participator-opt-container" wx:else>
+                        <view animation="{{shouldHideShare?null:groupJoinOptAnimationData}}" class="group-game-participator-opt group-game-opt {{group.join_state===0?'':'joined'}}" hoverClass="highlight" style="{{groupOptStyle}}">
+                            <view class="group-game-opt-content">
+                                <image src="https://cdn.readhub.cn/mina/lottery/icn-group-small@3x.png" style="opacity: 0.5;"></image>
+                                <view class="group-game-opt-desc">{{group.join_state===0?'组队参与':'等待开奖'}}</view>
+                            </view>
+                            <view class="circle"></view>
+                        </view>
+                        <image animation="{{groupConnectAnimationData}}" class="group-game-initiator-group-opt-connect" src="https://cdn.readhub.cn/mina/lottery/button-connect-line@3x.png" style="{{groupParticipatorConnectStyle}}" wx:if="{{!shouldHideShare}}"></image>
+                        <view animation="{{groupGroupOptAnimationData}}" class="group-game-initiator-group-opt-container" style="{{groupParticipatorOptStyle}}" wx:if="{{!shouldHideShare}}">
+                            <button class="group-game-initiator-group-opt buttonfix {{game.theme}}" hoverClass="highlight" openType="share">
+                                <view class="group-game-opt-content">
+                                    <image src="https://cdn.readhub.cn/mina/lottery/icn-group-share@3x.png"></image>
+                                    <view class="group-game-opt-desc">邀请好友</view>
+                                </view>
+                            </button>
+                        </view>
+                    </view>
+                </view>
+                <view class="join-opts" wx:else>
+                    <view bindtap="goToIndex" class="see-games-button black" hoverClass="highlight" wx:if="{{game.state===2||game.state===-1}}">去参与更多抽奖</view>
+                    <view bindtap="goToGame" class="full-group-button black" data-wpygotogame-a="1" hoverClass="highlight" wx:elif="{{group.join_state===2}}">去参与抽奖</view>
+                    <view bindtap="goToGame" class="see-group-button black" data-wpygotogame-a="2" hoverClass="highlight" wx:elif="{{group.join_state===3}}">去查看组队</view>
+                    <view bindtap="goToGame" class="create-group-button black" data-wpygotogame-a="3" hoverClass="highlight" wx:elif="{{group.join_state===4}}">去自己组队</view>
+                </view>
+                <view class="group-stat">
+                    <view class="split-line"></view>
+                    <view class="label-value">
+              当前队内好友，最多 {{maxUserCount}} 人
+            </view>
+                    <view class="split-line"></view>
+                </view>
+                <view class="group-users">
+                    <view class="group-user {{item.showType}}" wx:for="{{groupUsers}}" wx:key="index">
+                        <view class="group-user-avatar">
+                            <image class="user-avatar" src="{{item.avatar}}"></image>
+                            <image class="initiator-sponsor" src="https://cdn.readhub.cn/mina/lottery/icn-initiator-sponsor@3x.png"></image>
+                        </view>
+                        <view class="group-user-name">{{item.nick_name}}</view>
+                    </view>
+                </view>
+                <view class="game-detail-users" wx:if="{{game&&(game.state===0||game.state===1)}}">
+                    <view class="game-detail-users-banner">
+                        <view class="game-detail-users-banner-value">
+                            <text>已有 </text>
+                            <text>{{joinUserCount}}</text>
+                            <text> 人参与，</text>
+                            <view bindtap="goToUsers" hoverClass="highlight">查看全部
+                  <text class="arrow-right"></text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="game-detail-users-list">
+                        <view class="game-detail-users-user" wx:for="{{joinUsers}}" wx:key="index">
+                            <image mode="aspectFill" src="{{format.wxAvatar(item.avatar)||'https://cdn.readhub.cn/mina/lottery/default-avatar-small.png'}}"></image>
+                        </view>
+                    </view>
+                </view>
+                <view class="game-detail-users" wx:elif="{{game}}">
+                    <view class="game-detail-users-banner">
+                        <view class="game-detail-users-banner-value">
+                            <text>感谢 </text>
+                            <text>{{joinUserCount}}</text>
+                            <text> 人参与，</text>
+                            <view bindtap="goToUsers" hoverClass="highlight">查看全部
+                  <text class="arrow-right"></text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="game-detail-users-list">
+                        <view class="game-detail-users-user" wx:for="{{joinUsers}}" wx:key="index">
+                            <image mode="aspectFill" src="{{format.wxAvatar(item.avatar)||'https://cdn.readhub.cn/mina/lottery/default-avatar-small.png'}}"></image>
+                        </view>
+                    </view>
+                </view>
+                <LotteryRichText game="{{game}}"></LotteryRichText>
+            </view>
+        </view>
+    </Layout>
+</view>
+<wxs module="format" src="../wxs/format.wxs" />

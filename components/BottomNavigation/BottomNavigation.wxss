@@ -1,0 +1,73 @@
+.buttom-navigation {
+    position: fixed;
+    width: 100%;
+    left: 0px;
+    bottom: 0px;
+    border-top: 1rpx solid #e0e0e0;
+    background: #fafafa;
+    z-index: 999;
+    height: 56px;
+    display: flex;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.buttom-navigation form {
+    flex: 0 0 33.3333%;
+    height: 56px;
+}
+
+.buttom-navigation .buttom-navigation-action {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fafafa;
+}
+
+.buttom-navigation .buttom-navigation-action .normal-image {
+    display: block;
+    margin: 0px auto;
+    width: 56px;
+    height: 56px;
+}
+
+.buttom-navigation .buttom-navigation-action .checked-image {
+    display: none;
+    margin: 0px auto;
+    width: 56px;
+    height: 56px;
+}
+
+.buttom-navigation .buttom-navigation-action.active .normal-image,.buttom-navigation .buttom-navigation-action.highlight .normal-image {
+    display: none;
+}
+
+.buttom-navigation .buttom-navigation-action.active .checked-image,.buttom-navigation .buttom-navigation-action.highlight .checked-image {
+    display: block;
+}
+
+.buttom-navigation .buttom-navigation-action .buttom-navigation-action-label {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: .2px;
+    color: rgba(0,0,0,0.3);
+    transform: scale(.83);
+    display: block;
+    margin-top: 4px;
+}
+
+.buttom-navigation .buttom-navigation-action .buttom-navigation-action-content {
+    text-align: center;
+    position: relative;
+}
+
+.buttom-navigation .buttom-navigation-action .buttom-navigation-action-content .badge {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #e2453a;
+    position: absolute;
+    top: 5px;
+    right: 12px;
+}

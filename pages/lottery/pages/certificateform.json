@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "发起人认证",
+    "backgroundTextStyle": "dark",
+    "usingComponents": {
+        "Layout": "../../../../components/Layout/Layout"
+    }
+}

@@ -1,0 +1,1346 @@
+@import "../__wuBaseWxss__/5.wxss";
+
+@import "../__wuBaseWxss__/4.wxss";
+
+@import "../__wuBaseWxss__/3.wxss";
+
+@import "../__wuBaseWxss__/1.wxss";
+
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 100%;
+    font-family: "PingFangSC-Regular";
+}
+
+.createpage .create-page-container {
+    position: relative;
+    z-index: 2;
+    top: -127px;
+    padding-bottom: 200px;
+}
+
+.createpage .create-page-container .item-list {
+    background: #fff;
+    margin-top: 15px;
+    position: relative;
+    border-top: 1rpx solid rgba(0,0,0,0.1);
+}
+
+.createpage .create-page-container .item-list.first {
+    margin-top: 0px;
+}
+
+.createpage .create-page-container .item-list.first .game-prize-delete {
+    display: none;
+}
+
+.createpage .create-page-container .item-list.disable .switch-item {
+    opacity: .2;
+}
+
+.createpage .create-page-container .item-list .prize-editor {
+    padding-left: 15px;
+    position: relative;
+}
+
+.createpage .create-page-container .item-list .game-cover {
+    border-radius: 6px;
+    position: relative;
+}
+
+.createpage .create-page-container .item-list .game-cover .pro-guide {
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    background-color: #ffffff;
+    border: solid 1rpx rgba(0,0,0,0.5);
+    left: -64px;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: #565656;
+    padding: 0px 10px;
+    box-sizing: border-box;
+}
+
+.createpage .create-page-container .item-list .game-cover .pro-guide image {
+    width: 15px;
+    height: 15px;
+    margin-left: 9px;
+}
+
+.createpage .create-page-container .item-list .game-cover .prize-picture {
+    width: 100%;
+    position: relative;
+}
+
+.createpage .create-page-container .item-list .game-cover .prize-picture image {
+    width: 100%;
+    display: block;
+}
+
+.createpage .create-page-container .item-list .game-cover .prize-picture .add-picture-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ffffff;
+    border: solid 1rpx rgba(0,0,0,0.5);
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 13px;
+    color: #565656;
+}
+
+.createpage .create-page-container .item-list .game-cover .prize-picture .add-picture-button.hover {
+    background-color: #eeeeee;
+}
+
+.createpage .create-page-container .item-list .game-cover .picture-editor {
+    width: 100%;
+    position: relative;
+}
+
+.createpage .create-page-container .item-list .game-cover .picture-editor image {
+    display: block;
+}
+
+.createpage .create-page-container .item-list .game-cover .picture-editor .add-picture-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ffffff;
+    border: solid 1rpx rgba(0,0,0,0.5);
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 13px;
+    color: #565656;
+}
+
+.createpage .create-page-container .item-list .game-cover .picture-editor .add-picture-button.hover {
+    background-color: #eeeeee;
+}
+
+.createpage .create-page-container .item-list .game-prize-delete {
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: 14px;
+    left: 14px;
+    background-color: #d15143;
+}
+
+.createpage .create-page-container .item-list .game-prize-delete.disable {
+    opacity: .2;
+}
+
+.createpage .create-page-container .item-list .game-prize-delete image {
+    width: 14px;
+    height: 3px;
+    align-self: center;
+}
+
+.createpage .create-page-container .item-list .game-prize-delete.highlight {
+    background-color: #b34539;
+}
+
+.createpage .create-page-container .item-list .item {
+    position: relative;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-right: 16px;
+    border-bottom: 1rpx solid rgba(0,0,0,0.1);
+}
+
+.createpage .create-page-container .item-list .item .input-placeholder {
+    color: #cccccc;
+}
+
+.createpage .create-page-container .item-list .item.disable {
+    position: relative;
+}
+
+.createpage .create-page-container .item-list .item.disable:before {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.7);
+}
+
+.createpage .create-page-container .item-list .item:last-child {
+    border-bottom: none;
+}
+
+.createpage .create-page-container .item-list .item switch {
+    flex: 1 1 auto;
+    align-self: center;
+    text-align: right;
+}
+
+.createpage .create-page-container .item-list .item .add-codes {
+    flex: 1 1 auto;
+    font-size: 15px;
+    color: #808080;
+    text-align: right;
+}
+
+.createpage .create-page-container .item-list .item .add-codes .placeholder {
+    color: #cccccc;
+}
+
+.createpage .create-page-container .item-list .item .add-codes .arrow-right {
+    border: solid #c7c7cc;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;
+    transform: rotate(-45deg);
+    position: relative;
+    flex: 0 0 auto;
+    margin-left: 5px;
+    align-self: center;
+}
+
+.createpage .create-page-container .item-list .item .switch-list {
+    flex: 1 1 auto;
+    align-self: center;
+    font-size: 13px;
+    text-align: right;
+}
+
+.createpage .create-page-container .item-list .item .switch-list.disable {
+    position: relative;
+}
+
+.createpage .create-page-container .item-list .item .switch-list.disable:before {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+    content: "";
+    width: 100%;
+    height: 100%;
+}
+
+.createpage .create-page-container .item-list .item .switch-list .switch-item {
+    display: inline-block;
+    color: #575757;
+    position: relative;
+    padding: 4px 15px;
+}
+
+.createpage .create-page-container .item-list .item .switch-list .switch-item:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #808080;
+    border-right: none;
+    box-sizing: border-box;
+    width: 200%;
+    height: 200%;
+    transform: scale(.5);
+    transform-origin: left top;
+}
+
+.createpage .create-page-container .item-list .item .switch-list .switch-item:last-child:before {
+    border-right: 1px solid #808080;
+}
+
+.createpage .create-page-container .item-list .item .switch-list .switch-item.selected {
+    background-color: #ffe8e5;
+    color: #cc4b3d;
+}
+
+.createpage .create-page-container .item-list .item .switch-list .switch-item.selected:before {
+    border: 1px solid #d15143;
+}
+
+.createpage .create-page-container .item-list .item .switch-list .switch-item.unselected:before {
+    border-right: none;
+    border-left: 1px solid #808080;
+}
+
+.createpage .create-page-container .item-list .item .switch-list .switch-item.unselected:first-child:before {
+    border-right: none;
+    border-left: 1px solid #808080;
+}
+
+.createpage .create-page-container .item-list .item .switch-list .switch-item.unselected:last-child:before {
+    border-left: none;
+    border-right: 1px solid #808080;
+}
+
+.createpage .create-page-container .item-list .item .switch-list .switch-item.disable {
+    opacity: .2;
+}
+
+.createpage .create-page-container .item-list .item .input {
+    margin-left: 12px;
+    flex: 1 1 auto;
+    font-size: 15px;
+    color: #000;
+    text-align: right;
+    align-self: center;
+}
+
+.createpage .create-page-container .item-list .item .label {
+    font-size: 15px;
+    color: #1a1a1a;
+    flex: 0 0 auto;
+    align-self: center;
+}
+
+.createpage .create-page-container .item-list .item .money-unit {
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.createpage .create-page-container .item-list .item .error-message {
+    display: none;
+    background: #da7469;
+    color: #fff;
+    height: 22px;
+    line-height: 22px;
+    padding: 0px 8px;
+    align-self: center;
+    position: absolute;
+    right: 145px;
+    top: 14px;
+    font-size: 11px;
+}
+
+.createpage .create-page-container .item-list .item .error-message .arrow-right {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 8px;
+    border-color: transparent transparent transparent #da7469;
+    right: -8px;
+    top: 6px;
+}
+
+.createpage .create-page-container .item-list .item.error .error-message {
+    display: block;
+}
+
+.createpage .create-page-container .game-prizes .prize-shop {
+    height: 46px;
+    font-size: 13px;
+    letter-spacing: .3px;
+    color: #808080;
+    background: #f1f1f1;
+    position: relative;
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .shop-guide {
+    opacity: 0;
+    transform: translateY(-500px);
+    position: absolute;
+    z-index: 20;
+    max-width: 330px;
+    height: 128px;
+    width: 90%;
+    right: 10px;
+    top: 48px;
+    background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: solid 1rpx rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.16);
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .shop-guide .arrow {
+    position: absolute;
+    right: 35px;
+    top: -7px;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    transform: rotate(45deg);
+    border-left: solid 1rpx rgba(0,0,0,0.15);
+    border-top: solid 1rpx rgba(0,0,0,0.15);
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .shop-guide .shop-guide-content {
+    box-sizing: border-box;
+    border: solid 1rpx rgba(189,136,67,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .shop-guide .shop-guide-content .shop-guide-content-inner {
+    display: flex;
+    align-items: center;
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .shop-guide .shop-guide-content .shop-guide-content-inner .icon {
+    width: 60px;
+    height: 60px;
+    flex: 0 0 auto;
+    margin-right: 16px;
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .shop-guide .shop-guide-content .shop-guide-content-inner .desc {
+    flex: 1 1 auto;
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .shop-guide .shop-guide-content .shop-guide-content-inner .desc .title {
+    font-size: 18px;
+    color: rgba(0,0,0,0.8);
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .shop-guide .shop-guide-content .shop-guide-content-inner .desc .gift {
+    font-size: 18px;
+    color: #ec272f;
+    font-weight: bold;
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .content {
+    padding: 10px 0 0 15px;
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .label {
+    color: #808080;
+    flex: 1 0 auto;
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .nav {
+    color: #2573b8;
+    padding: 10px 0px;
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .nav .shop-img {
+    width: 15px;
+    height: 15px;
+    margin-bottom: -3px;
+    margin-right: 4px;
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .nav .item {
+    display: inline-block;
+    font-size: 13px;
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .nav .item.highlight {
+    opacity: .7;
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .nav .item.remove {
+    padding-right: 10px;
+    border-right: 1rpx solid rgba(0,0,0,0.2);
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .nav .item.change {
+    padding-left: 10px;
+    margin-right: -3px;
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .nav.highlight {
+    opacity: .7;
+}
+
+.createpage .create-page-container .game-prizes .prize-shop .nav .arrow-right {
+    position: relative;
+    bottom: -1px;
+    display: inline-block;
+}
+
+.createpage .create-page-container .game-prizes.normal .game-prizes-editor-label {
+    display: none;
+}
+
+.createpage .create-page-container .game-prizes.normal .game-prize-delete {
+    display: none;
+}
+
+.createpage .create-page-container .game-prizes.normal .game-prizes-editor-add-item {
+    display: none;
+}
+
+.createpage .create-page-container .game-prizes.pro .item-list .prize-editor {
+    padding-left: 45px;
+}
+
+.createpage .create-page-container .game-prizes.pro .item-list.first .prize-editor {
+    padding-left: 15px;
+}
+
+.createpage .create-page-container .game-prizes .game-prizes-editor-label {
+    box-sizing: content-box;
+    font-size: 13px;
+    letter-spacing: .3px;
+    color: #808080;
+    padding-left: 15px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 8px;
+}
+
+.createpage .create-page-container .game-prizes .game-prizes-editor-add-item {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.createpage .create-page-container .game-prizes .game-prizes-editor-add-item .game-prizes-editor-add-item-button {
+    display: inline-block;
+    text-align: center;
+    width: 120px;
+    height: 33px;
+    line-height: 33px;
+    background-color: #f0f0f0;
+    font-size: 13px;
+    letter-spacing: .3px;
+    color: #575757;
+    position: relative;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.createpage .create-page-container .game-prizes .game-prizes-editor-add-item .game-prizes-editor-add-item-button image {
+    margin-right: 6px;
+    width: 10px;
+    height: 10px;
+}
+
+.createpage .create-page-container .game-prizes .game-prizes-editor-add-item .game-prizes-editor-add-item-button.highlight {
+    background-color: #cccccc;
+}
+
+.createpage .create-page-container .game-prizes .game-prizes-editor-add-item .game-prizes-editor-add-item-button::before {
+    content: " ";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #575757;
+    transform: scale(.5);
+    transform-origin: 0 0;
+    box-sizing: border-box;
+}
+
+.createpage .create-page-container .game-prize-count .label {
+    flex: 0 0 auto;
+}
+
+.createpage .create-page-container .game-prize-count .picker-container {
+    flex: 1 1 auto;
+}
+
+.createpage .create-page-container .game-prize-count .picker-container .count-picker input {
+    flex: 1 1 auto;
+}
+
+.createpage .create-page-container .game-prize-count .error-message {
+    display: none;
+    background: #da7469;
+    color: #fff;
+    height: 22px;
+    line-height: 22px;
+    padding: 0px 8px;
+    align-self: center;
+    position: absolute;
+    right: 105px;
+    top: 14px;
+    font-size: 11px;
+}
+
+.createpage .create-page-container .game-prize-count .error-message .arrow-right {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 8px;
+    border-color: transparent transparent transparent #da7469;
+    right: -8px;
+    top: 6px;
+}
+
+.createpage .create-page-container .game-prize-count.error .error-message {
+    display: block;
+}
+
+.createpage .create-page-container .game-end-type.error {
+    background: #ffedeb;
+}
+
+.createpage .create-page-container .count-picker {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    color: #1a1a1a;
+    font-size: 15px;
+}
+
+.createpage .create-page-container .count-picker input {
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.createpage .create-page-container .count-picker .input-placeholder {
+    color: #cccccc;
+}
+
+.createpage .create-page-container .blank {
+    width: 100%;
+    height: 10px;
+}
+
+.createpage .game-end-controll {
+    height: 46px;
+    font-size: 13px;
+    letter-spacing: .3px;
+    color: #808080;
+    overflow: hidden;
+}
+
+.createpage .game-end-controll .color-red {
+    flex: 0 0 auto;
+    color: #2573b8;
+    position: relative;
+    right: -4px;
+}
+
+.createpage .game-end-controll .color-red.highlight {
+    color: rgba(37,115,184,0.5);
+}
+
+.createpage .game-end-controll .game-end-config-tip {
+    padding: 10px 0px 0px 15px;
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
+
+.createpage .game-end-controll .game-end-config-tip .game-end-config-tip-label {
+    flex: 1 0 auto;
+}
+
+.createpage .game-end-controll .game-end-config-tip .arrow-right {
+    position: relative;
+    bottom: -1px;
+    flex: 0 0 auto;
+}
+
+.createpage .game-end-config-item .game-end-chatroom-config-picker {
+    text-align: center;
+    font-size: 14px;
+    color: rgba(0,0,0,0.6);
+}
+
+.createpage .game-end-config-item .game-end-manual-config-picker {
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: .4px;
+    color: #cccccc;
+    height: 50px;
+    background: #fff;
+    display: flex;
+    padding: 0px 16px;
+}
+
+.createpage .game-end-config-item .game-end-manual-config-picker .icon {
+    align-self: center;
+    margin-left: 18px;
+    margin-right: 7px;
+    position: relative;
+    bottom: -2px;
+}
+
+.createpage .game-end-config-item .game-end-manual-config-picker .icon image {
+    width: 18px;
+    height: 18px;
+}
+
+.createpage .game-end-config-item .game-end-manual-config-picker text {
+    align-self: center;
+}
+
+.createpage .game-end-config-item .game-end-time-config-picker .picker-item {
+    height: 50px;
+    display: flex;
+    padding: 0px 16px;
+    position: relative;
+}
+
+.createpage .game-end-config-item .game-end-time-config-picker .picker-item .error-message {
+    z-index: 1;
+    display: none;
+    background: #da7469;
+    color: #fff;
+    height: 22px;
+    line-height: 22px;
+    padding: 0px 8px;
+    align-self: center;
+    position: absolute;
+    right: 170px;
+    top: 14px;
+    font-size: 11px;
+}
+
+.createpage .game-end-config-item .game-end-time-config-picker .picker-item .error-message text {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 8px;
+    border-color: transparent transparent transparent #da7469;
+    right: -8px;
+    top: 6px;
+}
+
+.createpage .game-end-config-item .game-end-time-config-picker .picker-item.error .error-message {
+    display: block;
+}
+
+.createpage .game-end-config-item .game-end-time-config-picker .picker-item image {
+    flex: 0 0 auto;
+    position: relative;
+    bottom: -1px;
+    width: 18px;
+    height: 18px;
+    align-self: center;
+}
+
+.createpage .game-end-config-item .game-end-time-config-picker .picker-item .picker-item-label {
+    letter-spacing: .4px;
+    font-size: 15px;
+    color: #1a1a1a;
+    flex: 1 0 auto;
+    align-self: center;
+}
+
+.createpage .game-end-config-item .game-end-time-config-picker .picker-item .picker-item-value {
+    flex: 0 0 auto;
+    opacity: .4;
+    font-size: 14px;
+    letter-spacing: .3px;
+    color: #000000;
+    align-self: center;
+}
+
+.createpage .game-end-config-item .game-end-time-config-picker .picker-item .arrow-right {
+    border: solid #c7c7cc;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;
+    transform: rotate(-45deg);
+    position: relative;
+    flex: 0 0 auto;
+    margin-left: 10px;
+    align-self: center;
+}
+
+.createpage .game-end-config-item .game-end-time-config-picker .datepicker {
+    height: 0px;
+    transition: height 200ms;
+    border-radius: 0px 0px 6px 6px;
+}
+
+.createpage .game-end-config-item .game-end-time-config-picker .datepicker.showed {
+    border-top: 1rpx solid rgba(0,0,0,0.1);
+    height: 144px;
+}
+
+.createpage .game-end-config-item .game-end-user-config-picker .picker-item {
+    height: 50px;
+    display: flex;
+    padding: 0px 16px;
+    position: relative;
+}
+
+.createpage .game-end-config-item .game-end-user-config-picker .picker-item.error .error-message {
+    display: block;
+}
+
+.createpage .game-end-config-item .game-end-user-config-picker .picker-item .error-message {
+    display: none;
+    background: #da7469;
+    color: #fff;
+    height: 22px;
+    line-height: 22px;
+    padding: 0px 8px;
+    align-self: center;
+    position: absolute;
+    right: 90px;
+    top: 14px;
+    font-size: 11px;
+}
+
+.createpage .game-end-config-item .game-end-user-config-picker .picker-item .error-message text {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 8px;
+    border-color: transparent transparent transparent #da7469;
+    right: -8px;
+    top: 6px;
+}
+
+.createpage .game-end-config-item .game-end-user-config-picker .picker-item.error .error-message {
+    display: block;
+}
+
+.createpage .game-end-config-item .game-end-user-config-picker .picker-item image {
+    flex: 0 0 auto;
+    position: relative;
+    bottom: -1px;
+    width: 18px;
+    height: 18px;
+    align-self: center;
+}
+
+.createpage .game-end-config-item .game-end-user-config-picker .picker-item .picker-item-label {
+    flex: 1 0 auto;
+    letter-spacing: .4px;
+    align-self: center;
+    font-size: 15px;
+    color: #1a1a1a;
+}
+
+.createpage .game-end-config-item .game-end-user-config-picker .picker-item input {
+    flex: 0 0 auto;
+    width: 76px;
+    display: inline-block;
+    font-size: 15px;
+    color: #000;
+    text-align: right;
+    height: 20px;
+    line-height: 20px;
+    align-self: center;
+}
+
+.createpage .game-end-config-item .game-end-user-config-picker .picker-item .input-placeholder {
+    font-size: 15px;
+    color: #ccc;
+    align-self: center;
+}
+
+.createpage .game-end-config-item .game-end-user-config-picker .picker-item .picker-item-value {
+    flex: 0 0 auto;
+    opacity: .8;
+    font-size: 15px;
+    letter-spacing: .4px;
+    color: #1b1b1b;
+    margin-left: 7px;
+    align-self: center;
+}
+
+.createpage .game-end-config-item .game-end-user-config-remind {
+    padding-top: 13px;
+    font-size: 12px;
+    letter-spacing: .3px;
+    color: rgba(0,0,0,0.3);
+    text-align: center;
+    background: #f0f0f0;
+}
+
+.createpage .game-end-config-item .game-end-mannal-config-remind {
+    margin-top: 13px;
+    font-size: 12px;
+    letter-spacing: .3px;
+    color: rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.createpage .game-end-config {
+    width: 100%;
+}
+
+.createpage .game-end-config .game-end-config-list {
+    background: #fff;
+}
+
+.createpage .game-end-config .game-end-config-list .game-end-config-item {
+    box-sizing: border-box;
+}
+
+.createpage .game-group-config.disable {
+    position: relative;
+}
+
+.createpage .game-group-config.disable:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: rgba(255,255,255,0.8);
+}
+
+.createpage .game-group-config .game-group-visiable {
+    padding-left: 16px;
+}
+
+.createpage .game-group-config .game-group-visiable .label {
+    flex: 0 0 auto;
+}
+
+.createpage .game-group-config .game-group-visiable .info {
+    opacity: .7;
+    padding: 15px 30px 15px 7px;
+    flex: 0 0 auto;
+}
+
+.createpage .game-group-config .game-group-visiable .info image {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    bottom: -1px;
+}
+
+.createpage .game-group-config .game-group-visiable .info.highlight {
+    opacity: 1;
+}
+
+.createpage .game-group-config .game-group-visiable .pendding {
+    flex: 1 1 auto;
+}
+
+.createpage .game-group-config-tip {
+    font-size: 13px;
+    color: #808080;
+    text-align: center;
+    margin-top: 15px;
+}
+
+@keyframes animateShow {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes animateShow {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.createpage .game-description {
+    margin-top: 17px;
+}
+
+.createpage .game-description .game-description-label {
+    font-size: 13px;
+    letter-spacing: .3px;
+    color: #808080;
+    padding-left: 15px;
+}
+
+.createpage .game-description .game-description-label text {
+    margin-right: 15px;
+    float: right;
+}
+
+.createpage .game-description .textarea {
+    margin-top: 11px;
+    padding: 18px 15px;
+    height: auto;
+    min-height: 64px;
+    display: block;
+    width: auto;
+    background-color: #ffffff;
+    font-size: 14px;
+    z-index: 0;
+    white-space: pre-wrap;
+    overflow: scroll;
+}
+
+.createpage .game-description .textarea.placeholder {
+    color: #cccccc;
+}
+
+.createpage .game-rich-content .game-description-label view {
+    margin-right: 5px;
+    float: right;
+    padding: 10px;
+    margin-top: -10px;
+}
+
+.createpage .game-rich-content .game-description-label .clear {
+    color: #d15143;
+    font-weight: bold;
+}
+
+.createpage .game-rich-content .game-description-label .clear.highlight {
+    color: #aa3a2d;
+}
+
+.createpage .game-rich-content .preview {
+    margin-top: 12px;
+    background: #fff;
+    width: 100%;
+    padding: 20px 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.createpage .game-rich-content .empty {
+    margin-top: 12px;
+    background: #fff;
+    width: 100%;
+    height: 150px;
+    padding: 20px 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.createpage .game-rich-content .empty .bg {
+    width: 100%;
+    height: 110px;
+}
+
+.createpage .game-rich-content .empty .btn-container {
+    position: absolute;
+    left: 0px;
+    top: 58px;
+    text-align: center;
+    width: 100%;
+}
+
+.createpage .game-rich-content .empty .btn-container .btn {
+    width: 180px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    background-color: #ffffff;
+    border: solid 1rpx #575757;
+    margin: 0px auto;
+    font-size: 13px;
+    box-sizing: border;
+    letter-spacing: .3px;
+    color: #575757;
+    font-weight: bold;
+    opacity: .9;
+}
+
+.createpage .game-rich-content .empty .btn-container .btn image {
+    width: 10px;
+    height: 10px;
+    margin-right: 6px;
+}
+
+.createpage .game-rich-content .empty .btn-container .btn.highlight {
+    background-color: #cccccc;
+}
+
+.createpage .alert-tip-container .alert-header {
+    font-size: 15px;
+    color: #808080;
+    text-align: center;
+}
+
+.createpage .alert-tip-container .alert-body {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #1a1a1a;
+}
+
+.createpage .alert-tip-container .alert-body view {
+    line-height: 1.75;
+}
+
+.createpage .alert-tip-container .confirm-button {
+    margin-top: 26px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    background: #d15143;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.createpage .alert-tip-container .confirm-button.highlight {
+    background: #b24539;
+}
+
+.createpage .alert-tip-container .padding-bottom {
+    height: 15px;
+    width: 100%;
+}
+
+.createpage .draw-tips-container {
+    position: relative;
+    z-index: 1;
+}
+
+.createpage .draw-tips-container.show {
+    opacity: 1;
+}
+
+.createpage .draw-tips-container.hide {
+    opacity: 0;
+}
+
+.createpage .draw-tips-container .draw-tips-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 12px;
+}
+
+.createpage .draw-tips-container .draw-tips-title .split-line {
+    width: 20px;
+    height: 1px;
+    background: #6b6d8c;
+}
+
+.createpage .draw-tips-container .draw-tips-title .draw-tips-title-value {
+    font-size: 12px;
+    color: #6b6d8c;
+    margin: 0px 10px;
+}
+
+.createpage .draw-tips-container .draw-tips {
+    margin-top: 12px;
+    padding-bottom: 16px;
+    display: flex;
+}
+
+.createpage .draw-tips-container .draw-tips .draw-tip {
+    flex: 0 0 33.3333333%;
+    text-align: center;
+}
+
+.createpage .draw-tips-container .draw-tips .draw-tip image {
+    width: 60px;
+    height: 45px;
+}
+
+.createpage .draw-tips-container .draw-tips .draw-tip .draw-tip-desc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.createpage .draw-tips-container .draw-tips .draw-tip .draw-tip-desc .draw-tip-index {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    line-height: 13px;
+    text-align: center;
+    background: #6b6d8c;
+    font-size: 10px;
+    font-weight: bold;
+    margin-right: 4px;
+    color: #fff;
+}
+
+.createpage .draw-tips-container .draw-tips .draw-tip .draw-tip-desc .draw-tip-desc-value {
+    font-size: 12px;
+    font-weight: bold;
+    color: #6b6d8c;
+}
+
+.createpage .piyixia {
+    overflow: initial;
+    position: fixed;
+    z-index: 500;
+    right: 15px;
+    bottom: 76px;
+}
+
+.createpage .piyixia .pi-bg {
+    width: 79px;
+    height: 81px;
+}
+
+.createpage .piyixia .pi-ghost {
+    width: 40px;
+    height: 36px;
+    position: absolute;
+    left: 20px;
+    top: -12px;
+}
+
+.createpage .unused-square {
+    font-size: 13px;
+    color: #808080;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.createpage .game-share {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding-right: 16px;
+    padding-left: 15px;
+    background: #fff;
+}
+
+.createpage .game-share .label {
+    flex: 0 0 auto;
+    font-size: 15px;
+    color: #1a1a1a;
+}
+
+.createpage .game-share switch {
+    flex: 0 0 auto;
+}
+
+.createpage .game-share .info {
+    opacity: .7;
+    padding: 15px 30px 15px 7px;
+    flex: 0 0 auto;
+}
+
+.createpage .game-share .info image {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    bottom: -1px;
+}
+
+.createpage .game-share .info.highlight {
+    opacity: 1;
+}
+
+.createpage .game-share .pendding {
+    flex: 1 1 auto;
+}
+
+.createpage .game-password .main {
+    padding-left: 15px;
+    background: #fff;
+}
+
+.createpage .game-password .main .switch {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin-right: 16px;
+}
+
+.createpage .game-password .main .switch .label {
+    flex: 0 0 auto;
+    font-size: 15px;
+    color: #1a1a1a;
+}
+
+.createpage .game-password .main .switch switch {
+    flex: 0 0 auto;
+}
+
+.createpage .game-password .main .switch .info {
+    opacity: .7;
+    padding: 15px 30px 15px 7px;
+    flex: 0 0 auto;
+}
+
+.createpage .game-password .main .switch .info image {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    bottom: -1px;
+}
+
+.createpage .game-password .main .switch .info.highlight {
+    opacity: 1;
+}
+
+.createpage .game-password .main .switch .pendding {
+    flex: 1 1 auto;
+}
+
+.createpage .game-password .main .password {
+    height: 50px;
+    border-top: 1rpx solid rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.createpage .game-password .main .password input {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.createpage .game-password .main .password .input-placeholder {
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.createpage .game-password .main .password .lock {
+    width: 12px;
+    height: 14px;
+    position: absolute;
+    left: 0px;
+    top: 18px;
+}
+
+.createpage .game-password .tip {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: #808080;
+}
+
+.createpage .limit-free-box .title {
+    font-size: 15px;
+    color: #808080;
+    text-align: center;
+}
+
+.createpage .limit-free-box .content {
+    line-height: 1.75;
+    font-size: 16px;
+    color: #1a1a1a;
+    margin-top: 35px;
+}
+
+.createpage .limit-free-box .confirm {
+    margin-top: 35px;
+    height: 44px;
+    background-color: #e2453a;
+    line-height: 44px;
+    text-align: center;
+    color: #ffffff;
+    width: 100%;
+    font-size: 15px;
+}
+
+.createpage .limit-free-box .confirm.highlight {
+    background-color: #b24539;
+}

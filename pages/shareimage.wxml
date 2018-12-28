@@ -1,0 +1,23 @@
+<view class="shareimagepage">
+    <Layout needGetUserInfo="{{false}}" title="{{navigationTitle}}">
+        <view class="container" style="{{containerStyle}}">
+            <text bindtap="retry" class="error" wx:if="{{error}}">图片生成失败, 点击重试</text>
+            <text class="error" wx:if="{{generating}}">图片生成中...</text>
+            <view bindtap="previewImage" class="image-wraper" wx:if="{{shareImage}}">
+                <image mode="aspectFit" src="{{shareImage}}" style="{{imageStyle}}"></image>
+            </view>
+        </view>
+        <view class="save-image {{isPro?'pro':''}} {{hasSafeArea?'fix':''}}">
+            <view class="theme-selector">
+                <view class="themes">
+                    <view bindtap="chooseTheme" class="theme {{theme===item.type?'selected':''}}" data-id="{{item.type}}" wx:for="{{config}}" wx:key="{{type}}">
+                        <image class="img" src="{{item.thumbnail}}"></image>
+                        <image class="icon" src="https://cdn.readhub.cn/mina/lottery/icn-share-page-checked@3x.png"></image>
+                    </view>
+                    <view class="padding"></view>
+                </view>
+            </view>
+            <view bindtap="saveImage" class="content" hoverClass="highlight">保存到手机</view>
+        </view>
+    </Layout>
+</view>

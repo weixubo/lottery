@@ -1,0 +1,8 @@
+{
+    "enablePullDownRefresh": false,
+    "backgroundTextStyle": "light",
+    "usingComponents": {
+        "HtmlViews": "../components/HtmlViews/HtmlViews",
+        "Layout": "../components/Layout/Layout"
+    }
+}

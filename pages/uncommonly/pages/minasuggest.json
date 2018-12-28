@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "小程序推荐",
+    "usingComponents": {
+        "Layout": "../../../components/Layout/Layout",
+        "BannerAd": "../../../components/BannerAd/BannerAd"
+    }
+}

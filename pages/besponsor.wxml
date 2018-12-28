@@ -1,0 +1,88 @@
+<view class="besponsorpage">
+    <Layout needGetUserInfo="{{false}}" title="{{navigationTitle}}">
+        <view class="main">
+            <view class="daily block">
+                <view class="title">每日福利</view>
+                <view class="content">针对企业合作伙伴开放，进行品牌宣传与产品推介，按天展示在首页「每日福利」模块。如有意向，请点击下方联系我们。</view>
+                <view class="fetures {{isNarrowScreen?'fix':''}}">
+                    <view class="item">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>首页顶部展位</text>
+                    </view>
+                    <view class="item">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>小程序跳转引流</text>
+                    </view>
+                    <view class="item">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>优惠券奖品</text>
+                    </view>
+                    <view class="item">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>公众号引导关注</text>
+                    </view>
+                    <view class="item">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>专人咨询</text>
+                    </view>
+                    <view class="item">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>按天展示</text>
+                    </view>
+                </view>
+                <view bindtap="contactUs" class="contact" hoverClass="highlight">联系我们
+            <text class="arrow-right"></text>
+                </view>
+            </view>
+            <view class="self block">
+                <view class="title">自助福利</view>
+                <view class="content">个人和企业均可投放。完成流程后提交，可推广抽奖展示在首页「自助福利」模块，获得曝光和关注，以固定展示天数开奖。</view>
+                <view class="fetures {{isNarrowScreen?'fix':''}}">
+                    <view class="item">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>首页自助展位</text>
+                    </view>
+                    <view class="item">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>插入小程序码</text>
+                    </view>
+                    <view class="item">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>微信号、公众号复制</text>
+                    </view>
+                    <view class="item">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>专人审核</text>
+                    </view>
+                    <view class="item">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>以固定展示天数开奖</text>
+                    </view>
+                </view>
+                <view bindtap="selfSubmit" class="contact" hoverClass="highlight" wx:if="{{isAndroid}}">自助提交
+            <text class="arrow-right"></text>
+                </view>
+                <view class="unsupport-tip" wx:else>
+            {{iosUnsupportMessage}}
+          </view>
+            </view>
+            <view class="user-share">
+                <button class="buttonfix" hoverClass="highlight" openType="share">分享给朋友<text class="arrow-right"></text>
+                </button>
+            </view>
+        </view>
+    </Layout>
+    <view class="popup-box-container {{$PopupBox$popupBoxShow?'show':''}}">
+        <view bindtap="$PopupBox$closePopupBox" class="popup-box-cover"></view>
+        <view class="popup-box" style="{{$PopupBox$contentStyle}}">
+            <image bindtap="$PopupBox$closePopupBox" class="popup-box-close" src="https://cdn.readhub.cn/mina/lottery/close@3x.png" wx:if="{{$PopupBox$showClose&&!$PopupBox$disableClose}}"></image>
+            <view class="selft-submit-container">
+                <view class="title">
+                    <image src="https://cdn.readhub.cn/mina/lottery/text-self-help@3x.png"></image>
+                </view>
+                <view class="content">「小程序推广解决方案」：缴纳服务费，提交资料后，会有官方顾问提供服务。</view>
+                <button bindtap="toBuy" class="buy" hoverClass="highlight">继续购买</button>
+            </view>
+        </view>
+    </view>
+</view>

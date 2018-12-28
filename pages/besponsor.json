@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "我要上首页",
+    "usingComponents": {
+        "Layout": "../components/Layout/Layout"
+    }
+}

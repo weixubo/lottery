@@ -1,0 +1,52 @@
+.bottom-button {
+    position: fixed;
+    width: 100%;
+    left: 0px;
+    bottom: 0px;
+    border-top: 1rpx solid rgba(0,0,0,0.12);
+    background: #fff;
+    z-index: 110;
+}
+
+.bottom-button .bottom-button-button-wraper {
+    padding: 15px 13px;
+    height: 47px;
+}
+
+.bottom-button .bottom-button-button-wraper .bottom-button-button {
+    border-radius: 0px;
+    height: 47px;
+    display: flex;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: .4px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #575757;
+    color: #fff;
+}
+
+.bottom-button .bottom-button-button-wraper .bottom-button-button.highlight {
+    background: #333;
+}
+
+.bottom-button .bottom-button-bg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.bottom-button.iPhoneX {
+    bottom: 15px;
+}
+
+.editorpage .container {
+    margin-top: 5px;
+    padding: 25px 16px 100px;
+    background: #fff;
+    box-sizing: border-box;
+}

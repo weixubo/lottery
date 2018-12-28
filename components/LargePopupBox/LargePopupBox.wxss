@@ -1,0 +1,79 @@
+.large-popup-box-component {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -10;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.large-popup-box-component.show {
+    display: flex;
+    z-index: 998;
+    opacity: 1;
+}
+
+.large-popup-box-component.show.animate .popup-box {
+    transform: scale(1);
+}
+
+.large-popup-box-component.show .popup-box-cover {
+    z-index: 997;
+}
+
+.large-popup-box-component.show .popup-box {
+    z-index: 999;
+}
+
+.large-popup-box-component .popup-box-cover {
+    background: rgba(0,0,0,0.66);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -10;
+}
+
+.large-popup-box-component .popup-box {
+    transition: transform .5s;
+    z-index: -10;
+    background: #fff;
+    transform: scale(.7);
+    padding: 0px;
+    margin: 0px;
+    box-shadow: 0 7.5px 12.5px 0 rgba(0,0,0,0.15);
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    border-radius: 2px;
+    min-width: 270px;
+}
+
+.large-popup-box-component .popup-box .popup-box-close {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 15px;
+}
+
+.large-popup-box-component .popup-box .scroll-view {
+    margin-top: 30px;
+    overflow: scroll;
+    position: relative;
+    z-index: 0;
+}
+
+.large-popup-box-component .popup-box .popup-box-content {
+    padding: 0px 20px 0px;
+    height: 100%;
+    box-sizing: border-box;
+}

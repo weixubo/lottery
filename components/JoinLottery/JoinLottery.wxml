@@ -1,0 +1,3 @@
+<JoinPasswordLottery game="{{game}}" wx:if="{{game.need_code}}"></JoinPasswordLottery>
+<JoinGroupLottery game="{{game}}" wx:elif="{{game.groupable}}"></JoinGroupLottery>
+<JoinNormalLottery game="{{game}}" wx:else></JoinNormalLottery>

@@ -1,0 +1,69 @@
+<view bindtap="click" class="square-lottery suggest-square-lottery-component" hoverClass="highlight" wx:if="{{item}}">
+    <view class="end-status" wx:if="{{item.state===2}}">
+        <view class="circle">已结束</view>
+    </view>
+    <view class="prize-image">
+        <LazyImage mode="aspectFill" src="{{item.prizeImages[0]?format.image(item.prizeImages[0],'square'):'/images/default-prize@3x.png'}}" styles="width: 120px; height: 120px;"></LazyImage>
+    </view>
+    <view class="prize-info">
+        <view class="name" wx:if="{{item.prizes.length>0}}">
+            <text>奖品：</text>
+            <text wx:for="{{item.prizes}}" wx:key="index">{{index!==0?'、':''}}{{item.name}} x{{item.count}}</text>
+        </view>
+        <view class="lottery-type" wx:if="{{item.draw_type==='user'&&item.minUserCount}}">
+            <view class="join-tag" wx:if="{{item.joined||item.joined}}">
+                <image src="https://cdn.readhub.cn/mina/lottery/icn_join@3x.png"></image>
+        已参与
+        <text class="split-line"></text>
+            </view>
+      参与者达到 {{item.minUserCount}} 人时自动开奖
+    </view>
+        <view class="lottery-type" wx:if="{{item.draw_type==='time'&&item.simpleEndTime}}">
+            <view class="join-tag" wx:if="{{item.joined||item.joined}}">
+                <image src="https://cdn.readhub.cn/mina/lottery/icn_join@3x.png"></image>
+        已参与
+        <text class="split-line"></text>
+            </view>
+            <text wx:if="{{item.square&&!item.square.displayed&&item.square.purchase_data&&item.square.purchase_data.days}}">设置展示后 {{item.square.purchase_data.days}} 天</text>
+            <text wx:else>{{item.simpleEndTime}} 自动开奖</text>
+        </view>
+        <view class="lottery-type" wx:elif="{{item.draw_type==='manual'}}">
+            <view class="join-tag" wx:if="{{item.joined||item.joined}}">
+                <image src="https://cdn.readhub.cn/mina/lottery/icn_join@3x.png"></image>
+        已参与
+        <text class="split-line"></text>
+            </view>
+      本抽奖将由发起人手动开奖
+    </view>
+        <view class="lottery-type" wx:elif="{{item.draw_type==='chatroom'}}">
+            <view class="join-tag" wx:if="{{item.joined||item.joined}}">
+                <image src="https://cdn.readhub.cn/mina/lottery/icn_join@3x.png"></image>
+        已参与
+        <text class="split-line"></text>
+            </view>
+      对实时在线的参与者开奖
+    </view>
+        <view class="lottery-type" wx:elif="{{item.draw_type==='ontime'}}">
+            <view class="join-tag" wx:if="{{item.joined||item.joined}}">
+                <image src="https://cdn.readhub.cn/mina/lottery/icn_join@3x.png"></image>
+        已参与
+        <text class="split-line"></text>
+            </view>
+      即开即中，综合中奖率 {{item.winnerRate}}%
+    </view>
+        <view class="tags">
+            <view class="tag red len" style="max-width:{{item.shopPrize?tagWidth-shopPrize:tagWidth}}px" wx:if="{{item.initiator&&item.initiator.certificate_name}}">
+                <image src="https://cdn.readhub.cn/mina/lottery/icn-v2@3x.png"></image>
+                <text>{{item.initiator.certificate_name}}</text>
+            </view>
+            <view class="tag red" wx:elif="{{item.sponsor&&item.sponsor.name}}">
+                <image src="https://cdn.readhub.cn/mina/lottery/icn-v2@3x.png"></image>
+                <text>{{item.sponsor.name}}</text>
+            </view>
+            <view class="tag shop_prize" wx:if="{{item.shopPrize}}">
+                <text>商城奖品</text>
+            </view>
+        </view>
+    </view>
+</view>
+<wxs module="format" src="../../wxs/format.wxs" />

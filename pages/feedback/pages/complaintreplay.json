@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "回应投诉",
+    "usingComponents": {
+        "Layout": "../../../components/Layout/Layout"
+    }
+}

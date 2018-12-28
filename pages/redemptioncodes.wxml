@@ -1,0 +1,25 @@
+<view class="redemptioncodespage">
+    <Layout needGetUserInfo="{{false}}" title="{{navigationTitle}}">
+        <view class="add-view" wx:if="{{view==='add'}}">
+            <view class="header">
+                <view class="tips">兑奖码一行一个，最多 50 个</view>
+                <view bindtap="clear" class="clear" hoverClass="highlight" wx:if="{{value}}">清空</view>
+            </view>
+            <view class="body">
+                <textarea autoFocus bindinput="onChange" maxlength="{{10000}}" placeholder="例如：" value="{{value}}"></textarea>
+            </view>
+            <view class="confirm-button">
+                <view bindtap="confirm" class="button" hoverClass="highlight">确认兑换码</view>
+            </view>
+        </view>
+        <view class="preview" wx:else>
+            <view class="header">
+                <view class="tips">开奖后直接发放，无需中奖者填写联系信息</view>
+            </view>
+            <view class="item" wx:for="{{codes}}" wx:key="index">{{item}}</view>
+            <view class="confirm-button">
+                <view bindtap="done" class="button" hoverClass="highlight">完成（已添加 {{codes.length}} 个）</view>
+            </view>
+        </view>
+    </Layout>
+</view>

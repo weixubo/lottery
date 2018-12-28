@@ -1,0 +1,134 @@
+page {
+    background-color: #f0f0f0;
+    font-family: "PingFang SC";
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.shareimagepage canvas {
+    width: 1500px;
+    height: 1500px;
+    border: none!important;
+    position: absolute;
+    top: 0px;
+    left: 1000px;
+    z-index: -1;
+}
+
+.shareimagepage .container {
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: scroll;
+    box-sizing: border-box;
+}
+
+.shareimagepage .container .error {
+    text-align: center;
+    font-size: 16px;
+    color: #aaa;
+    margin-top: 50%;
+    display: block;
+}
+
+.shareimagepage .container .image-wraper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shareimagepage .save-image {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    height: 64px;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1rpx solid rgba(0,0,0,0.1);
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.shareimagepage .save-image.fix {
+    padding-bottom: 20px;
+}
+
+.shareimagepage .save-image .content {
+    height: 44px;
+    text-align: center;
+    line-height: 44px;
+    margin: 10px;
+    background-color: #575757;
+}
+
+.shareimagepage .save-image .content.highlight {
+    background-color: #333333;
+}
+
+.shareimagepage .save-image.pro {
+    height: 140px;
+}
+
+.shareimagepage .save-image.pro .theme-selector {
+    display: flex;
+}
+
+.shareimagepage .save-image.pro .content {
+    margin-top: 0px;
+}
+
+.shareimagepage .save-image .theme-selector {
+    height: 86px;
+    display: none;
+    align-items: center;
+}
+
+.shareimagepage .save-image .theme-selector .themes {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+}
+
+.shareimagepage .save-image .theme-selector .themes .theme {
+    flex: 0 0 auto;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    position: relative;
+}
+
+.shareimagepage .save-image .theme-selector .themes .theme .img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.shareimagepage .save-image .theme-selector .themes .theme:first-child {
+    margin-left: 15px;
+}
+
+.shareimagepage .save-image .theme-selector .themes .theme .icon {
+    display: none;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: -1px;
+    right: -3px;
+}
+
+.shareimagepage .save-image .theme-selector .themes .theme.selected .icon {
+    display: block;
+}
+
+.shareimagepage .save-image .theme-selector .themes .padding {
+    flex: 0 0 auto;
+    width: 1px;
+}

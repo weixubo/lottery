@@ -1,0 +1,17 @@
+<view class="squaregamespage">
+    <Layout bindgetuserinfo="getUserInfo" forceHideGetUserInfo="{{forceHideGetUserInfo}}" needGetUserInfo="{{needGetUserInfo}}" title="{{navigationTitle}}">
+        <view class="loading" wx:if="{{!inited}}">
+            <image mode="aspectFit" src="https://cdn.readhub.cn/mina/lottery/loading.gif"></image>
+        </view>
+        <view class="main" wx:else>
+            <view class="group-list">
+                <view class="item" wx:for="{{squareGames}}" wx:key="id">
+                    <NormalSquareLottery bindlotterytap="goToLottery" item="{{item}}"></NormalSquareLottery>
+                </view>
+                <view bindtap="loadMore" class="square-loadmore" hoverClass="highlight" wx:if="{{hasMoreSquareGames}}">
+                    <text>{{squareLoading?'加载中...':'加载更多'}}</text>
+                </view>
+            </view>
+        </view>
+    </Layout>
+</view>

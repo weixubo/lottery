@@ -1,0 +1,21 @@
+<view class="layout-conponent">
+    <view class="navigation-bar" wx:if="{{isSupportCustomNavigationBar}}">
+        <view class="navigation-bar-main {{isIphoneX?'iPhoneX':''}}" style="{{statusBarHeight?'padding-top: '+statusBarHeight+'px;':''}}{{navigationStyle}}">
+            <image bindtap="navigateHome" class="more-prize" src="https://cdn.readhub.cn/mina/lottery/icn-text-view-more@3x.png" wx:if="{{navigationMorePrize}}"></image>
+            <view bindtap="navigateBack" class="navigation-bar-cancel" hoverClass="highlight" wx:elif="{{showCancel}}">
+        取消
+      </view>
+            <image bindtap="navigateBack" class="navigation-bar-back" src="{{backIcon}}" wx:elif="{{showBack}}"></image>
+            <image bindtap="navigateHome" class="navigation-bar-back" src="https://cdn.readhub.cn/mina/lottery/icn_home@3x.png" wx:elif="{{showHome}}"></image>
+            <view class="navigation-bar-title" style="{{navigationStyle}}">
+                <view class="navigation-bar-title-content">
+                    <text>{{title}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="layout-main {{isIphoneX?'iPhoneX':''}} {{isSupportCustomNavigationBar?'':'fix'}}" style="{{statusBarHeight?'padding-top: '+statusBarHeight+44+'px;':''}}">
+        <slot></slot>
+    </view>
+    <button bindgetuserinfo="getUserInfo" class="get-user-info-button" openType="getUserInfo" wx:if="{{forceHideGetUserInfo?false:needGetUserInfo}}"></button>
+</view>

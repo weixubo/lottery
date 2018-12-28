@@ -1,0 +1,26 @@
+<view class="userspage">
+    <Layout needGetUserInfo="{{false}}" title="{{navigationTitle}}">
+        <view class="loading" wx:if="{{!inited}}">
+            <image mode="aspectFit" src="https://cdn.readhub.cn/mina/lottery/loading.gif"></image>
+        </view>
+        <view class="main" wx:else>
+            <view class="ad-container" wx:if="{{!shouldHideAd}}">
+                <BannerAd banner="{{banner}}" wx:if="{{banner}}"></BannerAd>
+                <ad unitId="adunit-403e7054e8193038" wx:else></ad>
+            </view>
+            <view class="join-users">
+                <view class="join-users-banner">
+                    <view class="join-users-banner-value">
+              {{count}} 位参与者</view>
+                </view>
+                <view class="join-users-list">
+                    <view class="join-users-user" style="{{userFlex}}" wx:for="{{users}}" wx:key="id">
+                        <image lazyLoad="lazy-load" mode="aspectFill" src="{{format.wxAvatar(item.avatar,imageSize)||'https://cdn.readhub.cn/mina/lottery/default-avatar-small.png'}}"></image>
+                    </view>
+                </view>
+                <view bindtap="loadMore" class="join-users-loadmore" hoverClass="highlight" wx:if="{{hasMore}}">{{loading?'加载中...':'加载更多'}}</view>
+            </view>
+        </view>
+    </Layout>
+</view>
+<wxs module="format" src="../wxs/format.wxs" />

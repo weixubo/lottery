@@ -1,0 +1,75 @@
+.infos {
+    margin-top: 10px;
+    background: #fff;
+}
+
+.infos .info-split-line {
+    height: 0px;
+    border-bottom: solid 1rpx rgba(0,0,0,0.1);
+    margin-left: 15px;
+}
+
+.infos .info-item {
+    display: flex;
+    height: 50px;
+    font-size: 15px;
+    letter-spacing: .4px;
+    color: #1a1a1a;
+    padding-left: 15px;
+    background: #fff;
+    text-align: left;
+    border-radius: 0px;
+    padding-right: 0px;
+}
+
+.infos .info-item.highlight {
+    background: rgba(0,0,0,0.15);
+}
+
+.infos .info-item .desc {
+    font-size: 13px;
+    letter-spacing: .3px;
+    color: #808080;
+    flex: 0 0 auto;
+}
+
+.infos .info-item image {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    align-self: center;
+    margin-right: 10px;
+}
+
+.infos .info-item text {
+    align-self: center;
+    flex: 1 1 auto;
+}
+
+.infos .info-item text.arrow-right {
+    border: solid #c7c7cc;
+    border-width: 0 1.5px 1.5px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    position: relative;
+    flex: 0 0 auto;
+    margin-left: 10px;
+    align-self: center;
+    flex-grow: 0;
+    margin-right: 15px;
+}
+
+.infos .info-item .certificate-name {
+    text-align: right;
+    color: #808080;
+    font-size: 12px;
+    line-height: 39rpx;
+}
+
+.infos .info-item .badge {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    margin-right: -5px;
+}

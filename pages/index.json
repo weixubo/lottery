@@ -1,0 +1,13 @@
+{
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
+    "usingComponents": {
+        "LazyImage": "../components/LazyImage/LazyImage",
+        "Layout": "../components/Layout/Layout",
+        "OfficialLottery": "../components/OfficialLottery/OfficialLottery",
+        "SuggestSquareLottery": "../components/SuggestSquareLottery/SuggestSquareLottery",
+        "NormalSquareLottery": "../components/NormalSquareLottery/NormalSquareLottery",
+        "BottomNavigation": "../components/BottomNavigation/BottomNavigation",
+        "BannerAd": "../components/BannerAd/BannerAd"
+    }
+}

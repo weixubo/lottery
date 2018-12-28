@@ -1,0 +1,328 @@
+<form reportSubmit bindsubmit="createGame" class="createwithfunpage">
+    <Layout bindgetuserinfo="getUserInfo" forceHideGetUserInfo="{{forceHideGetUserInfo}}" needGetUserInfo="{{needGetUserInfo}}" title="{{navigationTitle}}">
+        <view animation="{{tipsAnimationData}}" class="create-page-container" wx:if="{{inited}}">
+            <view class="game-cover">
+                <view class="picture {{viewType==='pro'?'fix':''}}">
+                    <view class="prize-picture" wx:if="{{gamePicture}}">
+                        <image class="prize-picture-bg" mode="widthFix" src="{{gamePicture+'!mina.lottery'}}" style="{{imageStyle}}"></image>
+                        <view bindtap="chooseImage" class="add-picture-button" hoverClass="hover">
+                更换奖品图片
+              </view>
+                    </view>
+                    <view class="picture-editor" wx:else>
+                        <image mode="widthFix" src="/images/default-prize-pi@3x.png" style="{{imageStyle}}"></image>
+                        <view bindtap="chooseImage" class="add-picture-button" hoverClass="hover">
+                更换奖品图片
+              </view>
+                    </view>
+                </view>
+            </view>
+            <view class="game-prizes {{viewType==='pro'?'pro':'normal'}}">
+                <view class="game-prizes-editor-label">设置奖项</view>
+                <view class="item-list {{index===0?'first':''}}" wx:for="{{initialGamePrizes}}" wx:key="index">
+                    <view bindtap="deleteGamePrize" class="game-prize-delete {{id&&item.type===2?'disable':''}}" data-wpydeletegameprize-a="{{index}}" hoverClass="highlight">
+                        <image src="https://cdn.readhub.cn/mina/lottery/icn-delete@3x.png"></image>
+                    </view>
+                    <view class="item game-type" wx:if="{{isEnableRedpacket}}">
+                        <text class="label">奖品类型</text>
+                        <view class="switch-list {{id?'disable':''}}">
+                            <text bindtap="changeGameType" class="switch-item game-type-physical {{item.type===1?'selected':'unselected'}} {{id&&item.type===2?'disable':''}}" data-index="{{index}}" data-wpychangegametype-a="1">实物</text>
+                            <text bindtap="changeGameType" class="switch-item game-type-money {{item.type===2?'selected':'unselected'}}  {{id&&item.type===1?'disable':''}}" data-index="{{index}}" data-wpychangegametype-a="2">红包</text>
+                        </view>
+                    </view>
+                    <view wx:if="{{item.type===2}}">
+                        <view class="item game-prize {{item.errors?item.errors.amount?'error':'':''}} {{id?'disable':''}}">
+                            <text class="label">单个红包金额</text>
+                            <view class="error-message" style="right: 90px;">红包金额 1-200
+                  <text class="arrow-right"></text>
+                            </view>
+                            <input bindblur="checkDataAndSync" bindinput="onPrizeAmountChange" class="input" data-index="{{index}}" data-type="amount" maxlength="{{20}}" placeholder="￥0.00" type="digit" value="{{item.amount}}"></input>
+                            <view class="money-unit">元</view>
+                        </view>
+                        <view class="item game-prize-count {{item.errors?item.errors.count?'error':'':''}} {{id?'disable':''}}">
+                            <text class="label">红包数量</text>
+                            <view class="error-message" style="right: 90px;">{{viewType==='pro'?'红包数量 1-'+payed_max_vprize_count:'红包数量 1-'+max_vprize_count}}
+                  <text class="arrow-right"></text>
+                            </view>
+                            <view class="picker-container">
+                                <view class="count-picker">
+                                    <input bindblur="checkDataAndSync" bindinput="onChangeNumberOfPrize" data-index="{{index}}" data-type="count" maxlength="{{moneyCountLength}}" placeholder="数量" type="number" value="{{item.count}}"></input>
+                                    <view>个</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view wx:else>
+                        <view class="item game-prize {{item.errors?item.errors.name?'error':'':''}}">
+                            <text class="label">奖品名称</text>
+                            <view class="error-message" style="right: 204px;">请输入奖品名称
+                  <text class="arrow-right"></text>
+                            </view>
+                            <input bindblur="checkDataAndSync" bindinput="onPrizeChange" class="input" data-index="{{index}}" data-type="name" maxlength="{{20}}" placeholder="请输入奖品名称" value="{{item.name}}" wx:if="{{!randomAnimate}}"></input>
+                            <view class="random-animate" wx:else>
+                                <view animation="{{randomAnimationData}}" class="random-animate-list">
+                                    <view class="random-animate-item">{{initialGamePrizes[index].name}}</view>
+                                    <view class="random-animate-item" wx:for="{{randomAnimatePrizes}}" wx:for-item="p" wx:key="index">{{p.name}}</view>
+                                </view>
+                            </view>
+                            <view bindtap="randomPrize" class="random-prize" data-index="{{index}}" data-type="name" hoverClass="highlight">换一个</view>
+                        </view>
+                        <view class="item game-prize-count {{item.errors?item.errors.count?'error':'':''}}">
+                            <text class="label">奖品份数</text>
+                            <view class="error-message">份数不能超过 100
+                  <text class="arrow-right"></text>
+                            </view>
+                            <view class="picker-container">
+                                <view class="count-picker">
+                                    <input bindblur="checkDataAndSync" bindinput="onChangeNumberOfPrize" data-index="{{index}}" data-type="count" maxlength="{{3}}" placeholder="份数" type="number" value="{{item.count}}"></input>
+                                    <view>个</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="game-prizes-editor-add-item" wx:if="{{gamePrizes.length<5}}">
+                    <view bindtap="newGamePrize" class="game-prizes-editor-add-item-button" hoverClass="highlight">
+                        <image src="https://cdn.readhub.cn/mina/lottery/icn-add-new@3x.png"></image>
+                        <text>添加新奖项</text>
+                    </view>
+                </view>
+            </view>
+            <view class="game-description">
+                <view class="game-description-label">抽奖说明
+            <text>非必填</text>
+                </view>
+                <view bindtap="editGameDescription" class="textarea {{gameDescription?'':'placeholder'}}">{{gameDescription||'填写此次抽奖的说明'}}</view>
+            </view>
+            <view class="game-end-controll">
+                <view bindtap="chooseCondition" class="game-end-config-tip" data-wpychoosecondition-a="" wx:if="{{gameEndType==='time'}}">
+                    <text class="game-end-config-tip-label">到达设定时间自动开奖</text>
+                    <view class="color-red" hoverClass="highlight">修改开奖条件</view>
+                    <view class="arrow-right">
+                        <image mode="aspectFit" src="https://cdn.readhub.cn/mina/lottery/arrow-blue@3x.png" style="width:26px;height:12px;"></image>
+                    </view>
+                </view>
+                <view bindtap="chooseCondition" class="game-end-config-tip" data-wpychoosecondition-a="" wx:elif="{{gameEndType==='user'}}">
+                    <text class="game-end-config-tip-label">3 天内到达设定人数自动开奖</text>
+                    <view class="color-red" hoverClass="highlight">修改开奖条件</view>
+                    <view class="arrow-right">
+                        <image mode="aspectFit" src="https://cdn.readhub.cn/mina/lottery/arrow-blue@3x.png" style="width:26px;height:12px;"></image>
+                    </view>
+                </view>
+                <view bindtap="chooseCondition" class="game-end-config-tip" data-wpychoosecondition-a="" wx:elif="{{gameEndType==='manual'}}">
+                    <text class="game-end-config-tip-label">发起人手动开奖</text>
+                    <view class="color-red" hoverClass="highlight">修改开奖条件</view>
+                    <view clapickerItemValuess="arrow-right">
+                        <image mode="aspectFit" src="https://cdn.readhub.cn/mina/lottery/arrow-blue@3x.png" style="width:26px;height:12px;"></image>
+                    </view>
+                </view>
+                <view bindtap="chooseCondition" class="game-end-config-tip" data-wpychoosecondition-a="" wx:elif="{{gameEndType==='chatroom'}}">
+                    <text class="game-end-config-tip-label">现场抽奖</text>
+                    <view class="color-red" hoverClass="highlight">修改开奖条件</view>
+                    <view class="arrow-right">
+                        <image mode="aspectFit" src="https://cdn.readhub.cn/mina/lottery/arrow-blue@3x.png" style="width:26px;height:12px;"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="game-end-config">
+                <view class="game-end-config-list">
+                    <view class="game-end-config-item" wx:if="{{gameEndType==='time'}}">
+                        <view class="game-end-time-config-picker">
+                            <view bindtap="toggleDatetimePicker" class="picker-item {{drawErrorClass}}" hoverClass="highlight" hoverStayTime="200">
+                                <view class="picker-item-label">开奖时间</view>
+                                <view class="error-message">{{drawErrorText}}
+                    <text></text>
+                                </view>
+                                <view class="picker-item-value">
+                                    <text class="year">{{displayDatetime.year}} {{displayDatetime.week}} {{displayDatetime.time}} {{dateDistance}}</text>
+                                    <text class="arrow-right"></text>
+                                </view>
+                            </view>
+                            <view class="datepicker {{dateToggle?'showed':''}}">
+                                <view class="date-time-picker" wx:if="{{dateToggle}}">
+                                    <picker-view bindchange="$datetimepicker$onDatetimeChange" value="{{$datetimepicker$value}}">
+                                        <picker-view-column class="date">
+                                            <view wx:for="{{$datetimepicker$days}}" wx:key="index">{{item}}</view>
+                                        </picker-view-column>
+                                        <picker-view-column class="hour">
+                                            <view wx:for="{{$datetimepicker$hours}}" wx:key="index">{{item}}</view>
+                                        </picker-view-column>
+                                        <picker-view-column class="minute">
+                                            <view wx:for="{{$datetimepicker$minutes}}" wx:key="index">{{item}}</view>
+                                        </picker-view-column>
+                                    </picker-view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="game-end-config-item" wx:elif="{{gameEndType==='user'}}">
+                        <view class="game-end-user-config-picker">
+                            <view class="picker-item {{numberOfPeopleError?'error':''}}">
+                                <view class="picker-item-label">开奖人数</view>
+                                <view class="error-message">{{numberOfPeopleError==='error-2'?'不能超过 1024 人':numberOfPeopleError==='error-1'?'不能小于奖品份数':'开奖人数不能为空'}}
+                    <text></text>
+                                </view>
+                                <input bindblur="checkNumberOfPeople" bindinput="onChangeNumberOfPeople" confirmType="done" maxlength="{{5}}" placeholder="人数" type="number" value="{{initGameUserCount}}"></input>
+                                <view class="picker-item-value">人</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="game-end-config-item" wx:elif="{{gameEndType==='manual'}}">
+                        <view class="game-end-manual-config-picker">
+                            <text>由发起人手动开奖</text>
+                        </view>
+                    </view>
+                    <view class="game-end-config-item" wx:elif="{{gameEndType==='chatroom'}}">
+                        <view class="game-end-manual-config-picker">
+                            <text>由发起人现场开奖</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="game-group-config item-list {{isGroupDisable?'disable':''}}" wx:if="{{viewType==='pro'}}">
+                <view class="game-group-visiable item">
+                    <view class="label">组队</view>
+                    <switch bindchange="gameGroupableChange" checked="{{groupable}}" color="#d15143"></switch>
+                </view>
+                <view class="game-group-user-count item" wx:if="{{groupable}}">
+                    <view class="label">单个队内人数上限</view>
+                    <view class="switch-list group-user-count-selector">
+                        <view class="switch-selector">
+                            <view bindtap="$SwitchSelector$choose" class="switch-selector-item {{$SwitchSelector$selectedIndex===index?'selected':''}} {{index===$SwitchSelector$selectedIndex-1?'beforeSelected':''}} {{index===$SwitchSelector$selectedIndex+1?'afterSelected':''}}" data-wpychoose-a="{{item}}" data-wpychoose-b="{{index}}" wx:for="{{$SwitchSelector$list}}" wx:key="index">{{item}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="game-group-config-tip" wx:if="{{viewType==='pro'}}">{{isGroupDisable?'仅按时间开奖的实物抽奖可以组队':'开启组队，加速扩散抽奖，获得更多用户参与'}}</view>
+        </view>
+    </Layout>
+    <view class="new-game">
+        <view class="new-game-button-wraper">
+            <view class="new-game-button-desc" wx:if="{{$CreateGameButton$desc}}">{{$CreateGameButton$desc}}</view>
+            <button class="new-game-button" formType="submit" hoverClass="highlight" style="{{$CreateGameButton$style}}">
+                <image src="{{$CreateGameButton$icon}}" wx:if="{{$CreateGameButton$icon}}"></image>{{$CreateGameButton$text}}
+      </button>
+        </view>
+    </view>
+    <view class="pay {{$Pay$show?'show':''}}">
+        <view bindtap="$Pay$hide" class="pay-cover"></view>
+        <view class="pay-card" style="{{$Pay$payStyle}}">
+            <view class="pay-header">
+                <image src="https://cdn.readhub.cn/mina/lottery/pay-title@3x.png" style="width:148px;height:29px;"></image>
+            </view>
+            <view bindtap="$Pay$hide" class="pay-close">
+                <image src="https://cdn.readhub.cn/mina/lottery/close@3x.png"></image>
+            </view>
+            <view class="pay-body">
+                <view class="pay-desc">
+                    <view class="pay-title" wx:if="{{$Pay$type==='free'}}">
+                        <text class="del">支付 9.9 元/次</text>
+                        <text class="count"> 限时免费</text>
+                        <text>，使用以下功能</text>
+                    </view>
+                    <view class="pay-title" wx:elif="{{$Pay$isAndroid}}">
+                        <text>支付 </text>
+                        <text class="count">9.9 元/次</text>
+                        <text>，使用以下功能</text>
+                    </view>
+                    <view class="pay-title" wx:else>
+                        <text>高级版含有以下功能：</text>
+                    </view>
+                    <view class="pay-desc-item">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>图文编辑</text>
+                    </view>
+                    <view class="pay-desc-item" wx:if="{{$Pay$redpacket}}">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>红包中奖人数多达 1000</text>
+                    </view>
+                    <view class="pay-desc-item">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>同时抽取一、二、三等奖</text>
+                    </view>
+                    <view class="pay-desc-item" wx:if="{{$Pay$redpacket}}">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>红包/实物混合抽奖</text>
+                    </view>
+                    <view class="pay-desc-item" wx:if="{{$Pay$type!=='default'}}">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>按人数抽奖开奖人数大于 1024</text>
+                    </view>
+                    <view class="pay-desc-item" wx:if="{{$Pay$type!=='default'}}">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>开启组队</text>
+                    </view>
+                    <view class="pay-desc-item">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>隐藏广告</text>
+                    </view>
+                    <view class="pay-desc-item">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>奖品数量提升到 1024</text>
+                    </view>
+                    <view class="pay-desc-item">
+                        <image src="https://cdn.readhub.cn/mina/lottery/dialog-icn-check@3x.png"></image>
+                        <text>开启口令</text>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="$Pay$pay" class="pay-button" hoverClass="highlight" wx:if="{{$Pay$type==='free'}}">
+          限时免费
+        </view>
+            <block wx:elif="{{$Pay$isAndroid}}">
+                <view class="public-pay-desc">购买后可转赠给好友</view>
+                <view bindtap="$Pay$pay" class="pay-button" hoverClass="highlight">
+            现在购买
+          </view>
+            </block>
+            <view class="public-pay-desc" style="padding-bottom:10px;" wx:else>{{$Pay$iosUnsupportMessage}}</view>
+        </view>
+    </view>
+    <view class="popup-box-container {{$PiPopupBox$popupBoxShow?'show':''}}">
+        <view bindtap="$PiPopupBox$closePopupBox" class="popup-box-cover"></view>
+        <view class="popup-box" style="{{$PiPopupBox$contentStyle}}">
+            <image bindtap="$PiPopupBox$closePopupBox" class="popup-box-close" src="https://cdn.readhub.cn/mina/lottery/close@3x.png" wx:if="{{$PiPopupBox$showClose&&!$PiPopupBox$disableClose}}"></image>
+            <view class="pi-tip-container">
+                <view class="piyixia-icon-container">
+                    <view class="piyixia-icon">
+                        <image class="pi-ghost" src="https://cdn.readhub.cn/mina/lottery/559-3@3x.png"></image>
+                        <image class="pi-bg" src="https://cdn.readhub.cn/mina/lottery/icn-pi-bg@3x.png"></image>
+                    </view>
+                </view>
+                <view class="piyixia-tips">
+                    <view>确认过眼神，是一起耍的人</view>
+                    <view>适用于好友圈互动：</view>
+                    <view>抽个 TA 喊你起床、互道晚安……</view>
+                    <view>万里挑一的有趣抽奖，玩起来 ↓↓↓</view>
+                </view>
+                <view bindtap="hidePiyixiaTip" class="piyixia-go" hoverClass="highlight">现在就「皮一下」</view>
+            </view>
+        </view>
+    </view>
+    <view class="popup-box-container {{$PopupBox$popupBoxShow?'show':''}}">
+        <view bindtap="$PopupBox$closePopupBox" class="popup-box-cover"></view>
+        <view class="popup-box" style="{{$PopupBox$contentStyle}}">
+            <image bindtap="$PopupBox$closePopupBox" class="popup-box-close" src="https://cdn.readhub.cn/mina/lottery/close@3x.png" wx:if="{{$PopupBox$showClose&&!$PopupBox$disableClose}}"></image>
+            <view class="alert-tip-container">
+                <view class="alert-header">提示</view>
+                <view class="alert-body" wx:if="{{alertType==='user'}}">
+                    <view>你选择了按人数开奖：</view>
+                    <view>如未达到指定人数，3 天后将按实际参与人数开奖</view>
+                </view>
+                <view class="alert-body" wx:if="{{alertType==='manual'}}">
+                    <view>你选择了手动开奖：</view>
+                    <view>如未手动开奖，3 天后将过期，不会开奖</view>
+                </view>
+                <view class="alert-body" wx:if="{{alertType==='chatroom'}}">
+                    <view>你选择了现场开奖：</view>
+                    <view>对在线的参与者实时开奖，7 天后将过期，不会开奖</view>
+                </view>
+                <view class="alert-body" wx:if="{{alertType==='group'}}">
+                    <view>你选择了组队抽奖：</view>
+                    <view>若组队中奖，发起人需提供额外份数的奖品。如 6 人组队中奖 1 个奖品，共需提供 6 个奖品。</view>
+                </view>
+                <view bindtap="confirmCreate" class="confirm-button" hoverClass="highlight">{{id?'我知道了，确认修改':'我知道了，确认发起'}}</view>
+            </view>
+        </view>
+    </view>
+</form>

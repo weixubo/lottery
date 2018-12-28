@@ -1,0 +1,14 @@
+<view class="actionsheet-component">
+    <view bindtap="hide" class="cover" wx:if="{{showed}}"></view>
+    <view class="actionsheet" style="{{actionSheetStyle}}" wx:if="{{items.length>0}}">
+        <view class="items">
+            <button bindtap="choose" class="item" data-index="{{index}}" hoverClass="hover" openType="{{item.openType||''}}" wx:if="{{item.label}}" wx:for="{{items}}" wx:key="{{index}}">
+        {{item.label}}
+      </button>
+        </view>
+        <view class="cancel">
+            <button bindtap="hide" class="item" hoverClass="hover">取消</button>
+        </view>
+        <view class="padding-bottom"></view>
+    </view>
+</view>

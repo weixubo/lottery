@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "自助提交审核规则",
+    "usingComponents": {
+        "Layout": "../../../components/Layout/Layout"
+    }
+}

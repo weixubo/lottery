@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "奖品商城",
+    "usingComponents": {
+        "LotteryRichText": "../../../components/LotteryRichText/LotteryRichText",
+        "Layout": "../../../components/Layout/Layout"
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "嵌入到公众号文章",
+    "usingComponents": {
+        "Layout": "../components/Layout/Layout"
+    }
+}

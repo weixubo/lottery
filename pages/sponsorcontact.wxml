@@ -1,0 +1,8 @@
+<view class="besponsorpage">
+    <Layout needGetUserInfo="{{false}}" title="{{navigationTitle}}">
+        <view class="sponsor-wran">请填写：您的称呼，联系方式，公司及期望推广产品的简介</view>
+        <textarea autoHeight bindinput="userInput" class="textarea" placeholder="请填写"></textarea>
+        <view bindtap="submit" class="submit-button" hoverClass="highlight">提交</view>
+        <view class="sponsor-tip">感谢支持和信赖，我们将在 2 个工作日内与你联络</view>
+    </Layout>
+</view>

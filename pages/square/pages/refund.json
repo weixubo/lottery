@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "退款原因",
+    "backgroundTextStyle": "dark",
+    "usingComponents": {
+        "Layout": "../../../components/Layout/Layout"
+    }
+}

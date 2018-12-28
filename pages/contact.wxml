@@ -1,0 +1,81 @@
+<view class="contactpage">
+    <Layout needGetUserInfo="{{false}}" title="{{navigationTitle}}">
+        <view class="loading" wx:if="{{!inited}}">
+            <image mode="aspectFit" src="https://cdn.readhub.cn/mina/lottery/loading.gif"></image>
+        </view>
+        <view class="main" wx:else>
+            <view class="contact-info">
+                <view class="remind-info" wx:if="{{needRemind&&game.theme!=='funny'}}">
+            已告知中奖者在
+            <text class="color-red">{{endDate}} 前</text>
+                    <text wx:if="{{game.is_official||game.square_id}}">填写中奖信息，地址填写和更新将发通知给你；开奖 48 小时后中奖者将不能填写地址。</text>
+                    <text wx:else>填写中奖信息，地址填写和更新将发通知给你；开奖 7 天后中奖者将不能填写地址。</text>
+                </view>
+                <view class="contact-group" wx:if="{{group[0]}}">
+                    <view class="contact-label">{{game.theme==='funny'?'':'已填写'}}</view>
+                    <view class="contact-info-list">
+                        <view bindtap="copyInfo" class="contact-info-item" data-wpycopyinfo-a="{{item}}" hoverClass="highlight" wx:for="{{group[0]}}" wx:key="index">
+                            <view class="contact-info-item-user">
+                                <image mode="aspectFill" src="{{item.avatar||'https://cdn.readhub.cn/mina/lottery/default-avatar-small.png'}}"></image>
+                                <text>{{item.nick_name}}</text>
+                                <text class="contact-info-item-user-empty" wx:if="{{!item.displayContact}}">（未填写）</text>
+                            </view>
+                            <view class="contact-info-item-contact" wx:if="{{item.displayContact}}">
+                                <view>{{item.displayContact}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="contact-group" wx:if="{{group[1]}}">
+                    <view class="contact-label">{{game.theme==='funny'?'':'未填写'}}</view>
+                    <view class="contact-info-list">
+                        <view bindtap="copyInfo" class="contact-info-item" data-wpycopyinfo-a="{{item}}" hoverClass="highlight" wx:for="{{group[1]}}" wx:key="index">
+                            <view class="contact-info-item-user">
+                                <image mode="aspectFill" src="{{item.avatar||'https://cdn.readhub.cn/mina/lottery/default-avatar-small.png'}}"></image>
+                                <text>{{item.nick_name}}</text>
+                                <text class="contact-info-item-user-empty" wx:if="{{!item.displayContact}}">（未填写）</text>
+                            </view>
+                            <view class="contact-info-item-contact" wx:if="{{item.displayContact}}">
+                                <view>{{item.displayContact}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <form reportSubmit bindsubmit="collectFormId" wx:if="{{game.theme!=='funny'}}">
+            <button formType="submit">
+                <view class="copy-all-button {{isIphoneX?'iPhoneX':''}}">
+                    <view class="bottom-button-button-wraper">
+                        <view bindtap="showDownload" class="download-button" hoverClass="highlight">下载文件</view>
+                        <view class="padding" wx:if="{{canCopy}}"></view>
+                        <view bindtap="copyAllUserInfo" class="bottom-button-button" hoverClass="highlight" wx:if="{{canCopy}}">
+                一键复制全部
+              </view>
+                    </view>
+                </view>
+            </button>
+        </form>
+    </Layout>
+    <view class="popup-box-container {{$PopupBox$popupBoxShow?'show':''}}">
+        <view bindtap="$PopupBox$closePopupBox" class="popup-box-cover"></view>
+        <view class="popup-box" style="{{$PopupBox$contentStyle}}">
+            <image bindtap="$PopupBox$closePopupBox" class="popup-box-close" src="https://cdn.readhub.cn/mina/lottery/close@3x.png" wx:if="{{$PopupBox$showClose&&!$PopupBox$disableClose}}"></image>
+            <view class="download-box">
+                <view class="loading-container" wx:if="{{!downloadinited}}">
+                    <image mode="aspectFit" src="https://cdn.readhub.cn/mina/lottery/loading.gif"></image>
+                </view>
+                <view wx:else>
+                    <view class="download-info" wx:if="{{downloadLink}}">
+                        <view class="tip">复制链接，在电脑端打开，链接 30 分钟内有效</view>
+                        <view class="link">{{downloadLink}}</view>
+                        <view bindtap="copyLink" class="copy" hoverClass="highlight">复制链接</view>
+                    </view>
+                    <view class="download-error" wx:else>
+            获取下载链接失败，请重试
+          </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

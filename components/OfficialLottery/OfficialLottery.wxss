@@ -1,0 +1,137 @@
+.official-lottery-component.highlight {
+    background: #ddd;
+}
+
+.official-lottery-component.highlight .lottery-info {
+    background: #ddd;
+}
+
+.official-lottery-component {
+    background: #ffffff;
+}
+
+.official-lottery-component .prize-image {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.official-lottery-component .prize-image image {
+    width: 100%;
+}
+
+.official-lottery-component .lottery-info {
+    position: relative;
+    background: #fff;
+    padding-bottom: 15px;
+}
+
+.official-lottery-component .lottery-info .sponsor {
+    font-size: 14px;
+    padding: 20px 20px 0;
+    color: #d22220;
+    font-weight: bold;
+}
+
+.official-lottery-component .lottery-info .prizes {
+    margin-top: 5px;
+}
+
+.official-lottery-component .lottery-info .prizes .item {
+    font-size: 17px;
+    color: rgba(0,0,0,0.9);
+    line-height: 1.59;
+    margin: 0 20px;
+}
+
+.official-lottery-component .lottery-info .prizes .item .icon {
+    position: relative;
+    top: -1px;
+}
+
+.official-lottery-component .lottery-info .prizes .item .name {
+    margin-right: 5px;
+}
+
+.official-lottery-component .lottery-info .prizes .item .money-value {
+    color: #cc4b3d;
+}
+
+.official-lottery-component .lottery-info .prizes .item .group-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 6px;
+    position: relative;
+    bottom: -4px;
+}
+
+.official-lottery-component .lottery-info .lottery-type {
+    margin: 7px 20px 7px;
+    font-size: 12px;
+    letter-spacing: .3px;
+    color: rgba(0,0,0,0.5);
+}
+
+.official-lottery-component .lottery-info .lottery-type .join-tag {
+    display: inline-block;
+    color: #3f9127;
+    font-weight: bold;
+}
+
+.official-lottery-component .lottery-info .lottery-type .join-tag .split-line {
+    border-right: 1px solid #499e31;
+    margin-right: 8px;
+    margin-left: 2px;
+    height: 12px;
+    display: inline-block;
+    position: relative;
+    bottom: -1px;
+}
+
+.official-lottery-component .lottery-info .lottery-type .join-tag image {
+    width: 12px;
+    height: 12px;
+    position: relative;
+    bottom: -2px;
+}
+
+.official-lottery-component .lottery-info .lottery-conditions {
+    display: flex;
+    padding: 0 20px 2px;
+    padding-top: 5px;
+    align-items: flex-start;
+}
+
+.official-lottery-component .lottery-info .lottery-conditions .label {
+    font-size: 12px;
+    color: #808080;
+    flex: 0 0 auto;
+    position: relative;
+}
+
+.official-lottery-component .lottery-info .lottery-conditions .list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.official-lottery-component .lottery-info .lottery-conditions .item {
+    background: #f0f0f0;
+    padding: 0 10px 0 8px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    height: 20px;
+}
+
+.official-lottery-component .lottery-info .lottery-conditions .item image {
+    width: 12px;
+    height: 12px;
+    margin-right: 3px;
+}
+
+.official-lottery-component .lottery-info .lottery-conditions .item text {
+    font-size: 11px;
+    font-weight: bold;
+    color: #808080;
+}

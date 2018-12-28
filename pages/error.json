@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "提示",
+    "backgroundColor": "#f0f0f0",
+    "usingComponents": {
+        "Layout": "../components/Layout/Layout"
+    }
+}

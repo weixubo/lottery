@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "自助福利",
+    "backgroundTextStyle": "dark",
+    "onReachBottomDistance": 260,
+    "usingComponents": {
+        "LazyImage": "../components/LazyImage/LazyImage",
+        "Layout": "../components/Layout/Layout",
+        "NormalSquareLottery": "../components/NormalSquareLottery/NormalSquareLottery"
+    }
+}

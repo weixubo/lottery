@@ -1,0 +1,124 @@
+<view class="gpc-3" wx:if="{{item}}">
+    <view class="gpc-3-bg">
+        <view class="prize-bg-wraper">
+            <view class="gpc-3-bg-prize" styles="{{imageStyle}}" wx:if="{{item.prizeImages.length===1}}">
+                <LazyImage disableLazy="{{true}}" mode="widthFix" src="{{format.image( item.prizeImages[0] )}}" styles="{{imageStyle}}"></LazyImage>
+            </view>
+            <swiper autoplay="{{true}}" indicatorDots="{{true}}" interval="{{3000}}" style="{{imageStyle}}" wx:elif="{{item.prizeImages.length>1}}">
+                <swiper-item wx:for="{{item.prizeImages}}" wx:for-item="prizeImage" wx:key="index">
+                    <image lazyLoad class="gpc-3-bg-prize " mode="widthFix" src="{{format.image(prizeImage)}}" style="{{imageStyle}}"></image>
+                </swiper-item>
+            </swiper>
+            <image class="" mode="widthFix" src="{{item.theme==='funny'?'/images/default-prize-pi@3x.png':'/images/default-prize@3x.png'}}" style="{{imageStyle}}" wx:else></image>
+            <view class="gpc-3-bg-sponsor" wx:if="{{item.sponsor&&item.sponsor.name&&!item.canRedirectToMinaApp}}">
+        {{item.sponsor.name}} 赞助
+      </view>
+        </view>
+    </view>
+    <view class="gpc-3-prize-container" wx:if="{{item.prizes.length===1}}">
+        <view class="gpc-3-prize">
+            <view class="gpc-3-prize-desc" wx:for="{{item.prizes}}" wx:key="index">
+                <image class="gpc-3-prize-name-label" src="https://cdn.readhub.cn/mina/lottery/lucky-money@3x.png" wx:if="{{item.type===2}}"></image>
+                <text class="gpc-3-prize-name" wx:if="{{item.type===2}}">{{item.displayAmount}}元</text>
+                <text class="gpc-3-prize-name" wx:else>奖品: {{item.name}}</text>
+                <text class="gpc-3-prize-icon">×</text>
+                <text class="gpc-3-prize-count">{{item.count}}{{item.increase_count?' (+'+item.increase_count+')':''}}</text>
+                <image class="gpc-3-prize-group-icon" src="https://cdn.readhub.cn/mina/lottery/icn-zu@3x.png" wx:if="{{item.groupable}}"></image>
+            </view>
+        </view>
+        <view class="gpc-3-sponsor" wx:if="{{item.state===-1}}">已过期</view>
+        <view class="gpc-3-guaranteed" wx:elif="{{item.guaranteed}}">
+            <image src="https://cdn.readhub.cn/mina/lottery/icn-money-guaranteed@3x.png"></image>
+        </view>
+    </view>
+    <view class="gpc-3-prize-container" wx:else>
+        <view class="gpc-3-prize">
+            <view class="gpc-3-prizes">
+                <view class="gpc-3-prize-desc gpc-3-prize-desc-muti" wx:for="{{item.prizes}}" wx:key="index">
+                    <view class="gpc-3-prize-name">奖项{{['一','二','三','四','五'][index]}} :
+            <text class="{{item.type===2?'money-value':''}}">{{item.type===2?'幸运金 '+item.displayAmount+' 元':item.name}}</text>
+                    </view>
+                    <text class="gpc-3-prize-icon {{item.type===2?'money-value':''}}">×</text>
+                    <text class="gpc-3-prize-count {{item.type===2?'money-value':''}}">{{item.count}}{{item.increase_count?' (+'+item.increase_count+')':''}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="gpc-3-sponsor" wx:if="{{item.state===-1}}">已过期</view>
+        <view class="gpc-3-long-guaranteed" wx:if="{{item.prizes.length>1&&item.guaranteed}}">
+            <image src="https://cdn.readhub.cn/mina/lottery/icn-money-guaranteed-long@3x.png"></image>
+        </view>
+        <view class="gpc-3-long-guaranteed" wx:elif="{{item.prizes.length>1&&item.groupable}}">
+            <image src="https://cdn.readhub.cn/mina/lottery/icn-zu@3x.png" style="width: 20px; height: 20px;"></image>
+        </view>
+    </view>
+    <view class="gpc-3-desc">
+        <view class="gpc-3-desc-count" wx:if="{{item.draw_type==='user'&&item.minUserCount}}">
+      参与者达到 {{item.minUserCount}} 人时自动开奖
+    </view>
+        <view class="gpc-3-desc-count" wx:if="{{item.draw_type==='time'&&item.simpleEndTime}}">
+            <text wx:if="{{item.square&&!item.square.displayed&&item.square.purchase_data&&item.square.purchase_data.days}}">设置展示后 {{item.square.purchase_data.days}} 天</text>
+            <text wx:else>{{item.simpleEndTime}} 自动开奖</text>
+        </view>
+        <view class="gpc-3-desc-count" wx:if="{{item.draw_type==='manual'}}">
+      本抽奖将由发起人手动开奖
+    </view>
+        <view class="gpc-3-desc-count" wx:if="{{item.draw_type==='chatroom'}}">
+      对实时在线的参与者开奖
+    </view>
+        <view class="gpc-3-desc-count" wx:if="{{item.draw_type==='ontime'}}">
+      即开即中，综合中奖率 {{item.winnerRate}}%
+    </view>
+        <view class="tags">
+            <view bindtap="certificateGuideDialog" class="tag red" wx:if="{{item.initiator&&item.initiator.certificate_name}}">
+                <image src="https://cdn.readhub.cn/mina/lottery/icn-v2@3x.png"></image>
+                <text style="max-width:{{item.shopPrize?descWidth-shopPrize-countWidth:descWidth-countWidth}}px">{{item.initiator.certificate_name}}</text>
+            </view>
+            <view class="tag ml10 shop_prize" wx:if="{{item.shopPrize}}">
+                <text>商城奖品</text>
+            </view>
+        </view>
+    </view>
+    <view class="gpc-3-conditions" wx:if="{{item.readable_conditions}}">
+        <view class="gpc-3-conditions-label">参与条件：</view>
+        <view class="gpc-3-conditions-list">
+            <view class="gpc-3-conditions-item" wx:for="{{item.readable_conditions}}" wx:key="index">
+                <image src="{{format.conditionImage(item.type,item.value)}}" wx:if="{{format.conditionImage(item.type,item.value)}}"></image>
+                <text>{{item.value}}</text>
+            </view>
+        </view>
+    </view>
+    <view bindtap="goToHomePage" class="gpc-3-initiator" hoverClass="{{item.initiator.enable_user_page?'highlight':''}}" wx:if="{{!(item.sponsor&&item.sponsor.name)&&!item.canRedirectToMinaApp}}">
+        <text class="gpc-3-initiator-desc">抽奖发起人</text>
+        <image mode="aspectFill" src="{{format.wxAvatar(item.initiator.avatar,96)||'https://cdn.readhub.cn/mina/lottery/default-avatar-small.png'}}"></image>
+        <text class="gpc-3-initiator-name">{{item.initiator.nick_name}}</text>
+        <text class="arrow-right" wx:if="{{item.initiator.enable_user_page}}"></text>
+    </view>
+    <view class="gpc-3-padding-bottom" wx:if="{{item.canRedirectToMinaApp}}"></view>
+    <view class="indent-split-line" wx:if="{{item.canRedirectToMinaApp}}"></view>
+    <navigator appId="{{item.sponsor.appid}}" bindtap="goToMinaApp" class="gpc-3-redirect-mina" hoverClass="highlight" path="{{item.sponsor.path}}" target="miniProgram" wx:if="{{item.canRedirectToMinaApp}}">
+        <view class="redirect-mina-label">赞助商</view>
+        <view class="sponsor-name">{{item.sponsor.name}}</view>
+        <image class="mina-icon" src="https://cdn.readhub.cn/mina/lottery/icn-miniapp@3x.png"></image>
+        <view class="arrow-right"></view>
+    </navigator>
+    <view class="gpc-3-padding-bottom" wx:else></view>
+    <view bindtap="certificateBannerClose" class="certificate-guide-banner" wx:if="{{certificateGuideBanner}}"></view>
+    <view class="certificate-inner-card {{certificateGuideBanner?'show':''}}" wx:if="{{certificateGuideBanner}}">
+        <image bindtap="certificateBannerClose" class="certificate-guide-banner-close" src="https://cdn.readhub.cn/mina/lottery/close@3x.png"></image>
+        <image class="certificate-guide-inner-icon" mode="aspectFit" src="https://cdn.readhub.cn/mina/lottery/icn-certification-page-active@3x.png"></image>
+        <view class="tags certificate-guide-tags" style="width: 100%;">
+            <view class="tag red certificate-guide-tag">
+                <text>已认证</text>
+            </view>
+        </view>
+        <view class="certificate-guide-inner-title">{{item.initiator.certificate_name}}</view>
+        <view class="certificate-guide-inner-type"></view>
+        <view class="certificate-guide-banner-sub">
+            <text>
+          认证作用：抽奖发起人显示为认证品牌名，携带加 V 标识。如投放自助福利，认证用户将有更高几率被置顶展示，获得更多曝光转化。
+        </text>
+            <button bindtap="goToGuide" hoverClass="highlight">我也要认证</button>
+        </view>
+    </view>
+</view>
+<wxs module="format" src="../../wxs/format.wxs" />

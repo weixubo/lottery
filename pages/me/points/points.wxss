@@ -1,0 +1,33 @@
+.points-wrap {
+    background: #f5f1ed;
+}
+
+.points-wrap .points-header {
+    display: flex;
+    padding: 20px 14px 19px 20px;
+}
+
+.points-wrap .points-header .points-wishes {
+    flex: 0 0 auto;
+    width: 51px;
+    height: 59px;
+}
+
+.points-wrap .points-header .points-view {
+    flex: 1 1 auto;
+    padding-left: 18px;
+}
+
+.points-wrap .points-header .points-view .points-title {
+    align-items: flex-start;
+    font-size: 12px;
+    height: 13px;
+    color: rgba(0,0,0,0.66);
+}
+
+.points-wrap .points-header .points-view .points-total {
+    align-items: flex-start;
+    font-size: 22px;
+    height: 22px;
+    color: rgba(0,0,0,0.9);
+}

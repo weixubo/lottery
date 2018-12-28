@@ -1,0 +1,5 @@
+<view class="editorpage">
+    <Layout needGetUserInfo="{{false}}" title="{{navigationTitle}}">
+        <web-view bindmessage="onMessage" src="{{src}}" wx:if="{{src}}"></web-view>
+    </Layout>
+</view>

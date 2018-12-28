@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "增值服务",
+    "usingComponents": {
+        "Layout": "../../../components/Layout/Layout",
+        "LargePopupBox": "../../../components/LargePopupBox/LargePopupBox",
+        "BottomPopupBox": "../../../components/BottomPopupBox/BottomPopupBox"
+    }
+}

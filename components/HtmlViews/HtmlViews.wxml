@@ -1,0 +1,26 @@
+<view class="html-view-component" wx:if="{{content}}">
+    <block wx:for="{{views}}" wx:key="index">
+        <rich-text nodes="{{item.value}}" wx:if="{{item.type==='html'}}"></rich-text>
+        <view class="copy-info nc-copy nc-html-component" wx:if="{{item.type==='nc-copy'}}">
+            <view class="copy-info-title {{item.data.title?'':'value-empty'}}">
+        {{item.data.title||'点此填写引导文案'}}
+      </view>
+            <view class="copy-info-content {{item.data.title?'':'value-empty'}}">
+        {{item.data.value||'点此填写需要被复制的内容'}}
+      </view>
+            <view catchtap="copyInfo" class="copy-button {{item.data.title&&item.data.value?'active':''}}" data-value="{{item.data.value}}" hoverClass="highlight">
+        点此一键复制
+      </view>
+        </view>
+        <view wx:if="{{item.tagName==='img'&&item.src}}">
+            <image binderror="onError" bindtap="preview" data-errorimg="{{item.errorSrc}}" data-img="{{item.src}}" mode="widthFix" src="{{item.errorSrc||item.src}}" style="width: 100%; margin-bottom: 17px; padding-bottom: 5px; padding-top: 5px;" wx:if="{{item.showed||!supportObserver}}"></image>
+            <view class="preview-image  preview-image-{{item.index}}" data-index="{{item.index}}" data-src="{{item.src}}" wx:else></view>
+        </view>
+        <view class="nc-images" wx:if="{{item.type==='nc-images'}}">
+            <block wx:for="{{item.images}}" wx:key="index">
+                <image binderror="onError" bindtap="preview" data-errorimg="{{item.errorSrc}}" data-img="{{item.src}}" mode="widthFix" src="{{item.errorSrc||item.src}}" style="width: 100%;" wx:if="{{item.showed||!supportObserver}}"></image>
+                <view class="preview-image preview-image-{{item.index}}" data-index="{{item.index}}" data-src="{{item.src}}" wx:else></view>
+            </block>
+        </view>
+    </block>
+</view>

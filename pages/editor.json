@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "添加图文详情",
+    "disableScroll": true,
+    "usingComponents": {
+        "Layout": "../components/Layout/Layout"
+    }
+}

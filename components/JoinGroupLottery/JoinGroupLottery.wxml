@@ -1,0 +1,55 @@
+<view bindtouchmove="onPressMove" bindtouchstart="onTouchStart" class="join-group-lottery" wx:if="{{game}}">
+    <view animation="{{guideAnimationData}}" class="game-group-guide" style="{{groupGuideStyle}}" wx:if="{{guideShow}}">
+    继续组队：一人中奖，全队中奖
+    <view class="arrow-down"></view>
+    </view>
+    <view class="group-participator" wx:if="{{optType==='group-participator'}}">
+        <view animation="{{shouldHideShare?null:groupJoinOptAnimationData}}" bindtap="showGroupDetail" class="main" hoverClass="highlight" style="{{groupOptStyle}}">
+            <view class="content">
+                <image src="https://cdn.readhub.cn/mina/lottery/icn-group-small@3x.png"></image>
+                <view class="desc">等待开奖</view>
+            </view>
+            <view class="circle"></view>
+            <view class="count">{{groupJoinStat}}</view>
+        </view>
+        <image animation="{{groupConnectAnimationData}}" class="connect" src="https://cdn.readhub.cn/mina/lottery/button-connect-line@3x.png" style="{{groupParticipatorConnectStyle}}" wx:if="{{!shouldHideShare}}"></image>
+        <view animation="{{groupGroupOptAnimationData}}" capture-bind:tap="enableGroupable" class="group-share" style="{{groupParticipatorOptStyle}}" wx:if="{{!shouldHideShare}}">
+            <button class="buttonfix content" hoverClass="highlight" openType="share">
+                <image src="https://cdn.readhub.cn/mina/lottery/icn-group-share@3x.png"></image>
+                <view class="desc">邀请好友</view>
+            </button>
+        </view>
+    </view>
+    <view class="group-initiator {{isParticipated?'joined':''}}" wx:elif="{{optType==='group-initiator'}}">
+        <view animation="{{groupJoinOptAnimationData}}" class="main" style="{{joinOptStyle}}">
+            <view class="content">
+                <image class="icon" src="https://cdn.readhub.cn/mina/lottery/icn-pi-joined@3x.png" wx:if="{{game.theme==='funny'}}"></image>
+                <text>{{game.theme==='funny'?'已参与':'待开奖'}}</text>
+            </view>
+            <view class="circle"></view>
+        </view>
+        <image animation="{{groupConnectAnimationData}}" class="connect" src="https://cdn.readhub.cn/mina/lottery/button-connect-line@3x.png" style="{{groupConnectStyle}}"></image>
+        <view animation="{{groupGroupOptAnimationData}}" bindtap="createGroup" class="group-share" hoverClass="highlight" style="{{groupOptStyle}}">
+            <view class="content">
+                <image src="https://cdn.readhub.cn/mina/lottery/icn-group-small@3x.png"></image>
+                <view class="desc">{{initiatorGroupLabel}}</view>
+            </view>
+            <view class="count" wx:if="{{initiatorGroupLabel!=='去组队'}}">{{groupJoinStat}}</view>
+        </view>
+    </view>
+    <JoinNormalLottery bindjoinsuccess="onJoinSuccess" game="{{game}}" wx:else></JoinNormalLottery>
+    <PopupBox id="groupDetailBox">
+        <view class="popup-detail-group">
+            <view class="label">组队详情</view>
+            <view class="group-users">
+                <view class="group-user {{item.showType}}" wx:for="{{groupUsers}}" wx:key="index">
+                    <view class="group-user-avatar">
+                        <image lazyLoad class="user-avatar" src="{{item.avatar}}"></image>
+                        <image class="initiator-sponsor" src="https://cdn.readhub.cn/mina/lottery/icn-initiator-sponsor@3x.png"></image>
+                    </view>
+                    <view class="group-user-name">{{item.nick_name}}</view>
+                </view>
+            </view>
+        </view>
+    </PopupBox>
+</view>
